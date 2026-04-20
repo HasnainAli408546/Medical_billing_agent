@@ -1,0 +1,38 @@
+
+# ── API & Server ──────────────────────────────────────────
+fastapi>=0.111.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+python-dotenv>=1.0.1
+httpx>=0.27.0
+
+# ── Database ──────────────────────────────────────────────
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+alembic>=1.13.1
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+
+# ── AI / LLM / Agents ─────────────────────────────────────
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-groq>=0.1.4
+langchain-google-genai>=1.0.4
+langgraph>=0.0.60
+
+# ── Machine Learning ──────────────────────────────────────
+scikit-learn>=1.4.2
+xgboost>=2.0.3
+numpy>=1.26.0
+pandas>=2.2.0
+matplotlib>=3.8.0
+sentence-transformers>=2.7.0
+faiss-cpu>=1.8.0
+
+
+# ── Voice / Audio ─────────────────────────────────────────
+faster-whisper>=1.0.2
+edge-tts>=6.1.10
+
+# ── Data Generation ───────────────────────────────────────
+faker>=25.0.0
