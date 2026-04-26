@@ -1,0 +1,2637 @@
+code,description,category
+99241,New consultation with a Clinical Officer / Dental Therapist,Specialty
+99211,Follow up consultation with a Clinical Officer / Dental Therapist,Specialty
+99242,New consultation with an Assistant Medical Officer / Assistant Dental Officer,Specialty
+99212,Follow up consultation with an Assistant Medical Officer / Assistant Dental Officer,Specialty
+99243,New consultation with a Medical Officer / Dental Officer,Specialty
+99213,Follow up consultation with a Medical Officer / Dental Officer,Specialty
+99244,New consultation with a Medical Specialist / Dental Specialist,Specialty
+99214,Follow up consultation with a Medical Specialist / Dental Specialist,Specialty
+99245,New consultation with a Super Specialist,Specialty
+99215,Follow up consultation with a Super Specialist,Specialty
+99382,"New consultation therapist with diploma(physiotherapy, occupational therapy,  speech therapy)",Specialty
+97169,"Follow up Consultation therapist with diploma(physiotherapy, occupational therapy,  speech therapy)",Specialty
+99383,"New consultation therapist with degree(physiotherapy, occupational therapy,  speech therapy)",Specialty
+99386,"Follow up Consultation therapist/psychology with degree(physiotherapy,  occupational therapy, speech therapy)",Specialty
+99387,"New consultation therapist/psychology specialist (physiotherapy, occupational  therapy, speech therapy)",Specialty
+99429,"Follow up consultation therapist specialist (physiotherapy, occupational therapy,  speech therapy)",Specialty
+97802,New consultation Nutritionist,Specialty
+97803,Follow up consultation Nutritionist,Specialty
+99205,Registration (new file) for a new patient,Specialty
+99251,Consultation for observation,Specialty
+99252,Cross consultation within and between hospital(s),Specialty
+99253,Panel consultation within the same discipline (panel with at least three doctors),Specialty
+99254,Panel multidisciplinary consultation (panel with at least three doctors),Specialty
+99255,Consultation with a multidisciplinary panel plus administrators,Specialty
+99217,High Dependent Unit (HDU),Specialty
+99218,VIP room,Specialty
+99219,IPPM or Private Room (grade one),Specialty
+99220,General ward,Specialty
+99234,ICU-CCU ward,Specialty
+99235,Rehabilitation ward,Specialty
+99236,Isolated or high risk ward,Specialty
+99341,New patient home visit with a Clinical Officer/ Clinical Physiotherapist / Occupational Therapist,Specialty
+99347,Follow up patient home visit with a Clinical Officer/ Clinical Physiotherapist/ Occupational Therapist,Specialty
+99342,New patient home visit with an Assistant Medical Officer (AMO),Specialty
+99348,Follow up patient home visit with an Assistant Medical Officer (AMO),Specialty
+99343,New patient home visit with a General Practitioner (GP/MD)/ Physiotherapy Officer/ Occupational Therapy officer,Specialty
+99349,Follow up patient home visit with a General Practitioner (GP/MD)/ Physiotherapy Officer/ Occupational Therapy officer,Specialty
+99344,New patient home visit with a Specialist/ Specialist Physiotherapist,Specialty
+99350,Follow up patient home visit with a Specialist/ Specialist Physiotherapist,Specialty
+99345,New patient home visit with a Super Specialist,Specialty
+99334,Follow up patient home visit with a Super Specialist,Specialty
+99339,"New patient home visit with other cardres (nurses, pharmacist, social worker, etc.)",Specialty
+99340,"Follow up patient home visit with other cardres (nurses, pharmacist, social worker, etc.)",Specialty
+99304,Nursing services at the Outpatient Department (OPD),Specialty
+99305,Nursing care at the general ward,Specialty
+99306,Nursing services at the Emergency Department (EMD),Specialty
+99307,Nursing care at the ICU and CCU,Specialty
+99308,Nursing care at the High Dependent Unit (HDU),Specialty
+99309,Nursing care at the VIP,Specialty
+99310,Nursing care at the IPPM or private room (grade one),Specialty
+99315,Nursing care at the rehabilitation ward,Specialty
+99316,Nursing care at the isolated or high risk ward,Specialty
+99082,Parking services,Specialty
+99497,Medical Nutritional Therapy (Oral / Parenteral / Enteral),Specialty
+99281,Ambulance services,Specialty
+97804,Food Services,Specialty
+98966,"Telephone assessment and management service, 5-10 minutes of medical discussion",Specialty
+98967,"Telephone assessment and management service,11-20 minutes of medical discussion",Specialty
+98968,"Telephone assessment and management service,21-30 minutes of medical discussion",Specialty
+99381,Provider Initiating Testing and Counseling (PITC) children below 09 years,Specialty
+99384,Provider Initiating Testing and Counseling (PITC) adolescent,Specialty
+99385,Provider Initiating Testing and Counseling (PITC) adult,Specialty
+99406,Counseling,Specialty
+90476,Inactivated Poliovirus Vaccine (IPV),Specialty
+90585,Baccile Calmette Guerin (BCG ) Vaccine,Specialty
+90621,Meningococcus Vaccine,Specialty
+90649,Human Papilloma Virus (HPV) Vaccine,Specialty
+90670,Pneumococcal Vaccine (PCV-13),Specialty
+90675,Rabies Virus Vaccine,Specialty
+90680,Rotavirus Vaccine,Specialty
+90696,"Diphtheria, Tetanus Toxoids, Acellular Pertussis, Haemophilus Influenzae Type B, Hepatitis B (DPT+Hepb+Hib) Vaccine",Specialty
+90707,"Measles, Mumps, and Rubella (MMR) Vaccine",Specialty
+90713,Poliovirus Vaccine-Oral (OPV),Specialty
+90714,Tetanus And Diphtheria Toxoids (TT) Vaccine,Specialty
+90717,Yellow Fever Vaccine,Specialty
+90739,Hepatitis B Virus (HBV) Vaccine,Specialty
+90471,Unspecified Vaccination Procedures E.g. New Vaccine,Specialty
+84311,Adenosine Deaminase (ADA) – Serum,Specialty
+82040,Albumin,Specialty
+84182,Albumin/Globulin Ratio,Specialty
+84075,Alkaline Phosphatase (ALP) Serum,Specialty
+84460,Alanine Aminotransferaseor (ALT) / Serum Glutamic Pyruvate Transaminase (SGPT),Specialty
+82150,Amylase,Specialty
+84450,Aspartate Aminotransferase (AST) / Serum Glutamic Oxaloacetic Transaminase (SGOT),Specialty
+84702,Beta - Human Chorionic Gonadotropin (β-HCG) - Serum,Specialty
+82248,Bilirubin Direct,Specialty
+82247,Bilirubin Total,Specialty
+86140,C-Reactive Protein (CRP),Specialty
+82310,Calcium - Serum/Post Dialysis Calcium,Specialty
+82435,Chloride – Serum,Specialty
+82436,Chloride-Urine,Specialty
+82465,Cholesterol (Total),Specialty
+82550,Creatine Kinase (CK- MB),Specialty
+82565,Creatinine/Post Dialysis Creatinine,Specialty
+82945,"Glucose Level on Body Fluids (CSF Ascitic, Peritonial, Pleural, Pericadial, Synovial)",Specialty
+84157,"Protein Level on Body Fluids (CSF, Ascitic, Peritonial, Pleural)",Specialty
+85397,D-Dimer,Specialty
+82728,Ferritin,Specialty
+82746,Folic Acid Level (Folate),Specialty
+82977,Gamma - Glutamyltransferase (GGT),Specialty
+82947,Fasting/Random Blood Glucose (FBG/RBG),Specialty
+83036,Glycosylated Haemoglobin (HbA1c),Specialty
+83718,High Density Lipoprotein (HDL),Specialty
+83540,Iron (Fe),Specialty
+83550,Iron Saturation (% Saturation),Specialty
+83615,Lactate Dehydrogenase (LDH),Specialty
+83721,Low Density Lipoprotein (LDL),Specialty
+83735,Magnesium,Specialty
+84100,Phosphorus/Post Dialysis Phosphorus,Specialty
+84132,Potassium/Post Dialysis Potassium,Specialty
+84156,Protein in Urine,Specialty
+83690,Lipase Serum,Specialty
+84165,Protein Electrophoresis Serum,Specialty
+82607,Vitamin B-12 (Cyanocobalamin),Specialty
+84295,Sodium/Post Dialysis Sodium,Specialty
+84432,Thyroglobulin Antibodies (Tg Ab),Specialty
+84466,Transferrin,Specialty
+84478,Triglycerides,Specialty
+84484,Troponin-I,Specialty
+84560,Uric Acid,Specialty
+80202,Vancomycin Level,Specialty
+82652,"Vitamin D-25 (Dihydroxyvitamin D, 1, 25)",Specialty
+83719,Very Low Density Lipoprotein (VLDL),Specialty
+82570,24Hr Creatinine Urine,Specialty
+84133,24Hr Potassium Urine,Specialty
+84300,24Hr Sodium Urine,Specialty
+84181,Globulin,Specialty
+82374,Carbondioxide Serum,Specialty
+82951,Oral Glucose Tolerance Test (OGTT),Specialty
+84066,Acid Phosphotase Serum,Specialty
+82803,Blood Gas Panel,Specialty
+80375,Urine Drug Screening (UDS ),Specialty
+80299,Quantitation of Therapeutic Drugs,Specialty
+80197,Tacrolimus Level,Specialty
+80195,Sirolimus Level,Specialty
+80169,Everolimus Level,Specialty
+82105,Alpha Feto Protein (AFP),Specialty
+83880,Brain Natriuretic Peptide (BNP),Specialty
+86304,Cancer Antigen - 125 (CA - 125),Specialty
+82378,Carcinoembryonic Antigen (CEA),Specialty
+82530,Cortisol,Specialty
+80158,Cyclosporine Level,Specialty
+82670,Estradiol Level,Specialty
+83001,Follicle Stimulating Hormone (FSH),Specialty
+83003,Growth Hormone (GH),Specialty
+82784,Immunoglobulin A (IgA ),Specialty
+86001,Immunoglobulin G (IgG),Specialty
+86005,Immunoglobulin E for Allergic Substance (IgE),Specialty
+83525,Insulin,Specialty
+83002,Luteinizing Hormone (LH),Specialty
+84144,Progesterone,Specialty
+84146,Prolactin,Specialty
+84153,Prostate Specific Antigen (PSA) Measurement,Specialty
+84152,Prostate Specific Antigen (PSA) Level,Specialty
+84681,C – Peptide,Specialty
+84402,Testosterone,Specialty
+86812,Immunoglobulin M (IgM),Specialty
+86807,Complement Dependent Cytotoxicity Compatibility ( CDCC),Specialty
+81371,Human Leukocyte Antigen Typing (HLA Typing),Specialty
+88182,Flowcytometry Lymphocyte Crossmatch,Specialty
+86316,Tumor Markers Analysis ( Others ),Specialty
+86829,Donor Specific Antibody (DSA) to HLA Antigen,Specialty
+86830,Panel Reactiveantibody Screening HLA Class I & Ii,Specialty
+86060,Anti Streptolysin O Titre (ASOT),Specialty
+86039,Autoimmune Antibodies (dsDNA),Specialty
+86622,Brucella Abortus Antigen (Ag),Specialty
+87147,Chlamydia (ELISA),Specialty
+86644,Cytomegalovirus Antibody test (CMC-IgG),Specialty
+86645,Cytomegalovirus Antibody test (CMV-IgM),Specialty
+86664,Epstein Barr Virus IgG – Serum,Specialty
+86663,Epstein Barr Virus IgM- Serum,Specialty
+86705,Hepatitis B Core Igm Antibody (HBcAb),Specialty
+86709,Hepatitis A Antibody (IgM ),Specialty
+86707,Hepatitis B Envelope Antibody (HBeAb),Specialty
+87350,Hepatitis B Envelope Antigen (HBeAg),Specialty
+86706,Hepatitis B Surface Antibody (HBsAb),Specialty
+87340,Hepatitis B Surface Antigen (HBsAg),Specialty
+86803,Hepatitis C Antibody (HCVAb),Specialty
+86695,Herpes Simplex Virus - Type 1(HSV-1) IgG & IgM,Specialty
+86696,Herpes Simplex Virus - Type 2(HSV-2) IgG & IgM,Specialty
+86689,HIV 1 & 2 Antibodies (ELISA),Specialty
+87338,Helicobacter Pylori (H.pylori) Antigen test,Specialty
+86677,Helicobacter Pylori (H.pylori) Antibody test,Specialty
+81025,Urine for pregnancy test (UPT),Specialty
+86757,Proteus abortus antibody test (Rapid),Specialty
+86430,Rheumatoid Factor (RF) Qualitative,Specialty
+86592,"Syphilis screening Test (VDRL, RPR or SD Bioline)",Specialty
+86762,Rubella Antibody Test (IgG /IgM),Specialty
+86777,Toxoplasma Antibody Test (IgG),Specialty
+86778,Toxoplasma Antibody Test (IgM),Specialty
+86780,Treponema Pallidum Haemagglutination Test (TPHA/TPPA),Specialty
+86768,Widal Test,Specialty
+84480,Tri - Iodothyronine Hormone (T3),Specialty
+84437,Thyroxine Hormone (T4),Specialty
+84155,Total Protein Serum,Specialty
+84443,Thyroid Stimulating Hormone (TSH),Specialty
+84520,Urea Nitrogen (Bun)/Post Dialysis Urea Nitrogen (BUN),Specialty
+86021,Anti Neutrophil Cystoplasmic Antibodies (ANCA-C),Specialty
+86406,Cryptococcal Antigen (CrAg),Specialty
+86790,"Antibody Test for Influenza Virus, Rift Valley Fever, Chikungunya Virus, Zika Virus, Dengue Virus,Ebola Virus",Specialty
+86431,Rheumatoid Factor (RF) Quantitative,Specialty
+82024,Adenocorticotropic Hormone (ACTH),Specialty
+86704,Hepatitis B Core Antibody (HBcAb),Specialty
+82164,Angiotensin I,Specialty
+82163,Angiotensin II,Specialty
+82671,Oestrogen,Specialty
+86703,HIV 1& 2 Antibody Rapid Test,Specialty
+86708,Hepatitis A Antibody,Specialty
+86022,Anti-Neutrophil Cystoplasmic Antibody(ANCA-P),Specialty
+86225,Anti-Nuclear Antibody (ANA),Specialty
+86403,Brucella Antibody Test (IgG)/ (IgM),Specialty
+86828,Toxoplasma Antigen Test,Specialty
+85025,Full Blood Picture (FBP) / Complete Blood Count (CBC),Specialty
+85097,Bone Marrow Smear Interpretation,Specialty
+86360,CD3/CD4/CD8 T Cell Count,Specialty
+85651,Erythrocyte Sedimentation Rate (ESR),Specialty
+85230,Factor VII,Specialty
+85247,Factor VII,Specialty
+85384,Fibrinogen,Specialty
+82955,Glucose - 6 Phosphatase Dehydrogenase(G-6PGD),Specialty
+83026,Haemoglobin (Hb),Specialty
+82664,Haemoglobin Electropheresis + Sickling Test,Specialty
+86235,Lupus Erythromatous Cell (LE Cell).,Specialty
+85705,Partial Thromboplastin Time (PTT),Specialty
+85060,Peripheral Blood Smear (PBS),Specialty
+81206,Philadelphia Chromosome,Specialty
+85049,"Platelet Count, Automated Test",Specialty
+85210,Prothrombin Time (PT),Specialty
+85660,Sickling Test,Specialty
+85002,Bleeding Time,Specialty
+85732,Activated Partial Thrombin Time (APTT),Specialty
+85045,Reticulocyte Count,Specialty
+86900,Blood Group Typing (ABO) and Blood Typing for Rhesus (D) Antigen,Specialty
+86850,Red Blood Cells Antibodies Identification,Specialty
+86920,Compatability Testing (Cross Matching) for Blood Transfusion,Specialty
+86885,Coombs Test (Direct),Specialty
+86940,Haemolysin Test,Specialty
+86880,Coombs Test (Indirect),Specialty
+86985,Preparation of Blood Product,Specialty
+87070,"Body Fluids for Culture and Sensitivity (Cerebrospinal Fluids, Pleural,Ascitic, Peritoneal, Pericardial, Synovial Etc.)",Specialty
+87040,Blood for Culture and Sensitivity,Specialty
+87220,Skin Scraping for KOH,Specialty
+87205,Gram Stain,Specialty
+87206,Wet Preparation for Microorganisms and Cells,Specialty
+87207,"Special Stain (Indian Ink, Nigrosin)",Specialty
+87181,Quantitative Antimicrobial Susceptibility Testing,Specialty
+87800,"Genital Swabs for Culture and Sensitivity (High Vaginal Swab, Urethral, Vaginal, Endo - Cervical Swabs)",Specialty
+87076,"Ear Swab, Nasal Swab, Throat Swab and Eye Swab for Culture and Sensitivity",Specialty
+Code,Service Description,Specialty
+87075,Pus Swab for Culture and Sensitivity,Specialty
+87101,"Scraping for Fungi Culture (Skin, Hair or Nail)",Specialty
+87077,Sputum for Culture and Sensitivity,Specialty
+87045,Stool for Culture and Sensitivity,Specialty
+87088,Urine for Culture and Sensitivity,Specialty
+81099,Urine Dipstick,Specialty
+87046,Rectal Swab Culture and Sensitivity,Specialty
+87015,Staining of Mycobacteria Species (ZN or Auramine Stains),Specialty
+87190,Mycobacteria Liquid Culture and Drug Susceptibility Testing,Specialty
+87550,"Genotypic Method for Mycobacteria (Xpert® MTB/Rif, LPA, etc.)",Specialty
+87116,Mycobacteria Solid Culture and Drug Susceptibility Testing,Specialty
+87560,Genotypic Methods for Detecting Non Tuberculous Mycobacteria (NTM),Specialty
+87561,Genotypic Drug Susceptibility Testing for NTM,Specialty
+87177,Blood Smear for Malaria Parasites (BS),Specialty
+86750,Malaria Rapid Diagnostic Test (MRDT),Specialty
+87209,"Special Stain for Parasites (Microfilaria, Leshmania, Trypanosoma etc.)",Specialty
+82272,Stool for Occult Blood,Specialty
+82274,Stool Analysis,Specialty
+81005,Urine Analysis,Specialty
+83883,Urine Bence Jones Protein,Specialty
+88184,Ham Test for Paroxysmal Nocturnal Hemoglobinuria (PNH),Specialty
+87210,Knot Technique for Microfilaria,Specialty
+81015,Urine Analysis (Microscope),Specialty
+88342,Immunohistochemistry (IHC),Specialty
+88323,"Tissue Biopsy Processing, Interpretation and Report",Specialty
+88314,"Frozen Preparation of Specimen, Interpretation and Report",Specialty
+88313,"Special Stained Tissue Specimen Slides, Interpretation and Report",Specialty
+88302,"Tissue Block Staining, Interpretation and Report",Specialty
+88304,Specimen Slides Interpretation and Report,Specialty
+88106,Cytology of Body Fluids,Specialty
+88364,Bone Marrow Aspirate Cytology,Specialty
+88173,Fine Needle Aspiration Cytology (FNAC),Specialty
+88141,Pap Smear,Specialty
+89322,Seminal Fluid Analysis (Cytology),Specialty
+88104,Sputum Cytology,Specialty
+88120,Urine Cytology,Specialty
+88371,Immunocytochemistry,Specialty
+88000,Autopsy without Histology,Specialty
+88020,Autopsy with Histology,Specialty
+88040,"Autopsy with Ancillary Studies (Microbiology, Chemistry/Toxicology,Genetic Etc",Specialty
+88045,Preservation of Dead Body,Specialty
+88005,Embalming,Specialty
+88099,Washing and Decoration of Dead Body,Specialty
+88125,Forensic (Investigation) Examination of Specimen,Specialty
+89320,Semen Analysis,Specialty
+87515,Hepatitis B Viral Load,Specialty
+87389,HIV 1/2 Viral Load,Specialty
+87534,PCR- Based Test(Others) test,Specialty
+87149,PCR-Based Assays for Micro Organisms Identification,Specialty
+87522,Hepatitis C Viral Load,Specialty
+87150,"Identification of Organisms by Genetic Analysis (HBV,HCV,CMV, Polyoma)",Specialty
+87185,Genotypic Antimicrobial Susceptibility Testing for Bacteria (PCR-Based),Specialty
+87153,Genome Sequencing Methods,Specialty
+87490,Chlamydia PCR,Specialty
+71010,X-Ray Chest-PA,Specialty
+70100,X-Ray Mandible,Specialty
+70130,X-Ray Mastoid-Bilateral,Specialty
+70140,X-Ray Facial Bones/Orbits,Specialty
+70160,X-Ray Nasal Bone,Specialty
+70190,X-Ray Skull,Specialty
+70210,X-Ray Paranasal Sinuses,Specialty
+70250,X-Ray Skull Studies-Ap And Lateral,Specialty
+70330,Plain X-ray Temporal Mandibular Joints (TMJ),Specialty
+71020,X-Ray Chest-Pa And Lateral,Specialty
+71111,X-Ray Ribs,Specialty
+71120,X-Ray Sternum,Specialty
+72050,X-Ray Cervical Spine,Specialty
+72052,X-Ray Cervical Spine-Oblique,Specialty
+72070,X-Ray Thoracic Spine-Ap And Lateral,Specialty
+72074,X-Ray Thoracic Spine-Oblique,Specialty
+72082,X-Ray Total Spine,Specialty
+72100,X-Ray Lumbosacral Ap & Lateral,Specialty
+72110,X-Ray Lumbar Spine-Oblique,Specialty
+72170,X-Ray Pelvis,Specialty
+73000,X-Ray Clavicle,Specialty
+73010,X-Ray Scapula,Specialty
+73030,X-Ray Shoulder,Specialty
+73060,X-Ray Humerus,Specialty
+73070,X-Ray Elbow,Specialty
+73090,X-Ray Forearm (Radius/Ulna),Specialty
+73100,X-Ray Wrist,Specialty
+73130,X-Ray Hand,Specialty
+73140,X-Ray Finger,Specialty
+73501,X-Ray Pelvis and Femur (Pediatric),Specialty
+73502,X-Ray Hip,Specialty
+73552,X-Ray Femur,Specialty
+73562,X-Ray Knee-AP and Lateral,Specialty
+73564,X-Ray Both Knees,Specialty
+73590,X-ray leg (Tibia/fibula),Specialty
+73610,X-Ray Ankle,Specialty
+73620,X-Ray Foot,Specialty
+73650,X-Ray Calcaneum,Specialty
+73660,X-Ray Toe,Specialty
+74020,X-Ray Abdomen-Supine/Erect,Specialty
+74241,X-Ray Abdomen-KUB,Specialty
+76140,X-Ray /Fluoroscopic Report,Specialty
+77065,Mammography of Single Breast,Specialty
+77076,X-Ray Skeletal Survey,Specialty
+72072,X-Ray Lumbar Spine,Specialty
+72080,X-Ray Thoraco- Lumbar Spine,Specialty
+73110,X-Ray Wrist Joint,Specialty
+73522,X-Ray Hip Joint,Specialty
+73551,X-RAY Femur (Thigh),Specialty
+73560,X-Ray Knee Joint,Specialty
+73600,X-Ray Ankle Joint,Specialty
+74000,X-Ray Abdomen,Specialty
+73565,X-Ray Knee Weight Bearings,Specialty
+72114,X-Ray Lumbar Spine/ Extension and Flexion,Specialty
+77075,X-Ray Survey of Forearm or Wrist Bone Density,Specialty
+77066,Mammography of Both Breasts,Specialty
+76700,Ultrasound Abdominal,Specialty
+76641,Ultrasound Breast,Specialty
+76506,Ultrasound Cranial,Specialty
+76770,Ultrasound KUB,Specialty
+76815,Ultrasound Obstetric,Specialty
+76856,Ultrasound Pelvis,Specialty
+76775,Ultrasound Renal,Specialty
+76870,Ultrasound Scrotum,Specialty
+76536,Ultrasound Head and Neck / Thyroid,Specialty
+93971,Ultrasound Vascular Doppler,Specialty
+93880,Doppler Ultrasound of Head and Neck,Specialty
+93922,Doppler ultrasound of upper limbs,Specialty
+93923,Doppler Ultrasound of Lower Limbs,Specialty
+93975,Dopller Ultrasound of Abdomen/Pelvis/Scrotum,Specialty
+93976,Dopller Ultrasound of Abdomen/Pelvis/Scrotum(Limited),Specialty
+93980,Penile Doppler,Specialty
+93990,Ultrasound Doppler Dialysis Access/Fistula Assessment,Specialty
+76820,Ultrasound of Fetal Umbilical Artery Flow Rate,Specialty
+76821,Ultrasound of Fetal Brain Artery,Specialty
+76825,Ultrasound of Fetal Heart Blood Flow,Specialty
+76873,Ultrasound of Prostate,Specialty
+76881,Ultrasound of Leg,Specialty
+76882,Ultrasound of Arm,Specialty
+76812,Follow-up Obstetrics Ultrasound,Specialty
+76830,Transvaginal Ultrasound (TVS),Specialty
+76872,Transrectal Ultrasound (TRS),Specialty
+76705,Ultrasound Abdominal Emergency,Specialty
+76965,Ultrasound Follow-up Study,Specialty
+93886,Transcranial Doppler Ultrasound(TCD),Specialty
+76604,Ultrasound of Chest,Specialty
+36005,Angio/Venogram,Specialty
+51610,Antegrade / Retrograde Urethrography,Specialty
+74249,Barium Follow Through,Specialty
+74270,Barium Enema,Specialty
+74246,Barium Meal - Single Contrast,Specialty
+74230,Barium Swallow,Specialty
+75984,Fistulogram,Specialty
+58340,Hysterosalpingogram (HSG),Specialty
+74400,Intra-Venous Urethrography (IVU),Specialty
+51600,Micturating Cystourethrography (MCUG),Specialty
+62284,Myelography,Specialty
+74420,Retrograde Pyelography,Specialty
+70380,Sialography,Specialty
+76080,Sinography,Specialty
+74251,Small Bowel Enema,Specialty
+74430,Cystourethrography,Specialty
+74485,Ureterogram,Specialty
+74283,Barium Enema - Double Contrast,Specialty
+78261,Barium Meal - Double Contrast,Specialty
+74150,CT Scan Abdomen,Specialty
+74176,CT Scan Abdomen Plus Pelvic,Specialty
+72125,CT Scan Cervical Spine,Specialty
+71250,CT Scan Chest/ Hrct,Specialty
+77013,CT Scan Guided Ablation,Specialty
+70450,CT Scan Head/ Brain,Specialty
+72131,CT Scan Lumbo-Sacral Spine,Specialty
+72192,CT Scan Pelvis,Specialty
+70486,CT Scan Paranasal Sinuses (Pns),Specialty
+76497,CT Scan Report,Specialty
+70480,CT Scan Temporal Bone,Specialty
+72128,CT Scan Thoratic Spine,Specialty
+73700,CT Scan Knee,Specialty
+72126,CT Scan Cervical Spine with Contrast,Specialty
+71275,CT Scan of Blood Vessels in Chest with Contrast,Specialty
+70496,CT Scan of Blood Vessel of Head with Contrast,Specialty
+74174,CT Scan of Abdominal and Pelvic Blood Vessels with Contrast,Specialty
+74175,CT Scan of Abdominal Blood Vessels with Contrast,Specialty
+73706,CT Scan of Lower Leg Blood Vessels with Contrast,Specialty
+73206,CT Scan of Arm Blood Vessels with Contrast,Specialty
+70498,CT Scan of Neck Blood Vessels with Contrast,Specialty
+75574,CT Scan of Heart Blood Vessels and Grafts with Contrast Dye,Specialty
+75572,CT Scan of Heart Structure with Contrast (Coronary Angiography),Specialty
+77012,CT Scan Guided Biopsy,Specialty
+74181,MRI Abdomen/KUB,Specialty
+74182,MRI Abdomen with Contrast,Specialty
+73721,"MRI Lower Extremity Joints Left/Right - Hip, Knee, Ankle",Specialty
+73224,"MRI Anthrogram Lower Extremity Joints Left/Right - Hip, Knee, Ankle",Specialty
+73223,"MRI Lower Extremity Joints Left/Right with Contrast - Hip, Knee, Ankle",Specialty
+72195,"MRI Pelvis (Male/Female)-Testis, Penis, Uterus, Bladder, Prostate, Fistula",Specialty
+70551,MRI Brain,Specialty
+77059,MRI Breast,Specialty
+77058,MRI Breast Implant Evaluation,Specialty
+72141,MRI Cervical Spine,Specialty
+71550,MRI Chest,Specialty
+73718,"MRI Lower Extremity Left / Right (Thigh, Leg, Foot)",Specialty
+73719,"MRI Lower Extremity Left / Right (Thigh, Leg, Foot) with Contrast",Specialty
+73218,"MRI Upper Extremity Left / Right (Arm, Fore Arm, Hand)",Specialty
+73219,"MRI Upper Extremity Left / Right (Arm, Fore Arm, Hand) with Contrast",Specialty
+75557,MRI Heart Morphology,Specialty
+76390,Magnetic Resonance Cholangiopancreatography (MRCP),Specialty
+70540,MRI Neck,Specialty
+72196,MRI Pelvis with Contrast,Specialty
+73222,"MRI Arm Joint with Contrast (Right/Left) - Shoulder, Elbow, Wrist",Specialty
+73221,"MRI Arm Joint (Right/Left) - Shoulder, Elbow, Wrist",Specialty
+74183,MRI Small Bowel (MRI Enteroclysis),Specialty
+72146,MRI Thoracic Spine,Specialty
+77021,MRI Guided Biopsy,Specialty
+72156,MRI Brachial Plexus,Specialty
+72159,MRA Spinal Canal Blood Vessel,Specialty
+72198,MRA of Pelvic Blood Vessel,Specialty
+70544,MRA Scan of Head Blood Vessels Before and after Contrast,Specialty
+70545,MRA SCAN of Head Blood Vessels with Contrast,Specialty
+70546,MRA Scan of Head Blood Vessels Before and after Contrast,Specialty
+70547,MRA Scan of Neck Blood Vessels,Specialty
+70548,MRA Scan of Neck Blood Vessels with Contrast,Specialty
+73725,MRA / MRV Scan of Leg Blood Vessel,Specialty
+73225,MRA / MRV Scan of Arm Blood Vessel,Specialty
+74185,MRA / MRV Scan of Blood Vessels of Abdomen,Specialty
+75565,MRA Coronary (Heart Vessels),Specialty
+76940,Ultrasound Guided for Needle Insertion,Specialty
+76942,Ultrasound Guided for Chorionic Villus Sampling,Specialty
+76941,Ultrasound Guided FNAC,Specialty
+76945,Ultrasound Guided for Amniocentensis,Specialty
+76946,Ultrasound Guided IVF (In Vitro Fertilization),Specialty
+76948,Ultrasound Guided Radiation Therapy,Specialty
+76970,Ultrasound Guided for Endoscopy,Specialty
+76975,Ultrasonic Guidance during Surgery,Specialty
+76998,Ultrasound of Bone Density Measurement,Specialty
+76977,Ultrasound Guided Pericardiocentesis,Specialty
+76930,Ultrasonic Guidance for Biopsy of Heart Wall,Specialty
+76932,Ultrasound Guidance for Repair of Blood Vessel,Specialty
+50382,Percutaneous Imaging Ureterostomy (Removal and Replacement),Specialty
+50384,Percutaneous Imaging Ureteric Stent Removal,Specialty
+50385,Removal And Replacement of Indwelling Stent in Urinary Duct (Ureter) Including  Radiological Supervision and Interpretation,Specialty
+50386,Imaging Guided Removal of Ureteric Stent,Specialty
+50387,Imaging Guided Replacement of Ureteric Stenting,Specialty
+50389,Imaging Guided Ureteronephrostomy Tube Removal,Specialty
+50430,Injection Procedure for X-Ray Imaging of Kidney and Urinary Duct (Ureter) using  Imaging Guidance including Radiological Supervision and Interpretation,Specialty
+50431,Injection Procedure for X-Ray Imaging of Kidney and Urinary Duct (Ureter) using  Imaging Guidance including Radiological Supervision and Interpretation,Specialty
+50432,Percutaneous Imaging Guided Nephrostomy Catheter Placement,Specialty
+50433,Percutaneous Imaging Guided Ureteronephrostomy Catheter Placement,Specialty
+50434,Percutaneous Imaging Guided Conversion of Nephrostomy Catheter to  Nephroureteral Catheter,Specialty
+50435,Percutaneous Replacement Nephrostomy Tube,Specialty
+50606,Biopsy of Urinary Duct Using Imaging Guidance with Radiological Supervision and Interpretation,Specialty
+50693,Percutaneous Ureteric Stenting,Specialty
+50705,Occlusion of Urinary Duct (Ureter) using Imaging Guidance With Radiological Supervision And Interpretation,Specialty
+50706,Ureteric Ablation,Specialty
+59070,Abdominal Infusion of Normal Saline into Fetal Amniotic SAC using Ultrasound Guidance,Specialty
+59072,Fetal Umbilical Cord Occlusion using Ultrasound Guidance,Specialty
+59074,Ultrasound Guided Amniocentesis,Specialty
+59076,Insertion of Drainage Catheter into Fetal Chest using Ultrasound Guidance,Specialty
+58345,Fallopian Tube Recannalisation,Specialty
+61645,Percutaneous Floroscopic Thromboembolectomy,Specialty
+61650,Transcatheter Floroscopic Thromboembolectomy,Specialty
+61651,Transcatheter Imaging Thromboembolectomy,Specialty
+47531,Injection of Bile Duct for X-Ray Imaging Procedure Accessed through the Skin using Imaging Guidance Including Radiological Supervision and Interpretation,Specialty
+47532,Injection of Bile Duct for X-Ray Imaging Procedure Accessed through the Skin using Imaging Guidance including Radiological Supervision and Interpretation,Specialty
+47533,"Placement of Drainage Catheter of Biliary Duct, Accessed through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47534,"Placement of Drainage Catheter of Biliary Duct, Accessed through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47535,Conversion of External Biliary Drainage Catheter to Internal-External Biliary Drainage Catheter Accessed through the Skin using Imaging Guidance with Study of Bile Ducts and Radiological Supervision and Interpretation,Specialty
+47536,Replacement of Liver Duct Drainage Catheter Accessed through the Skin with Imaging and Radiological Supervision and Interpretation,Specialty
+47537,"Removal of Biliary Drainage Catheter, Accessed through the Skin using Imaging Guidance and Radiological Supervision and Interpretation",Specialty
+47538,"Placement of Stent of Biliary Duct, Accessed through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47539,"Placement of Stent of Biliary Duct, Accessed Through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47540,"Placement of Stent and Drainage Catheter of Biliary Duct, Accessed through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47541,"Placement of Access Device into Biliary Tract, Accessed through the Skin with Imaging including Radiological Supervision and Interpretation",Specialty
+47542,Balloon Dilation of Bile Duct Accessed through the Skin using Imaging Guidance including Radiological Supervision and Interpretation,Specialty
+47543,Biopsy of Bile Duct or Liver Duct Accessed through the Skin using Imaging Guidance with Radiological Supervision and Interpretation,Specialty
+47544,"Removal of Biliary Duct or Gallbladder Stone, Accessed through the Skin using Imaging Guidance and Radiological Supervision and Interpretation",Specialty
+51715,Augmentation Cystoplasty,Specialty
+54324,Epispadias Repair,Specialty
+54326,Hypospadias Repair,Specialty
+50650,Partial Cystectomy,Specialty
+54437,Repair of Fractured Penis,Specialty
+54300,Straightening Procedure of the Penis,Specialty
+55530,Varicocoelectomy,Specialty
+55520,Removal of Spermatic Cord Growth,Specialty
+55550,Tying of Spermatic Veins using an Endoscope,Specialty
+51596,Total Cystectomy + Urinary Diversion,Specialty
+51050,Cystolithotomy/ Vesicostomy,Specialty
+50220,Nephrectomy,Specialty
+50240,Partial NEPHRECTOMY,Specialty
+54120,Partial Penoctomy,Specialty
+50605,Pyeloplasty - PUJ,Specialty
+50060,Nephrolithotomy,Specialty
+50100,Repositioning of Abnormal Kidney Blood Vessels,Specialty
+50120,Exploration of Kidney,Specialty
+50125,Incision and Drainage of Kidney IE Abcess,Specialty
+51102,Supra Pubic Cystostomy(SPC),Specialty
+51597,Total Cystectomy & Urinary Diversion,Specialty
+54125,Total Penectomy/Bilateral Inguinal LN Dissection,Specialty
+50610,Ureterolithotomy,Specialty
+53410,Urethroplasty,Specialty
+51530,Urinary Bladder Diverticulectomy,Specialty
+54150,Circumsion (Phymosis & Paraphymosis),Specialty
+52005,Cystoscopy & Ureteric Catheterization,Specialty
+54380,Glansplasty,Specialty
+55040,Hydrocelectomy,Specialty
+53020,Meatotomy /Perineal Urethrotomy,Specialty
+55842,Open Prostatectomy,Specialty
+54535,Orchidectomy,Specialty
+54522,Partial Orchidectomy,Specialty
+54560,Testicular Exploration,Specialty
+54680,Transplantation of One or Both Testicles to Thigh,Specialty
+54690,Removal of One or Both Testicles using an Endoscope,Specialty
+54650,Orchidopexy,Specialty
+54430,Priapism Operation(Shunting),Specialty
+55180,Scrotoplasty,Specialty
+52234,Transurethral Resection of Bladder Tumour,Specialty
+52601,Transurethral Resection of Prostate,Specialty
+50780,Ureteric Re-Implantation,Specialty
+52007,Cystoscopy Biopsy + EUA,Specialty
+53400,Direct Vision Urethrotomy,Specialty
+50075,Pyelolithotomy,Specialty
+52351,Ureteroscopy,Specialty
+52281,Urethral Bouging,Specialty
+54520,Bilateral Subcapsular Orchidectomy,Specialty
+52276,Optical Urethrotomy (OTIS),Specialty
+55700,Prostatic Trucut Biopsy,Specialty
+52332,Renoscopy,Specialty
+54500,Testicular Biopsy,Specialty
+51702,Urethral Catheterization,Specialty
+52000,Urethrocystoscopy,Specialty
+55250,Vascectomy,Specialty
+53445,Transurethral Resection or Incision of Bladder Nec,Specialty
+55175,Scrotoplasty,Specialty
+52270,Direct Visual Urethrotomy (DVU),Specialty
+50590,Eswl Session for Renal Stones(electro Shock Wave Lithotripsy),Specialty
+50575,DJ Stent Different Sizes with Guide Wire,Specialty
+52310,DJ Stent Removal,Specialty
+50574,Kidney Biopsy,Specialty
+52201,Cystoscopy + EUA + Biopsy,Specialty
+54505,Testicular Biopsy,Specialty
+58951,Pelvic Exenteration,Specialty
+54161,Circumscission (adult),Specialty
+43320,Anti Reflux Surgery,Specialty
+19301,Breast Lumpectomy (Malignant),Specialty
+31623,Bronchoscopy See/ORL,Specialty
+46280,Fissurectomy,Specialty
+46200,Fistulectomy,Specialty
+32320,Lung Decortication,Specialty
+32480,Lung Lobectomy,Specialty
+39010,Mediasternotomy Surgery,Specialty
+19307,Modified Radical Mastectomy,Specialty
+43107,Oesophagectomy,Specialty
+32220,Pleurectomy,Specialty
+32650,Pleurodesis,Specialty
+32440,Pneumonectomy,Specialty
+19306,Radical Mastectomy,Specialty
+21600,Rib Resection,Specialty
+32900,Rib Excision,Specialty
+19303,Simple Mastectomy,Specialty
+97597,Surgical Debriment Under G/A,Specialty
+32601,Thoracoscopy for Mediastinal Tumors,Specialty
+32096,Thoracotomy Achalasia of Oesophagus,Specialty
+32097,Thoracotomy Decortication,Specialty
+60220,Thyroid Lobectomy,Specialty
+60212,Subtotal Thyroidectomy,Specialty
+60240,Total Thyroidectomy,Specialty
+47600,Cholecystectomy,Specialty
+47610,Cholecystectomy & CBD Exploration,Specialty
+43264,Choledocotomy,Specialty
+47425,Duct Calculi Removal,Specialty
+47010,Incision & Drainage of Liver Abscess (Open),Specialty
+47120,Lobectomy (Liver),Specialty
+44950,Appendicectomy,Specialty
+49900,Suture of Postsurgical Abdominal Wall Opening,Specialty
+44625,Colostomy Closure- Laparatomy,Specialty
+44626,Colostomy Closure-Non Laparatomy,Specialty
+44340,Colostomy Revision,Specialty
+39599,Hernia Repair - Diaphragmatic,Specialty
+49540,Hernia Repair - Epigastric/Umbilical,Specialty
+49505,Hernia Repair - Inguinal/Fermoral,Specialty
+49595,Herniotomy,Specialty
+49565,Incisional Hernia Repair,Specialty
+49568,Hernioplasty,Specialty
+43840,Laparotomy Intestinal Obstruction,Specialty
+44602,Laparotomy Perforation of Viscera,Specialty
+47350,Liver Trauma Surgical Repair,Specialty
+49020,"Drainage of Abdominal Abscess or Infection, Open Procedure",Specialty
+38100,Splenectomy,Specialty
+38115,Repair of Ruptured Spleen,Specialty
+38129,Laparoscopic Splenectomy,Specialty
+15830,Abdominal Dermolipectomy,Specialty
+44320,Colostomy Defunctioning,Specialty
+43810,Gastrojejunostomy,Specialty
+44140,Hemicolectomy,Specialty
+15877,Liposuction (Major),Specialty
+19112,Michrodochotomy,Specialty
+15650,Plastic Surgery - SSG & FLAP,Specialty
+37181,Portal Systemic Shunt Procedure,Specialty
+45300,Proctoscopy Eua Biopsy (Rigid),Specialty
+44345,PSARP,Specialty
+45121,Pull Through Surgery (Procedures),Specialty
+19318,Reduction Mammoplasty,Specialty
+48150,Resection - Whipples Procedure,Specialty
+43244,Stripping of Oesophageal Varices / Band Ligation,Specialty
+26560,Syndactyl Release / Separation,Specialty
+60521,Thymectomy,Specialty
+43314,Tracheal Oesophaeal Fistula Closure,Specialty
+15750,Varicose Vein Surgery + Skin Grafting,Specialty
+45110,Abdominal Perineal Resection(Rectum Operations),Specialty
+45111,Anterior Resection(Rectum Operations),Specialty
+47721,Cholecysto - Jejunostomy,Specialty
+43635,Drainage/Antrectomy,Specialty
+11404,Wide Major Excision,Specialty
+43633,Gastrectomy Plus Bypass,Specialty
+43620,Gastrectomy-Total,Specialty
+43999,Gastrostomy,Specialty
+41130,Partial Glossectomy,Specialty
+46221,Haemorrhoidectomy (Band Ligation),Specialty
+46255,Haemorrhoidectomy (Open),Specialty
+46947,Haemorrhoidectomy (Stappler),Specialty
+44147,Laparotomy for Colon Resection,Specialty
+44620,Laparotomy for Colostomy/Closure,Specialty
+47001,Needle Biopsy of Liver,Specialty
+47362,Re-Exploration of Liver Wound with Removal of Packing,Specialty
+45910,Anal Dilatation,Specialty
+45990,Diagnostic Examination of Anus and Rectum under Anesthesia,Specialty
+48500,Pancreatic-Cyst Drainage,Specialty
+48140,Pancreatic-Partial Resection,Specialty
+43520,Pyloromyotomy,Specialty
+43640,Truncal / Selective Vagotomy & Gastrojejunal Anastomos,Specialty
+43641,Vagotomy & Bypass Procedure,Specialty
+26123,Contracture Release Major,Specialty
+21931,Lipoma Excision Under G/A,Specialty
+15111,Major Skin Grafting,Specialty
+14302,Rotation Flap Operation,Specialty
+11426,Wide Major Excision,Specialty
+57289,Cystocele Repair,Specialty
+57268,Enterocele Repair,Specialty
+19125,Breast Lumpectomy,Specialty
+19361,Mammoplasty,Specialty
+60280,Thyroglossal Cyst/Fistula Excision,Specialty
+60252,Thyroid Total Thyroidectomy,Specialty
+31660,Bronchoscopic Ablative Therapy,Specialty
+31622,"Bronchoscopy, Biopsy & Brush Cytology",Specialty
+45331,Colonoscopy With Biopsy,Specialty
+17250,Cauterazation,Specialty
+43237,Endoscopic Uss,Specialty
+43260,ERCP,Specialty
+43262,ERCP And Sphicterotomy,Specialty
+43274,ERCP And Stenting,Specialty
+43266,Esophageal Stenting,Specialty
+43233,OGD (Oesophagogastroduodenoscopy),Specialty
+43246,Percutaneous Endoscopic Gastrotomy (PEG),Specialty
+43250,Polypectomy,Specialty
+46600,Proctoscopy,Specialty
+27339,Lipoma/Cyst Excison,Specialty
+21014,Lipoma Cyst Polyp Excision,Specialty
+43197,Oesophagoscopy Rigid/Flexible,Specialty
+32609,Pleural Biopsy,Specialty
+32554,Pleural TAP,Specialty
+20101,Wound Exploration,Specialty
+47015,Liver Abscess Aspiration,Specialty
+47000,Perctaneous Liver Biopsy,Specialty
+46040,Incision & Drainage-Ischial Rectal Abscess,Specialty
+11100,Skin Biopsy,Specialty
+36425,Venous Cutting Down,Specialty
+15852,Major Wound Dressing under G/A,Specialty
+45900,Anal Dilatation,Specialty
+46220,Cauterization (Electrical),Specialty
+45378,Colonoscopy (Flexible),Specialty
+43259,Endoscopic Us,Specialty
+43235,Enteroscopy,Specialty
+43261,ERCP + Sphicterotomy,Specialty
+74330,ERCP + Stenting,Specialty
+43450,Esophageal Dilatation,Specialty
+43212,Esophageal Stenting,Specialty
+43202,Oesophageal Biopsy,Specialty
+43231,Oesophagoscopy,Specialty
+43239,"Osophagus, Gastric and Deodenal with Biopsy",Specialty
+43243,"Osophagus, Gastric and Deodenal with Sclerotherapy",Specialty
+45100,Rectal Biopsy,Specialty
+36470,Sclerotherapy,Specialty
+26587,Extradigit Amputation - Minor,Specialty
+11424,Wide Minor Excision,Specialty
+10040,Acne Scar Removal,Specialty
+10061,Incision and Drainage of Pyomyositis,Specialty
+11730,Removing Ingrowing Nail,Specialty
+15839,Kelloid Excision,Specialty
+27385,Repair of Muscle,Specialty
+15150,Minor Skin Grafting,Specialty
+15783,Slit Skin Smear,Specialty
+11006,Sloughectomy,Specialty
+15851,Stitch Sinus Exploration,Specialty
+16025,Minor Wound Dressing,Specialty
+60500,Parathyroidectomy,Specialty
+49321,Laparoscopy(with Necessary Biopsies) - Nissen Fundoplication,Specialty
+44615,Laparoscopy (with Necessary Biopsies) - Adhesion/ Bowel Obstruction,Specialty
+49652,Laparoscopic Femoral Hernia Repair,Specialty
+44212,Laparoscopic Assisted Colectomy,Specialty
+43325,Laparoscopic Heller Myotomy for Achalasia,Specialty
+51820,Laparoscopic Repair of Urinary Bladder,Specialty
+39561,Laparoscopic Diaphragmatic Injury Repair,Specialty
+49329,Laparoscopic Repair of Visceral Injuries (stomach / Large& Small Bowel),Specialty
+32659,Laparoscopic Pericardial Window,Specialty
+45126,Abdominal Perineal Resection,Specialty
+37140,Portal Systemic Shunt Procedure,Specialty
+63173,Lumboperitoneal Shunt,Specialty
+43305,Tracheal Oesophaeal Fistula Closure,Specialty
+43335,Laparoscopy (with Necessary Biopsies) - Cholecystectomy,Specialty
+62143,Hernia Repair - Diaphragmatic,Specialty
+32124,Lung Decortication,Specialty
+60520,Thymomectomy,Specialty
+49580,Herniotomy (paediatric),Specialty
+48510,Pancreatic or Cyst Drainage (cystogastrostomy),Specialty
+44970,Laparoscopy (with Necessary Biopsies) - Appendectomy,Specialty
+37761,Varicose Vein Stripping (low),Specialty
+62096,Open Chest Drainage (chest Window),Specialty
+49654,Hernia Repair - Incisional,Specialty
+60650,Laparoscopy (with Necessary Biopsies) - Diagnostic,Specialty
+44955,Appendicectomy,Specialty
+27591,Femur Transfemoral Amputation,Specialty
+45505,Rectocele Repair,Specialty
+27884,Tibia Transtibial Amputation,Specialty
+49002,Burst Abdomen- Repair,Specialty
+25295,Keloid Excission-major,Specialty
+43220,Esophagoscopy & Dilatation,Specialty
+45020,Incision & Drainage - Ischio Rectal Abscess,Specialty
+43100,Colonoscopy (flexible/rigid) without Biopsy,Specialty
+43200,Endoscopic Biopsy,Specialty
+32169,Pleural Biopsy,Specialty
+27336,Lipoma Excision (minor),Specialty
+46270,Fistulectomy,Specialty
+45305,"Proctoscopy, Eua, Biopsy (rigid Scope)",Specialty
+31295,Antral Wash Out,Specialty
+49082,Laparotomy (peritonitis),Specialty
+20005,Simple Abscess Incision & Drainage,Specialty
+28060,Plantar Fasciotomy Open - Foot,Specialty
+28008,Plantar Fasciotomy Percutaneous - Foot,Specialty
+17000,"Cryotherapy (e.g Eye,skin,cervix)",Specialty
+31625,Bronchoscopy- Biopsy & Brush Cytology (fibre Optic),Specialty
+58960,Laparatomy,Specialty
+19120,Breast Lumpectomy (BENIGN),Specialty
+32551,Tube Thoracostomy,Specialty
+88160,Via-Visual Inspection with Acetic Acid,Specialty
+58661,Bilateral Salphingo Ophorectomy,Specialty
+58671,Blocking of Uterine Tubes By Device using an Endoscope,Specialty
+57720,Cervical Tear Repair Extensive,Specialty
+59121,Ectopic Pregnancy - Laparotomy & Salphingectomy,Specialty
+58353,Endometrial Ablation,Specialty
+57500,Eua And Wedge Biopsy-Cervical,Specialty
+58662,Excission of Endometrial Implants,Specialty
+58555,Hysterescopy,Specialty
+51570,Laparatomy (Cystectomy),Specialty
+58400,Laparatomy (Manchester Forthergil Repair),Specialty
+58940,Laparatomy (Ovarain Tumor),Specialty
+45000,Laparatomy (Pelvic Abscess),Specialty
+57288,Laparatomy (Stress Incontinence Surgery),Specialty
+57250,Laparatomy Perineorrhaphy,Specialty
+58570,Laparoscopic Hysterectomy,Specialty
+58145,Myomectomy (Laparoscopic),Specialty
+57510,Leep Procedure,Specialty
+58140,Myomectomy,Specialty
+58670,Ovarian Drill,Specialty
+57282,Perrineoplasty,Specialty
+58150,Subtotal & Total Abdominal Hysterectomy,Specialty
+58760,Tubal Anastomosis (Re-Anastomosis),Specialty
+58673,Tuboplasty,Specialty
+51900,Vvf Repair,Specialty
+58410,Ventrosuspension Operations (Stameys Etc),Specialty
+58954,Warthem Hysterectomy,Specialty
+58615,Bilateral Tubal Ligation (BTL),Specialty
+59514,Caesarean Section,Specialty
+58611,Caesarean Section + BTL,Specialty
+10060,Incision & Drainage,Specialty
+58300,Insertion and Removal of LUCD,Specialty
+59870,Sunction Curratage for Molar Pregnancy,Specialty
+16030,Major Wound Dressing under G/A,Specialty
+56440,Bartholins Abscess-Mursupialisation,Specialty
+59320,Cervical Circlage-Shrodikar,Specialty
+57000,Colpotomy,Specialty
+57520,Cone Biopsy,Specialty
+58120,Diagnostic Curretage-D and C,Specialty
+59840,Dilatation And Curratage(D&C),Specialty
+59812,Evacuation,Specialty
+11983,Insertion And Removal Implanon,Specialty
+57452,Colposcopy,Specialty
+59820,Manual Vacum Aspiration,Specialty
+58558,Polypectomy-Cervical,Specialty
+56630,Simple Vulvectomy,Specialty
+58260,Vagina Hysterectomy,Specialty
+59300,Vaginal Repair,Specialty
+58285,Wartheim Hysterectomy,Specialty
+59160,Retained Placenta Removal,Specialty
+57265,Enterocele Repair,Specialty
+60540,Laparotomy for Other Conditions,Specialty
+49000,Explorative Laparatomy,Specialty
+58925,Ovarian Cystectomy,Specialty
+58210,Radical Hysterectomy,Specialty
+57300,RVF Repair,Specialty
+57461,CONE Biopsy,Specialty
+56810,Perineoraphy,Specialty
+58578,Laparascopy,Specialty
+58579,Hysteroscopy,Specialty
+59409,Normal Delivery,Specialty
+56442,Hymenectomy,Specialty
+19100,Core Needle biopsy,Specialty
+65810,Anterior Chamber Washout,Specialty
+66984,Cataract Surgery with IOL Insertion,Specialty
+66920,Cataract Surgery Without IOL Insertion,Specialty
+66820,Posterior Capsulotomy,Specialty
+66825,Repositioning of Lens Prosthesis,Specialty
+66840,Lens Washout,Specialty
+66983,Phaeco-Emulsification Surgery with Foldable Lens,Specialty
+66930,Lensectomy,Specialty
+66985,Secondary Intra Ocular Lens Insertion,Specialty
+66680,Iris Repair,Specialty
+66986,Intra Ocular Lens Exchange,Specialty
+65426,Pterygium Excision,Specialty
+68399,Conjuctival Flap,Specialty
+68200,Subconjunctiva Injection,Specialty
+68320,Conjunctiva Repair,Specialty
+65273,Conjuctival Graft,Specialty
+68325,Conjuctival Mass Excision,Specialty
+68130,Scleral Growth Excision,Specialty
+65400,Corneal Mass Excision,Specialty
+65410,Corneal Biopsy,Specialty
+65430,Corneal Scrapping,Specialty
+65210,Corneal/Scleral F.B. Removal,Specialty
+65756,Transplant of Outer Layer of Corneal Tissue,Specialty
+65757,Preparation of Corneal Tissue for Transplant,Specialty
+65760,Removal and Reshaping of Corneal Tissue,Specialty
+65767,Transplantation of Donor Corneal Tissue,Specialty
+65770,Placement of Tube with Optical Power to Cornea,Specialty
+65771,Incisions in Cornea to Correct Refraction Error,Specialty
+65772,Incisions to Cornea to Correct Astigmatism,Specialty
+65775,Excision of Corneal Tissue to Correct Astigmatism,Specialty
+65778,Free Amniotic Membrane Graft,Specialty
+65779,Sutured Amniotic Membrane Graft,Specialty
+65781,Cornea Stem Cell Transplantation,Specialty
+65785,Corneal Ring Implantation,Specialty
+65710,Corneal Graft,Specialty
+65280,Corneal/Scleral Repair,Specialty
+0402T,Collagen Cross Linking Treatment of Disease of Cornea,Specialty
+65101,Enucleation,Specialty
+65103,Enucleation and Ocular Implant Placement,Specialty
+65091,Evisceration,Specialty
+65093,Evisceration and Ocular Implant Placement,Specialty
+65150,Ocular Implant Revision,Specialty
+65175,Ocular Implant Removal,Specialty
+65110,Exenteration,Specialty
+67299,Orbitotomy,Specialty
+67415,Orbital Contents Fine Needle Aspiration,Specialty
+67500,Retro Bulbar Injection,Specialty
+67505,Retro Bulbar Alcohol Injection,Specialty
+67570,Optic Nerve Decompression,Specialty
+68810,Probing,Specialty
+68500,Lacrimal Gland Excision,Specialty
+68505,Lacrimal Gland Partial Excision,Specialty
+68510,Lacrimal Gland Biopsy,Specialty
+68520,Tear SAC Excision,Specialty
+68525,Tear SAC Biopsy,Specialty
+68530,Tear Passages Foreign Body Removal,Specialty
+68540,Tear Sac Mass Excision,Specialty
+68700,Tear Duct Reconstruction,Specialty
+68801,Tear Drainage Dilatation,Specialty
+68815,Probing with Stent/Tube Insertion,Specialty
+68816,Probing with Balloon Catheter Dilatation,Specialty
+67875,Tarsorhaphy,Specialty
+68720,Dacryorrhinosistomy,Specialty
+68760,Duct Opening Repair,Specialty
+68761,Puncto Plug,Specialty
+68770,Tear Drainage Closure,Specialty
+68020,Demoid Cyst Excision (Eye),Specialty
+67924,Lid Rotation - TRP,Specialty
+67250,Scleral Defect Repair,Specialty
+67255,Scleral Repair with Graft,Specialty
+67901,Ptosis Surgery,Specialty
+67906,Brow Suspension,Specialty
+67900,Repair of Brow Paralysis,Specialty
+67902,Repair of Upper Eyelid Muscle to Correct Drooping or Paralysis,Specialty
+67903,Shortening or Advancement of Upper Eyelid Muscle to Correct Drooping or Paralysis,Specialty
+67904,Repair of Tendon of Upper Eyelid,Specialty
+67908,"Removal of Tissue, Muscle, and Membrane to Correct Eyelid Drooping or Paralysis",Specialty
+67909,Procedure to Reduce Overcorrection of Drooping or Paralyzed Upper Eyelid,Specialty
+67825,Electrolysis,Specialty
+67700,Eye Lid Abscess I&D,Specialty
+67710,Eye Lid Sutures Removal,Specialty
+67715,Canthotomy,Specialty
+67800,Eyelid Mass Excision,Specialty
+67801,Multiple Same Eye Lid Masses Excision,Specialty
+67808,Eye Lid Mass Excision Under GA,Specialty
+67810,Eye Lid Biopsy,Specialty
+67820,Epilation,Specialty
+67916,Ectropion Repair,Specialty
+67923,ENTROPION REPAIR,Specialty
+67930,Lid Margin Laceration Repair,Specialty
+67938,Foreign Body Removal of the Eye Lid,Specialty
+67971,Eye Lid Reconstruction with Graft,Specialty
+15820,Removal of Excessive Skin of Lower Eyelid,Specialty
+15821,Removal of Excessive Skin of Lower Eyelid and Fat Around Eye,Specialty
+15822,Removal of Excessive Skin of Upper Eyelid,Specialty
+15823,Removal of Excessive Skin and Fat of Upper Eyelid,Specialty
+67320,Strabismus Surgery,Specialty
+67311,Realignment of The Eye With Repair of One Horizontal Eye Muscle,Specialty
+67312,Realignment of The Eye With Repair of Two Horizontal Eye Muscles,Specialty
+67314,Realignment of The Eye With Repair of One Vertical Muscle,Specialty
+67316,Realignment of The Eye With Repair of Two or more Vertical Muscles,Specialty
+67331,Traumatic Strabismus Correction Surgery,Specialty
+67332,Realignment of Eye Having Scarring or Restrictive Muscle Movement,Specialty
+67334,Posterior Fixation Strabismus Surgery,Specialty
+67335,Strabismus Surgery with Adjustable Sutures,Specialty
+67340,Strabismus Surgery with Repair of Detached Muscle,Specialty
+92060,Orthoptic Assesment,Specialty
+92065,Orthoptic Exercises,Specialty
+65820,Goniotomy,Specialty
+66170,Trabeculectomy,Specialty
+66180,Glaucoma Surgery With Graft,Specialty
+66184,Glaucoma Shunt Revision,Specialty
+66500,Iridectomy,Specialty
+65850,Glaucoma Valve Implantation,Specialty
+66761,Laser Iridotomy,Specialty
+66630,Iridotomy,Specialty
+66174,Trabeculotomy,Specialty
+66155,Trab/ Trab,Specialty
+0449T,Insertion of Aqueous Fluid Drainage Device into Eye,Specialty
+67141,Cryotherapy,Specialty
+66821,Laser Capsulectomy,Specialty
+65855,Laser Trabeculoplasty,Specialty
+66710,Laser Capsulotomy,Specialty
+66711,Destruction of Tissue Encircling Lens using an Endoscope,Specialty
+66720,Destruction of Tissue Encircling Lens,Specialty
+66740,Destruction of Tissue of Eyelid Border,Specialty
+66770,Destruction of Growth of Iris using Laser,Specialty
+67228,Pan Retinal Photocoagulation (PRP),Specialty
+92071,Fitting of Contact Lens for Treatment of Ocular Surface Disease,Specialty
+92072,Fitting of Contact Lens for Management of Corneal Degeneration,Specialty
+92136,Keratometry,Specialty
+92275,Electro-Retinogram (ERG),Specialty
+76516,A Scan,Specialty
+76512,B Scan,Specialty
+92018,EYE-EUA,Specialty
+92250,Fundus Photograph,Specialty
+92081,Visual Field Analysis,Specialty
+92004,Low Vision Assessment,Specialty
+92025,Cornea Topography,Specialty
+0198T,Measurement of Eye Intra Ocular Pressure,Specialty
+67041,Removal of Membrane From the Retina,Specialty
+67042,"Removal of Membrane From the Retina, Pars Plana Approach",Specialty
+67101,"Repair of Detached Retina, 1 or more Sessions",Specialty
+67107,Repair of Detached Retina and Drainage of Eye Fluid Between Lens And Retina,Specialty
+67110,Repair of Detached Retina by Injection of Air or Gas,Specialty
+67113,Repair of Detached Retina and Drainage of Eye Fluid Between Lens And Retina,Specialty
+67115,Release of Retinal Encircling Material,Specialty
+67120,Removal of Implant Material from outside the Eye,Specialty
+67121,Removal of Implant Material from inside the Eye,Specialty
+67145,"Preventive Retinal Detachment Treatment by Heat or Laser, 1 or more Sessions",Specialty
+67208,"Destruction of Retinal Growth by Heat or Freezing, 1 or more Sessions",Specialty
+67218,"Destruction of Retinal Growth with Implantation of Radiation Source, 1 or more Sessions",Specialty
+67220,"Destruction of Vascular Growth Between Retina and Sclera, 1 or more Sessions",Specialty
+67221,Destruction of Vascular Growth Between Retina and Sclera,Specialty
+67225,"Destruction of Vascular Growth Between Retina and Sclera, at single Session",Specialty
+67227,"Destruction of Leaking Retinal Blood Vessels, 1 or more Sessions",Specialty
+67229,"Laser Destruction or Freezing of Extensive Leaking Retinal Blood Vessels, Preterm Infant, 1 or more Sessions",Specialty
+67005,Anterior Vitrectomy,Specialty
+67015,Vitrectomy,Specialty
+67025,Injection of Synthetic Eye Fluid,Specialty
+67027,Implantation of Eye Drug Delivery System,Specialty
+67028,Intra Vitreal Injection,Specialty
+92553,Audiometry-Spec Investigation,Specialty
+43194,Oesophagus FB Removal,Specialty
+11005,Sloughectomy (G/A or Without G/A),Specialty
+11440,Head and Neck Tumo Excision and Flap Econstruction,Specialty
+69632,Ossiculoplasty,Specialty
+42890,Palatopharyngotomy Plus Tuomor Excision,Specialty
+92538,Vestibular Test,Specialty
+30300,Removal of Foreign Body in Nose,Specialty
+D7260,Oral Antral Fistula Repair,Specialty
+42665,Tying Salivary Gland Duct,Specialty
+31600,Tracheostomy,Specialty
+42835,Adenoidectomy/Adenotomy,Specialty
+42820,Adenotonsilectomy,Specialty
+31561,Arytenoidectomy,Specialty
+31032,Bilateral/Unilateral Cald Wel Luc,Specialty
+42810,Brachial Cyst/ Fistula Excision,Specialty
+38720,Cervical Node Excision,Specialty
+31360,Cordectomy,Specialty
+31535,Direct Laryngoscopy & Biopsy,Specialty
+31237,Direct Nasopharyingoscopy & Biopsy,Specialty
+42815,Excision of Branchial Fistulla,Specialty
+69140,Excision of Osteoma of External Auditory Canal,Specialty
+42140,Excision of Soft Palate Tumour,Specialty
+31780,Excision Subglottic Stenosis,Specialty
+31201,External Ethmoidectomy,Specialty
+31255,Functional Endoscope Sinus Surgery (Fess),Specialty
+31382,Hemi Laryngectomy,Specialty
+31256,Intra Nasal Antrostomy,Specialty
+31587,Laryngeal Fissure,Specialty
+30117,Lateral Rhinotomy,Specialty
+38500,Lymph Node Biopsy,Specialty
+31599,Micro Laryngeal Surgery (Mls),Specialty
+42953,Tracheosophageal Excision,Specialty
+69502,Mastoidectomy,Specialty
+31575,Micro Laryngoscopy & Biopsy,Specialty
+31541,Microlaryngeal Surgery,Specialty
+69642,Modified Radical Mastoidectomy,Specialty
+69436,Myringotomy & Tube,Specialty
+69433,Incision of Eardrum with Insertion of Eardrum Tube Under Local or Topical Anesthesia,Specialty
+30110,Nasal Polypectomy,Specialty
+38724,Radical Neck Dissection,Specialty
+42892,Parapharyngeal Tumor Excision,Specialty
+42410,Superficial Parotidectomy,Specialty
+69511,Radical Mastoidectomy,Specialty
+30310,Foreign Body Removal Nose Under GA,Specialty
+30630,Septoplasty,Specialty
+69660,Stapedectomy,Specialty
+42415,Superficial Parotidectomy,Specialty
+31367,Supralotic Laryngectomy,Specialty
+31611,Surgical Speech Fistula Reconstruction,Specialty
+42826,Tonsillectomy,Specialty
+31365,Total Laryngectomy,Specialty
+31230,Total Maxillectomy Plus Orbital Exanteration,Specialty
+30930,Turbinate Repair/Resection,Specialty
+30130,Turbinectomy,Specialty
+69644,Tympano Mastoidectomy,Specialty
+69610,Tympanoplast I-IV,Specialty
+42145,Uvuto Palatopharyngotomy,Specialty
+31375,Vertical Hemilaryngectomy,Specialty
+31637,Bronchoscopic Stenting,Specialty
+21044,Hemimandibulectomy,Specialty
+21032,Hemimaxillectomy,Specialty
+21025,Total Mandibulectomy,Specialty
+D7560,Caldwel Luc Procedure,Specialty
+21501,Incision & Drainage of Abscess,Specialty
+20100,Surgical Toilet & Sulture,Specialty
+31000,Antral Wash Out Bilateral,Specialty
+31002,Antral Wash Out Unilateral,Specialty
+42804,Nasopharynx Biopsy Under LA,Specialty
+30100,Nose Biopsy Under LA,Specialty
+40808,Oralpharynx Biopsy Under LA,Specialty
+30903,Cautarization (Varices) Bilateral,Specialty
+30901,Cautarization (Varices) Unilateral,Specialty
+92551,Free Field Audiometry,Specialty
+92590,Hearing Aid Trial,Specialty
+D7240,Impaction Removal-Complicated,Specialty
+69554,Kelloidectomy (Ear) L. A. Bilateral/Unilateral,Specialty
+92550,Tympanometry,Specialty
+69209,Removal of Ear Wax(Endoscopy Suction/Washing),Specialty
+31231,Diagnostic Nasal Endoscopy,Specialty
+31525,Diagnostic Rigid Laryngoscopy,Specialty
+12056,Earlobe Repair,Specialty
+31233,Endoscopic Suction Clearance Nose,Specialty
+92511,Fibre Optic Nasal Laryngoscope,Specialty
+69200,Removal of Foreign Body Ear,Specialty
+69210,Wax Removal,Specialty
+69220,Tympano Mastoidectomy,Specialty
+31370,Vertical Hemilaryngectomy,Specialty
+69799,Stapedectomy,Specialty
+24410,Superficial Parotidectomy,Specialty
+15828,Branchial Fistula Excision,Specialty
+31770,Balloon Bronchoplasty,Specialty
+42808,Brochoscopy foreign body removal,Specialty
+30540,Choanal atresia release,Specialty
+31020,Sinusectomy,Specialty
+D7920,PLASTIC SURGICAL PROCEDURE,Specialty
+14040,Plastic Surgery (10 Sq Centimeters or Less),Specialty
+42426,Total Parotidectomy,Specialty
+42440,Submandibular Salivary Gland Excision,Specialty
+42450,Sublingual Savary Gland Excision,Specialty
+42600,Closure of Abnormal Salivary Gland Drainage Tract,Specialty
+11446,Keloid Excision,Specialty
+96372,Keloid Infitration,Specialty
+99024,Suture Removal,Specialty
+42180,Uvular Repair / Hamostasis,Specialty
+31511,Removal of Foreign Body from Voice Box using an Endoscope,Specialty
+D7650,Zygomatic Arch Fracture (Open Reduction),Specialty
+D7660,Zygomatic Arch Fracture (Closed Reduction),Specialty
+D7680,Zygomatic Arch Fracture (Complicated),Specialty
+D7999,Tissue Biopsy (ORAL Unspecified),Specialty
+D7286,Tissue Biopsy (Oral Tissue Incision),Specialty
+D7955,Cleft Lip & Palate Repair,Specialty
+D7840,Condylectomy Unilateral,Specialty
+D7899,Temporomandibular Joint Dysfunction Therapy,Specialty
+D7991,Coronoidectomy,Specialty
+D7450,Dental Cystectomy,Specialty
+D7461,Dental Tumour Excission,Specialty
+41140,Glossectomy,Specialty
+41115,Glossectomy (including floor of Mouth),Specialty
+41116,Tumor Excision (at floor of the Mouth),Specialty
+41120,Hemiglossectomy,Specialty
+41135,Hemiglossectomy (including Lymph Nodes),Specialty
+41114,Tumor Excision (at floor of the Mouth),Specialty
+41145,Total Glossectomy (including its Lymph Nodes),Specialty
+41150,Glossectomy (including Bone),Specialty
+41153,Radical Glossectomy,Specialty
+11444,Kelloidectomy,Specialty
+21046,Mandibular Excision,Specialty
+21462,Open Reduction At Angle of Mandible,Specialty
+21465,Open Reduction At Body of Mandible,Specialty
+D7946,Open Reduction Lefort I,Specialty
+D7947,Lefort I (Maxilla - Segmented),Specialty
+D7948,Open Reduction Lefort II,Specialty
+D7949,Open Reduction Lefort III,Specialty
+D7261,Oral Antral Communication Repair,Specialty
+42330,Salivary Duct Stone Removal,Specialty
+42420,Total Parotidectomy,Specialty
+42505,Plastic Repair of Salivary Duct,Specialty
+42507,Plastic Repair of Salivary Duct(Major Salivary Gland Ducts Bilateraly),Specialty
+42509,Plastic Repair of Salivary Duct (with Gland Excision),Specialty
+42510,Plastic Repair of Salivary Duct (with Tying Duct Bilateraly),Specialty
+42550,Injection of Dye for X-Ray of Salivary Glands,Specialty
+42650,Insertion of Probe for Salivary Gland Duct Dilation,Specialty
+42660,Salivary Gland Duct Dilation,Specialty
+42699,Salivary Gland or Duct Procedure,Specialty
+51999,Transurethral Resection/Incision of Bladder Neck,Specialty
+D7451,Tumour Enucleation,Specialty
+D7460,Tumour Enucleation (Lesion Diameter up to 1.25 Cm),Specialty
+21048,Partial Maxillectomy,Specialty
+21930,Lipoma Excision Minor,Specialty
+D6245,Acrylic Bridge,Specialty
+D2949,Additional Filling,Specialty
+D7670,Alveolar Bone Fracture,Specialty
+D7671,"Alveolus - Open Reduction, Splinting of Teeth",Specialty
+D7771,Alveolus - Closed Reduction Splinting of Teeth,Specialty
+D2140,Amalgam Filling One Surface,Specialty
+D2150,Amalgam Filling-Two or more Surface,Specialty
+D2160,Amalgam Filling-Three Surface,Specialty
+D2161,Amalgam Filling-Four or more Surface,Specialty
+D3410,Apicectomy,Specialty
+D3421,Apicoectomy - Bicuspid (First Root),Specialty
+D3425,Apicoectomy - Molar (First Root),Specialty
+D3426,Apicoectomy (Each Additional Root),Specialty
+21454,Archwire Change,Specialty
+D0270,Bitewing View,Specialty
+D0272,Bitewings - Two Radiographic Images,Specialty
+D0273,Bitewings - Three Radiographic Images,Specialty
+D0274,Bitewings - Four Radiographic Images,Specialty
+D0277,Vertical Bitewings - 7 to 8 Radiographic Images,Specialty
+41872,Arresting Bleeding Socket,Specialty
+41874,Dry / Infected Socket Irrigation,Specialty
+41899,Rotational Flap,Specialty
+D2710,Bridge Construction Per Unit with Composite,Specialty
+D2712,Crown - ¾ Resin-Based Composite (Indirect),Specialty
+31636,Bronchoschopic Stenting using an Endoscope,Specialty
+40650,Cleft Lip (Repair),Specialty
+40652,Cleft Lip (Repair) Half of Lip,Specialty
+40654,Cleftl Lip (Repair) Over Half of Lip,Specialty
+40700,Plastic Repair (One Side of the Nose or Lip),Specialty
+40701,Plastic Repair (Bilateraly of The Nose or Lip),Specialty
+40702,Plastic Repair (Bilatery Nose or Lip),Specialty
+40720,Plastic Repair ( Nasal And Lip),Specialty
+40799,Lip Procedure,Specialty
+42200,Cleft Palate Repair,Specialty
+42205,Repair of Defect of Roof of Mouth,Specialty
+42220,Lengthening of Roof of Mouth,Specialty
+42227,Lengthening of Roof of Mouth using Mucous Membrane Flap,Specialty
+D7250,Complicated Extraction,Specialty
+D7251,Coronectomy – Intentional Partial Tooth Removal,Specialty
+D2330,Composite Filling,Specialty
+D2332,"Composite Filling (Three Surfaces, Anterior)",Specialty
+D2335,Composite Filling (more than Four Surfaces ),Specialty
+D2390,Crown (Made of Composite) Anterior,Specialty
+D2391,Crown (Made of Composite One Surface) Posterior,Specialty
+D2392,Crown (Made of Composite Two Surfaces)Posterior,Specialty
+D2393,Crown (Made of Composite Three Surfaces) Posterior,Specialty
+D2394,Crown (Made Composite Four or more Surface) Posterior,Specialty
+21050,Condylectomy Bilateral,Specialty
+21431,Craniomaxillary Fixation,Specialty
+21432,Craniomaxillary Fixation (Insertion of Hardware),Specialty
+21390,Craniomaxillary Fixation (Involving Broken Eye Socket Bone with Implant),Specialty
+21401,Craniomaxillary Fixation (Closed Reduction involving Eye Socket Bone ),Specialty
+D6010,Dental Inplant,Specialty
+D6011,Second Stage Implant Surgery,Specialty
+D6012,Surgical Placement of Interim Implant Body for Transitional Prosthesis: Endosteal Implant,Specialty
+D6013,Surgical Placement of Mini Implant,Specialty
+D6040,Surgical Placement: Eposteal Implant,Specialty
+D6050,Surgical Placement: Transosteal Implant,Specialty
+D6100,Implant Removal,Specialty
+D6101,Debridement of a Peri-Implant Defect,Specialty
+D6102,Debridement and Osseous Contouring of a Peri-Implant Defect,Specialty
+D6103,Bone Graft for Repair of Peri-Implant Defect – Does not include Flap Entry and Closure,Specialty
+D6104,Bone Graft at Time of Implant Placement,Specialty
+70300,X-Ray Periapical View,Specialty
+70310,"X-Ray of Teeth, Less than Full Mouth",Specialty
+70320,"X-Ray of Teeth, Full Mouth",Specialty
+D5610,Repair Resin Denture Base,Specialty
+D5620,Repair Cast Framework,Specialty
+D5630,Repair or Replace Broken Clasp (Per Tooth),Specialty
+D5640,Replace Broken Teeth ( Per Tooth),Specialty
+D5650,Add Tooth to Existing Partial Denture,Specialty
+D5660,Add Clasp to Existing Partial Denture (Per Tooth),Specialty
+D5670,Replace all Teeth and Acrylic on Cast Metal Framework (Maxillary),Specialty
+D5671,Replace all Teeth and Acrylic on Cast Metal Framework (Mandibular),Specialty
+D5213,Maxillary Partial Denture,Specialty
+D5214,Mandibular Partial Denture,Specialty
+D5221,Immediate Maxillary Partial Denture,Specialty
+D5222,Immediate Mandibular Partial Denture,Specialty
+D5110,Complete Denture (Maxillary),Specialty
+D5120,Complete Denture (Mandibular),Specialty
+D5130,Immediate Complete Denture (Maxillary),Specialty
+D5140,Immediate Complete Denture (Mandibular),Specialty
+D2331,Diastema Closure,Specialty
+D1510,Diesterma Formation,Specialty
+D1515,Space Maintainer (Fixed - Bilateral),Specialty
+D1520,Space Maintainer (Removable - Unilateral),Specialty
+D1525,Space Maintainer ( Removable - Bilateral),Specialty
+D5212,Direct Composite Bridge,Specialty
+D6205,Pontic (Indirect Resin Based Composite),Specialty
+D6710,Retainer Crown (Indirect Resin Based Composite),Specialty
+D6549,Resin Retainer (for Resin Bonded Fixed Prosthesis),Specialty
+D7220,Tooth Extraction (Complex),Specialty
+D7230,Removal of Impacted Tooth ( Partially Bony),Specialty
+D7241,"Removal of Impacted Tooth -(Completely Bony, with Unusual Surgical Complications)",Specialty
+41823,Dry Socket,Specialty
+D1206,Floride Vanish Application,Specialty
+D1208,Topical Application of Fluoride -(Excluding Varnish),Specialty
+D3230,Endodontic Treatment Anterior,Specialty
+D3310,"Endodontic Therapy (Anterior Tooth, Excluding Final Restoration)",Specialty
+D3240,Endodontic Treatment Molar,Specialty
+D3330,"Endodontic Therapy, Molar (Excluding Final Restoration)",Specialty
+D3320,Endodontic Treatment Premolar,Specialty
+D3331,Treatment of Root Canal Obstruction (Non-Surgical Access),Specialty
+D3332,"Incomplete Endodontic Therapy (Inoperable, Unrestorable or Fractured Tooth)",Specialty
+D3333,Internal Root Repair of Perforation Defects,Specialty
+D7140,Tooth Extraction Permanent,Specialty
+D7111,Tooth Extraction Decidous,Specialty
+D2950,Tooth Filling with Pin Additional-Anterior,Specialty
+D2951,Tooth Filling with Pin Additional-Posterior,Specialty
+D2952,Crown and Bridge,Specialty
+D8030,Limited Orthodontic Treatment of The Adolescent Dentition,Specialty
+D8050,Interceptive Orthodontic Treatment of the Primary Dentition,Specialty
+D8070,Comprehensive Orthodontic Treatment of the Transitional Dentition,Specialty
+D8080,Comprehensive Orthodontic Treatment of the Adolescent Dentition,Specialty
+D8090,Comprehensive Orthodontic Treatment of the Adult Dentition,Specialty
+D8220,Fixed Appliance Therapy,Specialty
+D8660,Pre-Orthodontic Treatment Examination to Monitor Growth and Development,Specialty
+D8680,"Orthodontic Retention (Removal of Appliances, Construction and Placement of Retainer(S))",Specialty
+D8681,Removable Orthodontic Retainer Adjustment,Specialty
+D8690,Orthodontic Treatment (Alternative Billing to A Contract Fee),Specialty
+D8691,Repair of Orthodontic Appliance,Specialty
+D8692,Replacement of Lost or Broken Retainer,Specialty
+D8693,Re-Cement or Re-Bond Fixed Retainer,Specialty
+D8694,Repair of Fixed Retainers (Includes Reattachment),Specialty
+D7971,Flapectomy (Dental),Specialty
+D4210,Gingivectomy,Specialty
+D4211,Gingivectomy or Gingivoplasty (Tooth Bounded Spaces Per Quadrant),Specialty
+D4212,"Gingivectomy or Gingivoplasty (To Allow Access for Restorative Procedure, Per Tooth)",Specialty
+D4230,Anatomical Crown Exposure (Four or more Contiguous Teeth Per Quadrant),Specialty
+D4231,Anatomical Crown Exposure ( One to Three Teeth Per Quadrant),Specialty
+D4240,"Gingival Flap Procedure (including Root Planning , Four or more Contiguous Teeth or Tooth Bounded Spaces Per Quadrant)",Specialty
+D4241,"Gingival Flap Procedure (Including Root Planning, One to Three Contiguous Teeth or Tooth Bounded Spaces Per Quadrant)",Specialty
+D2940,Glass Ionomer Filling,Specialty
+D2920,Re-Cement or Re-Bond Crown,Specialty
+21244,Reconstruction of Lower Jaw Bone With Insertion of Bone Plate,Specialty
+21245,Partial Repair of Lower Jaw or Cheek Bone With Implant,Specialty
+21248,Partial Reconstruction of Lower Jaw or Cheek Bone with Insertion of Implant,Specialty
+21070,Removal of Diseased or Fractured Portion of Lower Jaw Bone,Specialty
+21034,Removal of Malignant Growth of Upper Jaw or Cheek Bone,Specialty
+D5931,"Obturator Prosthesis, Surgical",Specialty
+41800,I & D (Dental Abcess),Specialty
+D7510,Incision and Drainage of Abscess (Intraoral Soft Tissue),Specialty
+D7511,Incision and Drainage of Abscess (Intraoral includes Drainage of Multiple Fascial Spaces),Specialty
+D7520,Incision and Drainage of Abscess (Extraoral Soft Tissue),Specialty
+D7521,Incision and Drainage of Abscess (Extraoral Soft Tissue includes Drainage of Multiple Fascial Spaces),Specialty
+21076,Impression & Model Cast,Specialty
+21077,Impression and Preparation of Eye Socket Prosthesis,Specialty
+21079,Impression and Custom Preparation of Temporary Oral Prosthesis,Specialty
+21080,Impression and Custom Preparation of Permanent Oral Prosthesis,Specialty
+21081,Impression and Custom Preparation of Lower Jaw Bone Prosthesis,Specialty
+21082,Impression and Custom Preparation of Prosthesis for Roof of Mouth Enlargement,Specialty
+21083,Impression and Custom Preparation of Roof of Mouth Prosthesis,Specialty
+21084,Impression and Custom Preparation of Speech Aid Prosthesis,Specialty
+21453,Closed Treatment of Broken Jaw Bone with Insertion of Hardware or Oral Splint,Specialty
+21461,Open Treatment of Broken Jaw Bone,Specialty
+11200,Ligature Change,Specialty
+D7921,Mandibular Grafting,Specialty
+D7950,Mandible or Maxilla Gaft (Autogenous or Nonautogenous),Specialty
+D7295,Mandible or Maxilla Graft (Harvest of Bone),Specialty
+D7953,Mandible or Maxilla Graft (Bone Replacement Graft for Ridge Preservation),Specialty
+D4265,Biologic Materials to Aid in Soft and Osseous Tissue Regeneration,Specialty
+20969,Placement of skin and Bone Flap with Microvascular Connection,Specialty
+21049,Maxillectomy (External Removal of Upper Jaw Bone Growth or Cyst),Specialty
+D0240,Oclusal View,Specialty
+D7630,Open Reduction Fracture Mandible,Specialty
+D7858,Open Reduction Tmj,Specialty
+D7852,Disc Repair,Specialty
+D7854,Synovectomy,Specialty
+D7856,Myotomy,Specialty
+D7860,Arthrotomy,Specialty
+D7865,Arthroplasty,Specialty
+D7870,Arthrocentesis,Specialty
+D7871,Non-Arthroscopic Lysis and Lavage,Specialty
+D7872,"Arthroscopy - Diagnosis, with or without Biopsy",Specialty
+D7750,Open Reduction Zygomatic,Specialty
+D8010,Orthodontic Appliance Fixing Per Jaw,Specialty
+D8020,Orthodontic Treatment (Adult Dentition),Specialty
+D1110,Teeth Polishing,Specialty
+D1120,Prophylaxis - Child,Specialty
+D3220,Pulpotomy,Specialty
+D3221,Pulpotomy (Primary and Permanent Teeth),Specialty
+D3222,Partial Pulpotomy for Apexogenesis (Permanent Tooth with incomplete Root Development),Specialty
+D7820,Reduction of TMJ Manual,Specialty
+D7830,Manipulation of TMJ Under Anesthesia,Specialty
+D5225,Removable Acrylic Partial Denture Single Tooth,Specialty
+D5226,"Mandibular Partial Denture (Flexible Base including any Clasps, Rests and Teeth)",Specialty
+D8670,Removable Orthodontic Activation,Specialty
+D8999,Unspecified Orthodontic Procedure,Specialty
+D8210,Removable Orthodontic Appliance (with / without Expansion),Specialty
+D8040,Orthodontic Treatment (Adult Dentition),Specialty
+D7940,Osteoplasty (For Orthognathic Deformities),Specialty
+D7941,Osteotomy (Mandibular Rami),Specialty
+D7943,Osteotomy (Mandibular Rami with Bone Graft; Includes Obtaining the Graft),Specialty
+D7944,Osteotomy (Segmented or Subapical),Specialty
+D7945,Osteotomy ( Body of Mandible),Specialty
+D8060,Interceptive Orthodontic Treatment of the Transitional Dentition,Specialty
+D5520,Repair of Denture,Specialty
+D5710,Rebase Complete Maxillary Denture,Specialty
+D5711,Rebase Complete Mandibular Denture,Specialty
+D5720,Rebase Maxillary Partial Denture,Specialty
+D5721,Rebase Mandibular Partial Denture,Specialty
+D5730,Reline Complete Maxillary Denture (Chairside),Specialty
+D5731,Reline Complete Mandibular Denture (Chairside),Specialty
+D5740,Reline Maxillary Partial Denture (Chairside),Specialty
+D5741,Reline Mandibular Partial Denture (Chairside),Specialty
+D5750,Reline Complete Maxillary Denture (Laboratory),Specialty
+D5751,Reline Complete Mandibular Denture (Laboratory),Specialty
+D5760,Reline Maxillary Partial Denture (Laboratory),Specialty
+D5761,Reline Mandibular Partial Denture (Laboratory),Specialty
+D5410,Adjust Complete Denture (Maxillary),Specialty
+D5411,Adjust Complete Denture ( Mandibular),Specialty
+D5421,Adjust Partial Denture (Maxillary),Specialty
+D5422,Adjust Partial Denture ( Mandibular),Specialty
+D4341,Scalling and Root Planning The Whole Mouth,Specialty
+D4342,Periodontal Scaling and Root Planning (One to Three Teeth Per Quadrant),Specialty
+D4346,Scaling and Root Planning (For Generalized Moderate or Severe Gingival Inflammation),Specialty
+D7550,Sequestrectomy,Specialty
+89220,Sputum Induction (Procedure),Specialty
+D7910,Suturing,Specialty
+D7911,Suture (Complicated up to 5 Cm),Specialty
+D7912,"Suture (Complicated ,Greater than 5 Cm)",Specialty
+D7270,Teeth Splinting with Composite,Specialty
+D7272,Tooth Transplantation (Includes Re-Implantation from one site to another and Splinting and/or Stabilization),Specialty
+D2941,Temporary Filling,Specialty
+41010,Tongue Tie Release,Specialty
+D2960,Veneer Direct,Specialty
+D7411,Wide Excisional ( Benign Lesion Greater than 1.25 Cm),Specialty
+D7412,"Wide Excisional (Benign Lesion, Complicated)",Specialty
+D7413,Wide Excisional (Malignant Lesion up to 1.25 Cm),Specialty
+D7414,Wide Excisional (Malignant Lesion Greater than 1.25 Cm),Specialty
+D7465,Dental Laser Treament,Specialty
+D0330,X-RAY Orthopantomograph (OPG),Specialty
+21497,Intermaxillary Fixation (Wiring of Jaw or Oral Splint to Teeth),Specialty
+41512,Tongue Stitching,Specialty
+21030,Total Maxillectomy,Specialty
+21038,Partial Maxillectomy,Specialty
+D7740,Intermaxillary Fixation,Specialty
+41825,Apicectomy,Specialty
+21480,TMJ Reduction,Specialty
+41251,Tongue and Stitch/Repair,Specialty
+90951,Acute Peritoneal Dialysis,Specialty
+38220,Bone Marrow Aspiration Biopsy (Procedure),Specialty
+36823,Chemotherapy Delivery (Periphery Line),Specialty
+36455,Exchange Blood Transfusion,Specialty
+36680,Intraossius Puncture,Specialty
+62270,Diagnostic Lumbar Puncture,Specialty
+92002,Medical Examination for Students Enrolling In Coll,Specialty
+96900,Phototherapy,Specialty
+90947,Renal Dialysis Per Session,Specialty
+90945,Renal-Haemodialysis Catheterization,Specialty
+99199,Renal-Medical Report,Specialty
+36576,Resuturing of Temporary Catheter,Specialty
+36416,Venous Puncture,Specialty
+33010,Open Pericardiocentesis,Specialty
+33015,Closed Pericardiocentesis,Specialty
+33025,Pericardiectomy,Specialty
+33031,Pericardiectomy with CPB,Specialty
+33050,Pericardium Tumor Excision,Specialty
+33120,Pericardium Tumor Excision on CPB,Specialty
+33141,Laser Cardiac Therapy,Specialty
+33202,Open Biventricular Pacing,Specialty
+33203,Biventricular Pacing Insertion,Specialty
+33204,Biventricular Device,Specialty
+33210,Temporary Pacermaker Insertion,Specialty
+33212,Insertion of High Power Device,Specialty
+33215,Reposition of Pacemaker,Specialty
+33216,Permanent Pacemaker Insertion,Specialty
+33218,D/Chamber Pacemaker,Specialty
+33222,Relocation of Pacemaker Skin Pocket,Specialty
+33227,Removal and Replacement of Single Lead Pacemaker,Specialty
+33228,Removal and Replacement of Dual Lead Pacemaker,Specialty
+33236,Removal of Permanent Pacemaker.,Specialty
+33243,Removal of Defibrilator Electrode,Specialty
+33251,Maze Procedure,Specialty
+33254,Atrial Reduction,Specialty
+33300,Cardiac Repair,Specialty
+33305,Cardiac Repair on CPB,Specialty
+33310,Cardiac Clot Removal,Specialty
+33320,Main Vascular Repair,Specialty
+33322,Main Vascular Repair on CPB,Specialty
+33330,Bental's With Aortic Valve Replacement,Specialty
+33335,Valve Sparing Bental's,Specialty
+33361,Transcatheter Aortic Valve Replacement (TAVR),Specialty
+33420,Transcatheter Mitral Valvuloplast,Specialty
+33362,Aortic Valve Replacement,Specialty
+33390,Aortic Valve Repair on CPB,Specialty
+33391,Avr With Aortic Root Enlargement,Specialty
+33405,Bio-Synthetic Aortic Valve Replacement on CPB,Specialty
+33412,Mitral Annuloplasty And Replacement,Specialty
+33413,Aortic/Pulmonary Outlet Obstruction Release,Specialty
+33414,Left Ventricular Outlet Tractobstruction Release,Specialty
+33416,Left Ventriculotomy,Specialty
+33417,Aortic Valve Repair,Specialty
+33422,Open Mitral Valvotomy,Specialty
+33425,Mitral Valve Repair with CPB,Specialty
+33426,Bio-Synthetic Mitral Valve Replacement on CPB,Specialty
+33430,Mitral Valve Replacement,Specialty
+33460,Tricuspid Valve Annuloplasty on CPB,Specialty
+33463,Tricuspid Valve Annuloplasty,Specialty
+33464,Tricuspid Valve Ring Annuloplasty on CPB,Specialty
+33465,Tricuspid Valve Replacement on CPB,Specialty
+33468,Tricuspid Valve Repositioning,Specialty
+33470,Closed Pulmonary Valvotomy,Specialty
+33474,Open Tricuspid Valvotomy,Specialty
+33475,Pulmonary Valve Replacement,Specialty
+33476,Double Valve Replacement,Specialty
+33477,Pulmonary Valve Replacement,Specialty
+33478,Right Ventricular Outlet Tract Obstruction Release,Specialty
+33496,Re- Do Mechanical Valve Replacement,Specialty
+33500,Coronary Artery Reimplantation on CPB,Specialty
+33502,Repair of Coronaryartery Anomaly,Specialty
+33503,Coronary Artery Bypass Graft (Anomaly),Specialty
+33504,Transection of Pulmonary Artery,Specialty
+33505,Repair of Sinus of Valsalva Fistula,Specialty
+33507,Coronary Artery Osteoplasty,Specialty
+33510,Single Vessel Coronary Artery Bypass Surgery,Specialty
+33511,Two Vessel Coronary Artery Bypass Surgery,Specialty
+33512,Tripple Vessel Coronary Artery Bypass Surgery,Specialty
+33514,Tripple Vessel Coronary Artery Bypass Surgery without CPB,Specialty
+33530,Reopening Cardiac Surgery- 1month,Specialty
+33600,Tricuspid Valve Cleft Repair,Specialty
+33602,Valve Leaflets Reconstruction,Specialty
+33606,Damas - Kaye Stansel Procedure,Specialty
+33620,Rt And Lt Pulmonary Artery Banding,Specialty
+33621,Asd Closure With Device,Specialty
+33622,Complex Intracardiac Repair,Specialty
+33641,"ASD Closure, Open",Specialty
+33645,ASD Closure + Roofing of SVC,Specialty
+33647,VSD And ASD Closure,Specialty
+33675,Multiple VSD Closure,Specialty
+33676,VSD or ASD Closure- Device,Specialty
+33681,"VSD Closure, Open",Specialty
+33690,Banding Pulmonary Artery,Specialty
+33692,Complete Tof Repair,Specialty
+33724,Tapvc Repair,Specialty
+33755,Waterston Procedure,Specialty
+33762,Blalock - Taussig Shunt (Bt Shunt),Specialty
+33764,Modified Blalock - Taussig Shunt (Modified BT Shunt),Specialty
+33766,Glenn Procedure,Specialty
+33768,Removal of Congenital Extra Vena Cava,Specialty
+33783,VSD Closure and Arterial Switch,Specialty
+33788,Pumonary Artery Conduit(Truncus),Specialty
+33820,"Pda Closure, Open",Specialty
+33822,Pda Device Closure,Specialty
+33930,Cardio-Pulmonary Harvest,Specialty
+33935,Cardio-Pulmonary Transplant,Specialty
+33940,Preoperative Cardiac Preservation,Specialty
+33945,Cardiac Transplant,Specialty
+33952,Insertion of Extracorporeal Membrane Oxygenation (ECMO),Specialty
+33953,Extracorporeal Membrane Oxygenation (ECMO),Specialty
+33967,Insertion of Intra-Aortic Balloon Assist Device,Specialty
+33968,Removal of Intra-Aortic Balloon Assist Device,Specialty
+34101,Embolectomy Great Artery on CPD,Specialty
+34111,Embolectomy Great Artery,Specialty
+34151,Embolectomy Arterial Peripheral,Specialty
+34401,Embolectomy In Peripheral Veins,Specialty
+34421,Embolectomy In Vena Cava,Specialty
+34471,Embolectomy In Neck Vein,Specialty
+34490,Embolectomy Underarm And Upper Chest Vein,Specialty
+34502,Reconstruction of Vena Cava,Specialty
+34520,Venous Stripping,Specialty
+34800,Abdominal Aortic Aneurysm Repair with Prosthesis on CPD,Specialty
+34802,Abdominal Aortic Aneurysm Repair without Prosthesis,Specialty
+34813,Vasclar Surgery with Prosthesis - Thigh,Specialty
+34820,Vasclar Surgery without Prosthesis - Thigh,Specialty
+34821,Thoracic Aortic Aneurysm Stenting,Specialty
+34825,Abdominal or Femoral Vascular Aneurysm Stenting,Specialty
+34826,Abdominal Aortic Aneurysm Repair with Prosthesis,Specialty
+34839,Aortic Baloon Therapy,Specialty
+34900,Femoral Graft Placement,Specialty
+35583,Peripheral Vascular Bypass Graft,Specialty
+35901,Infected Graft Revision- Peripheral,Specialty
+35907,Infected Graft Revision- Open Procedure,Specialty
+36000,Venous Cannulation,Specialty
+36002,Embolization,Specialty
+36479,Laser Vascular Therapy,Specialty
+36555,Central Venous Line,Specialty
+36590,Removal of Peripheral Venous Catheter,Specialty
+36569,Permanent Vascular Catheterazation,Specialty
+36640,Arterial Line Insertion,Specialty
+36818,Arteriovenous Fistular,Specialty
+37200,Transcatheter Biopsy of Blood Vessel,Specialty
+37237,Peripheral Vascular Stent Insertion,Specialty
+37605,Major Vascular Ligation,Specialty
+37607,Peripheral Arterio Venous Ligation,Specialty
+37609,Vascular Biopsy and Ligation,Specialty
+37722,Vascular Stripping,Specialty
+37735,High Ligation and Stripping,Specialty
+37765,Multiple Venoligation,Specialty
+37780,Venoligation- Trauma,Specialty
+37785,Venoligation- Varicose,Specialty
+92920,Percutaneous Coronary Balloon Angioplasty,Specialty
+92929,Percutaneous Coronary Stenting,Specialty
+92941,Emergency Percutaneous Coronary Embolectomy and Stenting/Balloon,Specialty
+92975,Intracoronary Thrombolytic Infusion with X-Ray,Specialty
+92977,Intracoronary Thrombolytic Infusion,Specialty
+92986,Percutaneous Aorta Valve Repair,Specialty
+92987,Percutaneous Mitral Valve Repair,Specialty
+92990,Percutaneous Pulmonary Valve Repair,Specialty
+92998,Percutenous Pulmonary Artery Balloon,Specialty
+93015,Stress Test/ Trademill Test,Specialty
+93017,Drug Induced Stress ECG,Specialty
+93224,Holter Monitor 48hr,Specialty
+93228,Holter Monitor 24hr,Specialty
+93272,Cardiac Monitor-24hr,Specialty
+93297,Pacemaker Interrogation,Specialty
+93299,CRDT Interrogation,Specialty
+93306,Advanced/Detailed Echo,Specialty
+93307,Echo Cardiogram,Specialty
+93308,Echo Follow up,Specialty
+93312,Trans Esophageal Echo,Specialty
+93350,Stress Echo,Specialty
+93530,Diagnostic Coronary Catheterization,Specialty
+93784,Ambulatory Blood Pressure,Specialty
+95885,EMG Standard,Specialty
+61107,Subdural Tapping (Insertion of Brain Drainage Catheter or Fluid Pressure Recording or Monitoring Device),Specialty
+61521,Brain Abcess,Specialty
+61538,Burr Hole for Evacuation,Specialty
+61540,Craniotomy for Posterior,Specialty
+61590,Craniotomy for Olfactory,Specialty
+61888,Craniotomy for Right Frontal,Specialty
+61512,Craniotomy for Meningioma,Specialty
+61510,Craniotomy for Tumour,Specialty
+62000,Skull Elevation (Elevation of Depressed Skull Fracture),Specialty
+61500,Skull Exostosis Excision (Removal of Brain Tumor or Other Skull Bone Lesion),Specialty
+61546,Craniotomy for Pituitary (Incision of Forehead Bone for Excision of Pituitary Gland Tumor),Specialty
+62252,Glomus Jugulare Tumour,Specialty
+63704,Ant Fontenele Meningocele (Repair of (Less than 5 Centimeter) Spinal Cord Defect),Specialty
+62005,Skull Elevation (Elevation of Depressed Skull Fractures),Specialty
+62100,Naso Encephabulle Repair (Repair of Membrane Covering the Brain),Specialty
+62120,Encephalocele Closure/Repair,Specialty
+62141,Cranioplasty,Specialty
+61548,Gastrectomy for Pituitary (Excision of Pituitary Gland Tumor),Specialty
+62230,Revision VP Shunt (Replacement or Revision of Brain Fluid Drainage Shunt Valve or Catheter),Specialty
+62256,Shunt Removal (Removal of Brain and Spinal Fluid Shunt System),Specialty
+62225,VP Shunt and SBH Evacuation (Replacement or Irrigation of Brain Fluid Drainage Shunt Catheter),Specialty
+61000,Subdural Tapping,Specialty
+61108,Right Burr Holes for SDH,Specialty
+61150,Brain Abcess,Specialty
+61305,Craniotomy for Posterior,Specialty
+61312,Subdural Haematoma,Specialty
+61313,Craniotomy for Olfactory,Specialty
+61154,Burr Hole and Haematoma,Specialty
+61250,Burr Hole and Evacuation CSDH,Specialty
+61314,Evaculation for Chronic,Specialty
+61514,Ocipital Meningocele Excision,Specialty
+61520,Olfactory Groove Mengioma,Specialty
+61570,Craniotomy for Bullet / Foreign Body,Specialty
+62010,Ds And Skull Elevation and EF,Specialty
+62117,Encephaocele Repair,Specialty
+62121,Ocipital Enephalocele Repair,Specialty
+61575,"Transoral Approach Skullbase Bx,Tomor Excision",Specialty
+61605,"Resection On Neoplastic,Vascular,Infectious Lesion Infratemporal Fossae",Specialty
+61606,Infratemporal Fossa with Duroplasty/Grafting,Specialty
+61609,Transection/Ligation Carotid Artery,Specialty
+61612,Transection/Ligation Carotid Artery with Repair,Specialty
+61613,"Obliteration of Carotid Aneurysm, AVN by Microscope",Specialty
+61618,Secondary Repair of Dura for CSF Leaking,Specialty
+61624,"Transcatheter Permanent Occlusion ,Embolization Intracranial",Specialty
+61700,Aneurysmal Creeping Intracranial,Specialty
+62201,ETV (Stereotactic Creation of Spinal Fluid Drainage Tract in the Brain using an Endoscope),Specialty
+61698,Aneurysmal Cliping (Repair of Bulging of Blood Vessel (Aneurysm) in Brain),Specialty
+62165,Removal of Pituitary Gland Tumor using an Endoscope,Specialty
+22554,"ACDF (Fusion of Spine Bones with Removal of Disc at Upper Spinal Column, Anterior Approach)",Specialty
+22612,Spinal Stabilization Trans,Specialty
+22552,Anterior/ Posterior Cervical,Specialty
+22845,C3-C4 Laminectomy Under C-Arm,Specialty
+63075,Anterior Cervical Caging (Removal of Upper Spine Disc and Release of Spinal Cord and/or nerves),Specialty
+22846,C4-C5 Coperctomy Cage and,Specialty
+22847,C4-C5c5-C6 Ventral Fusion,Specialty
+64634,Percutaneous Discectomy Cervical,Specialty
+22851,Synthetic Caging Cervical,Specialty
+22630,L2-L3 Caopectomy and,Specialty
+22632,L4-L5 Fusion,Specialty
+22840,Revision Transpedicular,Specialty
+63017,Lumbar Canal Decompression,Specialty
+63020,Lumbar Decompression,Specialty
+63015,Discectomy L4-L5,Specialty
+63045,Laminectomy L3-L5,Specialty
+63046,Laminectomy L4-L5 Under C,Specialty
+63047,Laminectomy T11-T12,Specialty
+63048,Laminectomy T12-L1,Specialty
+63056,DECOMPRESION L4-L5.L5-S1(Release of Lower Spinal Cord and/or Nerves),Specialty
+63307,Retroperitoneal L2-L3,Specialty
+63700,SB Closure,Specialty
+63706,Revision Wound for SB Repair,Specialty
+63702,SB Repair,Specialty
+22849,Revision Instrument L4-L5,Specialty
+22859,Carpectomy and Meshed Cage,Specialty
+63030,Discectomy L4-L5/L5-S1,Specialty
+63057,Fusion L3-S1 (Release of Middle or Lower Spinal Cord and/or Nerves),Specialty
+63035,Disfraciculation LT Hip/Wide,Specialty
+63050,Ilistrumented Fusion L5-S1,Specialty
+64490,Lumber Facet Injection L4-L5,Specialty
+22633,L4-L5 Fusion Under Image,Specialty
+22634,L4-L5 And L5-S1 Epidural,Specialty
+22800,L4-L5 Decompression Under C -Arm,Specialty
+22812,L4-L5l5-S1 Decompresion,Specialty
+22804,L5 Si Decompressive And,Specialty
+22808,L5-S1 Facet Injection Under C,Specialty
+22810,L5-Si Laminectomy,Specialty
+22818,Laminectomy L3-L4,Specialty
+22830,Laminectomy L2-L3 Under C,Specialty
+62278,Percutaneous Discectomy Lumbar,Specialty
+62311,Epidural Injection T12-L1,Specialty
+63055,Thoracic Spine Stabilization (Release of Middle Spinal Cord and/or Nerves),Specialty
+22842,Instrumentation T12-L4 Under C-Arm,Specialty
+63086,T12-L1 Decompression And,Specialty
+63087,T12-L1-L2l4 stabilization,Specialty
+63088,T12-L1l2 Instrumentation,Specialty
+63089,T2-T1 Fixation with Pedicle,Specialty
+63276,Spinal Tumour Exicision And,Specialty
+63064,T3 Decompression,Specialty
+63085,T12 Decompression,Specialty
+22802,Arthrodesis of 6 Vertebral SEG,Specialty
+22819,Kyphectomy (Resection Vert SEG),Specialty
+23040,Arthrotomy Shoulder,Specialty
+23120,Bone Nibbling Clavicle,Specialty
+23430,Repair-Biceps,Specialty
+23655,Recurrent Shoulder,Specialty
+23802,Arthrodesis-Shoulder Joint,Specialty
+23900,Forequarter Amputation,Specialty
+23935,Arthrolysis,Specialty
+15101,Skin-Graft Shoulder,Specialty
+23065,Biopsy Shoulder,Specialty
+23330,Debridment Shoulder,Specialty
+23921,Disarticulation-Shoulder,Specialty
+24075,Tumour Excision,Specialty
+24079,Tumour Debukling And Biopsy,Specialty
+23540,Ac Joint Sublaxation,Specialty
+23550,Orif Acj,Specialty
+23500,Closed Treatment Clavicle,Specialty
+23515,Orif Clavicle,Specialty
+23570,Closed Treatment Scapula,Specialty
+23585,ORIF Treatment Scapula,Specialty
+23675,Closed Treatment of Shulder Dislocation,Specialty
+23680,ORIF Shoulder Dislocation,Specialty
+20200,Biopsy Elbow,Specialty
+15736,Reverse Radial Flap Elbow,Specialty
+24006,Gout Tophies Debridement,Specialty
+24076,Elbow Joint Toilet-Bx,Specialty
+24134,Sequstrectomy Humerus,Specialty
+24341,Elbow Reconstruction,Specialty
+24342,Repair-Triceps,Specialty
+24345,Elbow Reconstruction,Specialty
+24362,Reconstraction Elbow,Specialty
+24400,Co Humerus,Specialty
+24435,Revision ORIF Humerus,Specialty
+24515,Dcp Humeerus,Specialty
+24675,EF Trans Elbow,Specialty
+24685,Plating Olecranon,Specialty
+24800,Arthrodesis-Elbow Joint,Specialty
+28341,Revision Surgery Right Elbow,Specialty
+20550,Injection Bursa,Specialty
+12006,SSG Arm,Specialty
+24101,Excision Lateral Epicondyle,Specialty
+24358,Lateral Epicondyle Excision Arthroscopically,Specialty
+24359,Epicondyle Excision,Specialty
+24360,Elbow Reconstrunction under C-Arm,Specialty
+24579,T/Plate/Sign Nail Humerus,Specialty
+24620,Closed Reduction Elbow,Specialty
+24635,Open Reduction Elbow,Specialty
+24640,Trans Elbow EF,Specialty
+24900,Above Elbow Amputation,Specialty
+24920,Disarticulation-Elbow / Amputation-through Arm,Specialty
+11603,"Incisional Bx Forearm, Humerus, Shoulder",Specialty
+20670,"Removal of K-Wire, Rush Rod, Screw, R/U, Humerus, Ankle, etc.",Specialty
+20690,EF Radius / Ulna / Tibia,Specialty
+20900,Bone Nibbling Radius / Tibia / Femur,Specialty
+25275,Repair-Hand Extensor / Flexor Tendon,Specialty
+25350,Co Distal Radius,Specialty
+25415,Revision ORIF Radius,Specialty
+25606,EF Extension Upper Limb,Specialty
+25607,Volar Plate Redius,Specialty
+25905,Amputation Forearm,Specialty
+25924,Disarticulation-Wrist,Specialty
+26055,Co and 1st and 2nd Proximal,Specialty
+64718,Darach Procedure Ulna,Specialty
+64719,Ulna Nerve Exploration,Specialty
+11043,Debridement And EF,Specialty
+24152,Bone Excision Radius,Specialty
+24164,Excision Radial Head,Specialty
+25111,Gandlion Excision Wrist,Specialty
+25112,Granuloma Excision,Specialty
+25320,Open Reduction Lunate,Specialty
+25355,Co Radius,Specialty
+25405,Decortication Radius,Specialty
+25574,EF Radius / Ulna,Specialty
+25600,Close Reduction MPI Open 1st,Specialty
+29805,DX Shoulder Arthroscopically,Specialty
+29824,Mumford Procedure,Specialty
+29826,ACJ Decompresion by Endoscopy,Specialty
+23470,HA Shoulder,Specialty
+23472,TSA Total Shoulder Arthroplasty,Specialty
+25635,Scaphoid Bone Reduction,Specialty
+25800,Arthrodesis-Wrist Joint,Specialty
+26350,Repair-Hand -Flexor (One / Two),Specialty
+26548,Bilateral Vollar Plate Both,Specialty
+26565,Corrective Osteatomy,Specialty
+26850,Arthrodesis 1st MCP Joint,Specialty
+26951,Flexor / Extensor Tendon Repair Hand,Specialty
+25071,Excision Biopsy Hand,Specialty
+25825,Lunate Excision,Specialty
+27640,Exostosis Removal R/U,Specialty
+64721,Bilateral Carpal Tunnel (Surgery),Specialty
+20240,"Bone Biopsy Pelvis, Femur, Tibia, Humerus etc.",Specialty
+20245,Biopsy Acetabular,Specialty
+27030,Arthrotomy Hip,Specialty
+27052,Synovectomy BX Hip,Specialty
+27125,HA,Specialty
+27130,Cemented THR,Specialty
+27134,Revision Total Hip,Specialty
+27158,Acetabular Re-Construction,Specialty
+27215,Plating Ilium,Specialty
+27218,Plating Si Joint,Specialty
+27236,Revision HA,Specialty
+27266,Revision Hip Reduction and K,Specialty
+27275,Closed Reduction Total Hip,Specialty
+27280,Arthrodesis-Hip,Specialty
+27295,Hip Disarticularion,Specialty
+27360,Saucerization Hip Joint/Femur/Tibia/Humerus/R-U,Specialty
+27442,Total-Knee Replacement,Specialty
+11101,Excision of Bone Hip,Specialty
+15110,Skin Grafting,Specialty
+27217,Plating Pubis Symphisis,Specialty
+27227,Symphysis Plate Acetabular,Specialty
+27235,Hip Srew Under C Arm,Specialty
+27253,Open Reduction EF Hip,Specialty
+27137,THA Revison Femoral Compnent,Specialty
+27138,THA Revison Acetabular Component,Specialty
+27132,Conversional HA to THA,Specialty
+27299,Pemberton Osteotomy,Specialty
+27258,ORIF Congenital / Developmental or Pathological Hip Dislocation(Tenotomy),Specialty
+27175,Treatment of Slipped Growth Plate at Upper thigh Bone,Specialty
+11605,Biops And Grafting Femur,Specialty
+20270,Arthrotomy Knee,Specialty
+20610,Skeletal-Traction,Specialty
+20650,Skin-Traction,Specialty
+20694,Cbp and Bone Graft,Specialty
+20838,Revision Amputation AKA,Specialty
+27422,Repair-Knee Medial/Lateral Colateral Ligament,Specialty
+26605,Fracture Closed-Reduction,Specialty
+27040,Synovial Biopsy Knee,Specialty
+27245,"Revision Plate, Sign Nail, Shc/Angled Plate Femur",Specialty
+27331,Arthrotomy of BX Knee,Specialty
+27334,Synovectomy Knee Joint,Specialty
+27345,Bakers Cyst Excision Knee,Specialty
+27386,Quadriceps Tendon Repair,Specialty
+27506,Antegrade / Retrograde Sign Nail Femur / Tibia / Humerus,Specialty
+27507,Sign Nail Biopsy Femur,Specialty
+27515,Condylar Butress Plate Femr,Specialty
+27580,Arthrodesis- Knee/Ankle,Specialty
+27590,Modular Transfemoral,Specialty
+27964,Amputation Stump Femur,Specialty
+28035,Posterior Release of (Release of Nerve Between Tissue and Bone of Foot),Specialty
+29830,Diagnostics-Arthroscopy,Specialty
+29850,Medial Collateal Ligament,Specialty
+29873,Total Release-Knee,Specialty
+29875,Arthroscopy Knee,Specialty
+29882,Arthroscopy Reconstruction,Specialty
+29887,Arthroscopy,Specialty
+11045,Debridement,Specialty
+15050,Skin Grafting Kneeand,Specialty
+27244,DHS,Specialty
+27248,Sign Nail Revision,Specialty
+27310,Arthrotomy and Biopsy,Specialty
+27420,Demedialiazation Patela,Specialty
+27440,Total Knee Revision,Specialty
+27445,Total Knee Replacement,Specialty
+27450,Bilateral Co Both Femurs,Specialty
+27508,ESIN Femur,Specialty
+27511,Compression Screw Femur,Specialty
+27513,"Co and Butress Plating, Pinning",Specialty
+26520,Capsulloraphy Patella,Specialty
+27524,TBW Patella,Specialty
+27530,Trans Knee EF,Specialty
+27598,Disarticulation-Knee,Specialty
+27695,LCL Repair,Specialty
+27724,Masquellete Technique,Specialty
+27752,Fracture Closed-Reduction,Specialty
+27758,Blade Plate CBP,Specialty
+29880,Medial Meniscetomy,Specialty
+29870,DX Arthroscopy,Specialty
+29881,Arthroscipic meniscectomy / shaving,Specialty
+29888,ACL Repair Arthroscopically,Specialty
+29889,Pcl Repair Arthroscopically,Specialty
+27418,Medialization of Patella (ORIF),Specialty
+29877,Medialization of Patella (Arthroscopically ),Specialty
+29999,MCL & ACL Repair Arthroscopically,Specialty
+11042,Skin Graft Leg,Specialty
+15100,Soleus Flap Rotation,Specialty
+13122,Biopsy Leg,Specialty
+20201,Biopsy P/3Tibia and Trans,Specialty
+20692,"Ankle, Knee Spanning SD/ EF T/F",Specialty
+20693,"EF/Hoffman Revision/Adjustment/ Tibia/Fibula,Femur",Specialty
+22853,Double Butress Plate,Specialty
+27536,T Plateau Fracture Revision,Specialty
+27610,Joint Toilet Ankle,Specialty
+27620,Arthrotomy Ankle,Specialty
+27635,Anterior Bone Block Excion,Specialty
+27650,Achiles Tendon Repair,Specialty
+27696,Ankle Reconstruction (Repair of Disruption of Both Collateral Ligaments of Ankle),Specialty
+27700,Ankle Reconstraction,Specialty
+27704,Angles Plate Removal,Specialty
+27705,CO And EF Tibia,Specialty
+27709,CO Tibia,Specialty
+27722,Grafting Tibia,Specialty
+27759,Bilateral Sign Nailing Tibia,Specialty
+27825,Ex Fix T/F,Specialty
+27827,Tibia Lengthening,Specialty
+27860,Tripe Arthrodesis Ankle,Specialty
+27870,Arthodresis Left Ankle,Specialty
+27880,Modular Transtibial (BKA),Specialty
+27882,Above Knee Amputation (AKA),Specialty
+11047,Sequstrectomy Tibia,Specialty
+11400,Excision Biopsy Tibia,Specialty
+11442,Demoid Cyst Excision,Specialty
+20680,Sign Nail Removal Tibia,Specialty
+24925,Stump Closure Leg,Specialty
+24930,Soft Tissue-Stamp Revision,Specialty
+27535,Butress Tibia,Specialty
+27599,Surgical Debridement Tibia,Specialty
+27607,HTCO Tibia,Specialty
+27826,Ex Fix Tibia,Specialty
+27828,Butress Plate Distal,Specialty
+27871,Decortication EF Tibia,Specialty
+27888,Disarticulation - Ankle,Specialty
+29906,Arthroscopiy of Ankle Joint,Specialty
+29907,Debridemen of Ankle Arthroscopically,Specialty
+26538,Traction Skeletal(Adult),Specialty
+24538,Traction Skin (Children),Specialty
+23600,Distal Humeral Fracture Pop (Adults),Specialty
+29345,Above Knee Pop (Adult),Specialty
+29065,Above/Below Elbow Pop (Adult/Children),Specialty
+29325,Sarmieto Pop (Adults),Specialty
+29085,Below Elbow Pop (Children),Specialty
+29405,Below Knee Pop (Children/Adult),Specialty
+29450,Club Foot Pop (Children),Specialty
+29445,Contact/Cylinder Pop,Specialty
+29305,Sarmieto Pop (Children),Specialty
+11044,In Growing Nail Excision,Specialty
+27605,ETA and Pmr,Specialty
+27687,Bilateral PCT,Specialty
+27805,Ankle Foot Orthosis,Specialty
+27814,Open Reduction-Weber,Specialty
+27823,Open Reduction-Weber,Specialty
+28400,SD And Calcaneal and Pop,Specialty
+28445,Reconstruction-Talus,Specialty
+28645,Reconstruction-Calcaneum,Specialty
+28715,Tripe Arthropdesis Foot,Specialty
+28750,ARTHRODESIS OF MTPJ 2 and 3rd,Specialty
+28820,Amputation Fore/Mid /Hind Foot,Specialty
+28810,Disarticulation-Phallanges,Specialty
+29058,Fibre Glass Free Casting Tape,Specialty
+29899,Arthrodesis (Triple) Foot,Specialty
+29905,Synovectomy-Arthrotomy,Specialty
+32405,Trephene Needle Biopsy,Specialty
+11300,Excisional Biopsy Foot,Specialty
+26952,Poly Dactyl/Extra Digit Excision Foot,Specialty
+27122,Modified Girdle Stone Right,Specialty
+27606,ETA and Pmr-Clubfoot,Specialty
+28262,BIL ETA/PMR,Specialty
+28615,Orif-Calcaneum,Specialty
+28730,Athrodesis First and Second,Specialty
+90792,Psychiatric Diagnostic Evaluation,Specialty
+90791,Psychological Assessment,Specialty
+90832,"Individual Psychotherapy, 30mins",Specialty
+90834,"Individual Psychotherapy, 45 Mins",Specialty
+90837,"Individual Psychotherapy, 60 Mins",Specialty
+90838,Psychotherapy,Specialty
+90845,Psychoanalysis,Specialty
+90840,Psychotherapy for Crisis,Specialty
+90839,"Psychotherapy for Crisis, First 60 Minutes",Specialty
+96101,Psychological Testing,Specialty
+90846,Family/Couples psychotherapy,Specialty
+90847,"Family psychotherapy including patient, 50 minutes",Specialty
+90849,Multiple-Family Group Psychotherapy,Specialty
+90865,Injection of Hypnotic Drug for Psychiatric Diagnosis or Therapy,Specialty
+90875,"Biofeedback Training with Psychotherapy, 30 Minutes",Specialty
+90876,"Biofeedback Training with Psychotherapy, 45 Minutes",Specialty
+90853,Group Psychotherapy,Specialty
+99510,Home Visit for Counseling,Specialty
+90870,Electroconvulsive Therapy,Specialty
+90885,Psychiatric Review,Specialty
+90887,Explanation of Psychiatric Information,Specialty
+90889,Psychiatric Report Preparation,Specialty
+90899,Psychiatric Service or Procedure,Specialty
+96118,Neuropsychological Testing,Specialty
+96110,Developmental Screening,Specialty
+96111,Developmental Testing,Specialty
+96116,Neurobehaviour Assessment,Specialty
+95812,EEG 1 Hour,Specialty
+95813,EEG more than 1 Hour,Specialty
+95816,EEG Awake and Drowsy,Specialty
+95819,EEG Awake and Asleep,Specialty
+95827,EEG Overnight,Specialty
+57421,Biopsy of Vagina and Cervix using an Endoscope,Specialty
+57454,Biopsy and Scraping of the Cervix using an Endoscope,Specialty
+57455,Cone Biopsy of the Cervix and Vagina using an Endoscope,Specialty
+57511,Cryotherapy (Cervix),Specialty
+57460,Loop Electrosurgical Excision Procedure (LeEP),Specialty
+88142,Cervical Cancer Screening (Pap Smear),Specialty
+88143,Cervical Cancer Screening (VIA/VILI),Specialty
+96411,Chemotherapy Administration and Supervision,Specialty
+96405,"Intralesional Chemotherapy, up to and including 7 Lesions",Specialty
+96406,"Intralesional Chemotherapy, more than 7 Lesions",Specialty
+96402,Hormonal Anti-Neoplastic Chemotherapy Administration Beneath the Skin or into the Muscle,Specialty
+96409,Bolus Intravenous Chemotherapy Infusion (Using Push Technique),Specialty
+96413,Intravenous Chemotherapy Infusion up to 1 Hour,Specialty
+96415,Intravenous Chemotherapy Infusion,Specialty
+96521,Refilling and Maintenance of Portable Pumps.,Specialty
+96416,Prolonged Chemotherapy Infusion into a Vein by Portable or Implanted Pump more than 8 Hours,Specialty
+96417,Infusion of Different Chemotherapy Drug or Substance into a Vein up to 1 Hour,Specialty
+96420,Bolus Intra-Arterial Chemotherapy Infusion (Using Push Technique),Specialty
+96422,Infusion of Chemotherapy into an Artery up to 1 Hour,Specialty
+96423,Intra-Arterial Chemotherapy Infusion,Specialty
+96425,"Prolonged Chemotherapy Infusion into Artery by Portable or Implanted Pump, more",Specialty
+96440,Intrapleural Chemotherapy (Chemotherapy Delivery into the Chest Cavity),Specialty
+96446,Intraperitoneal Chemotherapy Infusion,Specialty
+96450,Intrathecal Chemotherapy Administration,Specialty
+77790,Supervision of Radiotherapy Delivery,Specialty
+77401,Superficial Radiotherapy (EG Skin & Post Keloidectomy),Specialty
+77280,Conventional Simulation (Simple),Specialty
+77285,Conventional Simulation (Complex),Specialty
+77290,CT Simulation Simple,Specialty
+77293,CT Simulation Complex (With Management of Respiratory Movement),Specialty
+77387,Image Guided Radiotherapy (IGRT) Delivery,Specialty
+77299,Radiotherapy Planning 2D,Specialty
+77295,Radiotherapy Planning 3d,Specialty
+77301,Management of Modulation Radiotherapy (IMRT) Planning,Specialty
+77386,Intensity Modulated Radiation Therapy (IMRT) Delivery,Specialty
+77306,Curative Radiotherapy 2D,Specialty
+77307,Palliative Radiotherapy 2D,Specialty
+77316,Curative Radiotherapy 3D,Specialty
+77317,Palliative Radiotherapy 3D,Specialty
+77318,Extended Local/Hemi Body Radiotherapy ( LHB & UHB RT),Specialty
+77331,Special Radiation Therapy Planning,Specialty
+77417,Therapeutic Radiology Port Films,Specialty
+77332,"Radiation Treatment Devices, Design and Construction (Moulding) in 2D",Specialty
+77334,"Radiation Treatment Devices, Design and Construction (Moulding) in 3D",Specialty
+77338,Design and Construction of Device for Radiation Therapy,Specialty
+77300,Calculation of Radiotherapy Dose,Specialty
+77469,Intraoperative Radiotherapy,Specialty
+77371,"Radiotherapy Delivery, Steriotactic Radiosurgery, for Cranial Growth per Session",Specialty
+77321,Radiation Therapy Total Body Port Plan,Specialty
+77778,Prostate Brachytherapy,Specialty
+57155,Uterine Brachytherapy (Insertion of a Device to Deliver Radiation Therapy to the Uterus),Specialty
+57156,Vaginal Brachytherapy,Specialty
+77770,High Dose Intracavitary Brachytherapy (ICT),Specialty
+77385,Electron Treatment Delivery (Electron Therapy),Specialty
+77520,Proton Treatment Delivery (Proton Therapy),Specialty
+78315,Bone Scan,Specialty
+78708,Renal Scan,Specialty
+78707,Dimercaptosuccinic Acid Scan (Dmsa),Specialty
+78454,Myocardial Perfusion Study,Specialty
+78481,Muga/Erna Study (Single),Specialty
+78483,Muga/Erna Study (Multiple),Specialty
+78226,Disida Hepatobiliary Study,Specialty
+78267,Merckels' Diverticulum Study,Specialty
+38790,Lymphoscintigraphy,Specialty
+38792,Sentinel Lymph Node,Specialty
+78607,Cerebral Perfusion Study,Specialty
+78608,Nuclear Medicine Study Brain with Metabolic Evaluation,Specialty
+78609,Nuclear Medicine Study Brain with Blood Circulation Evaluation,Specialty
+78071,Parathyroid Scintigraphy,Specialty
+78072,Imaging of Parathyroid with CT and Nuclear Medicine Study,Specialty
+78264,Milk Scan,Specialty
+78012,Thyroid Scan,Specialty
+78018,Iodine 131 Diagnostic Whole Body Scan (WBS),Specialty
+79005,Iodine 131 Posttherapy Whole Body Scan (WBS),Specialty
+78806,Galium 67 Scan,Specialty
+78802,MIBG Scan,Specialty
+78805,White Body Scan,Specialty
+78701,Nuclear Medicine Study of Kidney With Assessment of Blood Flow,Specialty
+78710,Nuclear Medicine Study of Kidney,Specialty
+78725,Nuclear Medicine Kidney Function Study,Specialty
+78730,Nuclear Medicine Study of Remaining Urine In Bladder,Specialty
+78740,Nuclear Medicine Backwash of Urine Into Kidney,Specialty
+78761,Nuclear Medicine Study of Testicles And Blood Vessel Flow,Specialty
+78799,Nuclear Medicine Study of Urogenital Systems,Specialty
+78800,Nuclear Medicine Study of Radioactive Material Distribution at Tumor Location,Specialty
+78801,Nuclear Medicine Study of Radioactive Material Distribution at Multiple Tumor Locations,Specialty
+78803,Nuclear Medicine Study of Radioactive Material Distribution,Specialty
+78804,"Nuclear Medicine Study of Radioactive Material Distribution of Whole Body, Requiring 2 or more Days Imaging",Specialty
+78808,Injection of Radioactive Contrast Material into a Vein for Non-Imaging Gamma Probe,Specialty
+78811,Nuclear Medicine Study Limited Area,Specialty
+78812,Nuclear Medicine Imaging from Skull Base to Mid-Thigh,Specialty
+78813,Nuclear Medicine Imaging Whole Body,Specialty
+78814,Nuclear Medicine Study with CT Imaging,Specialty
+78815,Nuclear Medicine Study with CT Imaging Skull Base to Mid-Thigh,Specialty
+78816,Nuclear Medicine Study with CT Imaging Whole Body,Specialty
+57421,Biopsy of Vagina and Cervix using an Endoscope,Specialty
+57454,Biopsy and Scraping of the Cervix using an Endoscope,Specialty
+57455,Cone Biopsy of the Cervix and Vagina using an Endoscope,Specialty
+57511,Cryotherapy (Cervix),Specialty
+57460,Loop Electrosurgical Excision Procedure (LeEP),Specialty
+88142,Cervical Cancer Screening (Pap Smear),Specialty
+88143,Cervical Cancer Screening (VIA/VILI),Specialty
+96411,Chemotherapy Administration and Supervision,Specialty
+96405,"Intralesional Chemotherapy, up to and including 7 Lesions",Specialty
+96406,"Intralesional Chemotherapy, more than 7 Lesions",Specialty
+96402,Hormonal Anti-Neoplastic Chemotherapy Administration Beneath the Skin or into the Muscle,Specialty
+96409,Bolus Intravenous Chemotherapy Infusion (Using Push Technique),Specialty
+96413,Intravenous Chemotherapy Infusion up to 1 Hour,Specialty
+96415,Intravenous Chemotherapy Infusion,Specialty
+96521,Refilling and Maintenance of Portable Pumps.,Specialty
+96416,Prolonged Chemotherapy Infusion into a Vein by Portable or Implanted Pump more than 8 Hours,Specialty
+96417,Infusion of Different Chemotherapy Drug or Substance into a Vein up to 1 Hour,Specialty
+96420,Bolus Intra-Arterial Chemotherapy Infusion (Using Push Technique),Specialty
+96422,Infusion of Chemotherapy into an Artery up to 1 Hour,Specialty
+96423,Intra-Arterial Chemotherapy Infusion,Specialty
+96425,"Prolonged Chemotherapy Infusion into Artery by Portable or Implanted Pump, more",Specialty
+CODE,SERVICE DESCRIPTION,Specialty
+96440,Intrapleural Chemotherapy (Chemotherapy Delivery into the Chest Cavity),Specialty
+96446,Intraperitoneal Chemotherapy Infusion,Specialty
+96450,Intrathecal Chemotherapy Administration,Specialty
+77790,Supervision of Radiotherapy Delivery,Specialty
+77401,Superficial Radiotherapy (EG Skin & Post Keloidectomy),Specialty
+77280,Conventional Simulation (Simple),Specialty
+77285,Conventional Simulation (Complex),Specialty
+77290,CT Simulation Simple,Specialty
+77293,CT Simulation Complex (With Management of Respiratory Movement),Specialty
+77387,Image Guided Radiotherapy (IGRT) Delivery,Specialty
+77299,Radiotherapy Planning 2D,Specialty
+77295,Radiotherapy Planning 3d,Specialty
+77301,Management of Modulation Radiotherapy (IMRT) Planning,Specialty
+77386,Intensity Modulated Radiation Therapy (IMRT) Delivery,Specialty
+77306,Curative Radiotherapy 2D,Specialty
+77307,Palliative Radiotherapy 2D,Specialty
+77316,Curative Radiotherapy 3D,Specialty
+77317,Palliative Radiotherapy 3D,Specialty
+77318,Extended Local/Hemi Body Radiotherapy ( LHB & UHB RT),Specialty
+77331,Special Radiation Therapy Planning,Specialty
+77417,Therapeutic Radiology Port Films,Specialty
+77332,"Radiation Treatment Devices, Design and Construction (Moulding) in 2D",Specialty
+77334,"Radiation Treatment Devices, Design and Construction (Moulding) in 3D",Specialty
+77338,Design and Construction of Device for Radiation Therapy,Specialty
+77300,Calculation of Radiotherapy Dose,Specialty
+77469,Intraoperative Radiotherapy,Specialty
+77371,"Radiotherapy Delivery, Steriotactic Radiosurgery, for Cranial Growth per Session",Specialty
+77321,Radiation Therapy Total Body Port Plan,Specialty
+77778,Prostate Brachytherapy,Specialty
+57155,Uterine Brachytherapy (Insertion of a Device to Deliver Radiation Therapy to the Uterus),Specialty
+57156,Vaginal Brachytherapy,Specialty
+77770,High Dose Intracavitary Brachytherapy (ICT),Specialty
+77385,Electron Treatment Delivery (Electron Therapy),Specialty
+77520,Proton Treatment Delivery (Proton Therapy),Specialty
+78315,Bone Scan,Specialty
+78708,Renal Scan,Specialty
+78707,Dimercaptosuccinic Acid Scan (Dmsa),Specialty
+78454,Myocardial Perfusion Study,Specialty
+78481,Muga/Erna Study (Single),Specialty
+78483,Muga/Erna Study (Multiple),Specialty
+78226,Disida Hepatobiliary Study,Specialty
+78267,Merckels' Diverticulum Study,Specialty
+38790,Lymphoscintigraphy,Specialty
+38792,Sentinel Lymph Node,Specialty
+78607,Cerebral Perfusion Study,Specialty
+78608,Nuclear Medicine Study Brain with Metabolic Evaluation,Specialty
+78609,Nuclear Medicine Study Brain with Blood Circulation Evaluation,Specialty
+78071,Parathyroid Scintigraphy,Specialty
+78072,Imaging of Parathyroid with CT and Nuclear Medicine Study,Specialty
+78264,Milk Scan,Specialty
+78012,Thyroid Scan,Specialty
+78018,Iodine 131 Diagnostic Whole Body Scan (WBS),Specialty
+79005,Iodine 131 Posttherapy Whole Body Scan (WBS),Specialty
+78806,Galium 67 Scan,Specialty
+78802,MIBG Scan,Specialty
+78805,White Body Scan,Specialty
+78701,Nuclear Medicine Study of Kidney With Assessment of Blood Flow,Specialty
+78710,Nuclear Medicine Study of Kidney,Specialty
+CODE,SERVICE DESCRIPTION,Specialty
+78725,Nuclear Medicine Kidney Function Study,Specialty
+78730,Nuclear Medicine Study of Remaining Urine In Bladder,Specialty
+78740,Nuclear Medicine Backwash of Urine Into Kidney,Specialty
+78761,Nuclear Medicine Study of Testicles And Blood Vessel Flow,Specialty
+78799,Nuclear Medicine Study of Urogenital Systems,Specialty
+78800,Nuclear Medicine Study of Radioactive Material Distribution at Tumor Location,Specialty
+78801,Nuclear Medicine Study of Radioactive Material Distribution at Multiple Tumor Locations,Specialty
+78803,Nuclear Medicine Study of Radioactive Material Distribution,Specialty
+78804,"Nuclear Medicine Study of Radioactive Material Distribution of Whole Body, Requiring 2 or more Days Imaging",Specialty
+78808,Injection of Radioactive Contrast Material into a Vein for Non-Imaging Gamma Probe,Specialty
+78811,Nuclear Medicine Study Limited Area,Specialty
+78812,Nuclear Medicine Imaging from Skull Base to Mid-Thigh,Specialty
+78813,Nuclear Medicine Imaging Whole Body,Specialty
+78814,Nuclear Medicine Study with CT Imaging,Specialty
+78815,Nuclear Medicine Study with CT Imaging Skull Base to Mid-Thigh,Specialty
+78816,Nuclear Medicine Study with CT Imaging Whole Body,Specialty
+97011,Cervical Traction,Specialty
+97013,Lumbar Traction,Specialty
+94668,Manual Chest Physiotherapy,Specialty
+94620,Endurance Training,Specialty
+94452,Lung Function Test,Specialty
+94640,Airway Clearance Techniques / Breathing Exercises/Nebulization,Specialty
+94667,Conventional Chest Physiotherapy,Specialty
+94669,Mechanical Chest Physiotherapy,Specialty
+94680,Spirometry Exercises,Specialty
+94681,Positive Expiratory Pressure Therapy,Specialty
+94645,Aerosol Therapy- Nebulizer / Steam Therapy,Specialty
+32997,Therapeutic Postural Drainage,Specialty
+31720,Suction of Secretions,Specialty
+99503,Chest Physiotherapy Home Visit,Specialty
+97010,Cold Therapy,Specialty
+99401,Ice Therapy,Specialty
+97034,Contrast Bath,Specialty
+97018,Heat Therapy / Wax Bath Therapy,Specialty
+97164,Medical Exercise Therapy - Therapeutic Equipments,Specialty
+97110,Non Paralytic Exercise Therapy,Specialty
+97161,Physiotherapy Follow up,Specialty
+96004,Postural Correction,Specialty
+97530,Postural Training,Specialty
+29425,Ambulation with Below Knee Pop,Specialty
+29355,Ambulation with Medical Aid,Specialty
+96001,Video Taped Gait Analysis,Specialty
+29440,Gait Training on Walker,Specialty
+97116,Gait Training,Specialty
+97026,Infra Red Radiation(IRR),Specialty
+97024,Shortwave Diathermy(SWD),Specialty
+97139,Microwave Physiotherapy,Specialty
+97028,Ultra Violet Radiation(UV),Specialty
+97035,Ultrasound Therapeutic,Specialty
+20979,Therapeutic Ultrasound - Bone,Specialty
+97032,Tens,Specialty
+97140,Manual Therapy,Specialty
+97124,Therapeutic Massage,Specialty
+96002,Electromyography (EMG) Physiotherapy,Specialty
+0278T,Interferential (Ift) Therapy,Specialty
+0101T,Shock Wave Therapy,Specialty
+97033,Iontophoresis,Specialty
+90901,Biofeedback Training,Specialty
+97761,Limb Orthotic Therapy,Specialty
+97760,Fitting Mobility / Assistive Device,Specialty
+29125,Non Moveable Splint (Fore Arm),Specialty
+29505,Long Leg Splinting,Specialty
+29515,Below Knee Splinting,Specialty
+29530,Knee Strapping,Specialty
+29540,Ankle/ Foot Strapping,Specialty
+97542,Wheelchair Training - Physiotherapy,Specialty
+97022,Whirlpool Therapy (Aquatic Therapy),Specialty
+97113,Hydrotherapy,Specialty
+97036,Hydrotherapy - Hubbard,Specialty
+97016,Decongestive Physiotherapy,Specialty
+97170,Sport Physiotherapy,Specialty
+97171,Sport Physiotherapy - Review,Specialty
+97172,Sport Physiotherapy - Evaluation,Specialty
+97750,Physical Performance Test,Specialty
+97162,Neurodevelopmental Therapy,Specialty
+99391,Paediatric Physiotherapy -Neonates,Specialty
+99392,Paediatric Physiotherapy - 1 - 4 Years,Specialty
+99393,Paediatric Physiotherapy - 5 - 11 Years,Specialty
+99394,Preventive Health Education - 12 - 17 Years,Specialty
+99395,Preventive Health Education - 18 - 39 Years,Specialty
+99396,Preventive Health Education - 40-64 Years,Specialty
+99397,Geriatric Health Education - Above 65 Years,Specialty
+99404,Preventive Physiotherapy Counseling,Specialty
+99412,Therapeutic Health Education,Specialty
+97150,Group Therapy,Specialty
+97811,Acupuncture,Specialty
+97814,Acupuncture With Electrical Stimulation,Specialty
+99091,Physiotherapeutic Report,Specialty
+99600,Community Based Rehabilitation,Specialty
+93797,Cardiac Rehabilitation,Specialty
+0310T,Motor Function Mapping of Arm or Leg,Specialty
+97799,Exercise Therapy Paralytic Condition,Specialty
+97112,Facial Paralysis Exercise,Specialty
+97163,Neurofacilitation Therapy,Specialty
+97039,Neuromuscular Rehabilitation,Specialty
+0106T,Sensory Assessment - Deep Touch,Specialty
+0108T,Sensory Assessment - Cold Touch,Specialty
+0109T,Sensory Assessment - Heat Touch,Specialty
+0110T,Sensory Assessment - Superficial Touch,Specialty
+99450,Disability Assessment,Specialty
+97537,Ergonomic Assessment,Specialty
+95831,Muscle Strenght Grading - Limbs,Specialty
+95832,Muscle Strenght Grading - Hand,Specialty
+95833,Muscle Strength Grading - Body,Specialty
+95851,Range of Motion / Rom Axial Skeleton,Specialty
+95852,Range of Motion/ Rom Appendicular,Specialty
+99455,Adaptive Skill Training,Specialty
+0373T,Behavioral Modification Management,Specialty
+97532,Cognitive Skills,Specialty
+99403,Functional Counseling,Specialty
+97755,Hand Function Skills,Specialty
+99336,Adl's Functional Skills Training,Specialty
+97167,Rehabilitation Occupational Therapy,Specialty
+99509,Productivity Activities,Specialty
+90836,Psychosocial Intervention,Specialty
+97168,Remedial Activities,Specialty
+97535,Self Care Activities,Specialty
+98960,Self Care Skills Training,Specialty
+97533,Sensory Integration / Stimulation Training,Specialty
+97165,Occupational Therapy Physical – Follow up,Specialty
+92526,Dysphagia Management,Specialty
+90882,Learning Difficult Management,Specialty
+97166,Occupational Therapy at Rehabilitation Village,Specialty
+99456,Occupational Therapy Working Area Visit,Specialty
+98961,Closed Group Therapy,Specialty
+98962,Open Group Therapy,Specialty
+96127,Behavioral Assessment,Specialty
+96152,Psychoeducation - Occupational Therapy,Specialty
+0368T,Orientation On Protocol and Procedure,Specialty
+0369T,Re-Orientation On Protocol and Procedure,Specialty
+99402,Preventive Counseling,Specialty
+97545,Activity Grading,Specialty
+0371T,Family Psychoeducation,Specialty
+0372T,Behavioral Group Therapy,Specialty
+0374T,Behavioural Modification,Specialty
+29105,Splints - Static / Dynamic,Specialty
+29126,Fore Arm Splint-Dynamic,Specialty
+29130,Hand Splint-Static,Specialty
+29131,Hand Splint-Dynamic,Specialty
+92507,Speech And Language Intervention Therapy - Child / Adult,Specialty
+92522,Phonological / Articulation Management,Specialty
+92523,Speech and Language Comprehension Review,Specialty
+92524,Voice Analysis,Specialty
+92508,Speech and Language Group Therapy,Specialty
+92605,Augmentative Alternative Communication Intervention,Specialty
+92610,Swallowing Intervention Follow up,Specialty
+96105,Expressive and Receptive Speech and Language Assessment,Specialty
+92555,Auditory Assessment,Specialty
+92556,Auditory and Speech Assessment,Specialty
+92630,Auditory Verbal Therapy,Specialty
+92633,Auditory Training,Specialty
+99292,CPR-Resuscitation,Specialty
+190,Anesthesia for procedure on facial bones or skull,Specialty
+192,Anesthesia for surgery of facial bones or skull,Specialty
+210,Anesthesia for procedure on brain,Specialty
+211,Anesthesia for procedure to remove blood collection in brain,Specialty
+212,Anesthesia for procedure to remove fluid in brain,Specialty
+214,Anesthesia for procedure to create holes in skull including X-ray imaging,Specialty
+215,Anesthesia for procedure to repair skull or skull fracture,Specialty
+216,Anesthesia for procedure on blood vessel in brain,Specialty
+218,Anesthesia for procedure on brain patient in sitting position,Specialty
+220,Anesthesia for procedure to drain brain and spinal cord fluid,Specialty
+222,Anesthesia for procedure on nerve in brain,Specialty
+300,Anesthesia for procedure on esophagus and neck,Specialty
+320,"Anesthesia for procedure on esophagus and neck, age 1 year or older",Specialty
+450,Anesthesia for procedure on collar bone and shoulder blade,Specialty
+454,Anesthesia for biopsy of collar bone,Specialty
+470,Anesthesia for partial removal of rib,Specialty
+472,Anesthesia for partial removal of rib and chest wall repair,Specialty
+474,Anesthesia for partial removal of rib and chest wall reconstruction,Specialty
+520,Anesthesia for closed procedure in chest,Specialty
+524,Anesthesia for closed drainage of lung fluid,Specialty
+532,Anesthesia for central vein access,Specialty
+600,Anesthesia for procedure on upper spine and spinal cord,Specialty
+604,"Anesthesia for procedure on spine and spinal cord, patient in sitting position",Specialty
+620,Anesthesia for procedure on middle spine and spinal cord,Specialty
+626,Anesthesia for procedure on middle spine and spinal cord with 1 lung ventilation,Specialty
+630,Anesthesia for procedure on lower spine,Specialty
+632,Anesthesia for removal of nerves in lower spine,Specialty
+635,Anesthesia for spinal tap,Specialty
+640,Anesthesia for closed manipulation of spine,Specialty
+670,Anesthesia for procedure on spine and spinal cord,Specialty
+700,Anesthesia for procedure on upper front abdominal wall,Specialty
+1112,Anesthesia for bone marrow aspiration and/or biopsy at pelvic bone,Specialty
+1120,Anesthesia for procedure on pelvic bone,Specialty
+1130,Anesthesia for application or revision of body cast,Specialty
+1140,Anesthesia for amputation of leg including pelvic bone,Specialty
+1150,Anesthesia for removal of pelvic bone tumor,Specialty
+1160,Anesthesia for procedure on pubic bone or sacroiliac joint,Specialty
+1170,Anesthesia for open procedure on pubic bone or sacroiliac joint,Specialty
+1173,Anesthesia for open repair of pelvic fracture,Specialty
+1180,Anesthesia for removal of external pelvic nerve,Specialty
+1190,Anesthesia for removal of internal pelvic nerve,Specialty
+1200,Anesthesia for closed procedure on hip joint,Specialty
+1202,Anesthesia for procedure on hip joint using an endoscope,Specialty
+1210,Anesthesia for open surgical procedure on hip joint,Specialty
+1212,Anesthesia for open hip joint dislocation,Specialty
+1214,Anesthesia for open total hip joint replacement,Specialty
+1215,Anesthesia for open revision of total hip joint replacement,Specialty
+1220,Anesthesia for closed procedure on upper two-thirds of thigh bone,Specialty
+1230,Anesthesia for open procedure on upper two-thirds of thigh bone,Specialty
+1232,Anesthesia for open amputation at upper two-thirds of thigh bone,Specialty
+1234,Anesthesia for open removal of muscle or tissue at upper two-thirds of thigh bone,Specialty
+1250,"Anesthesia for procedure on nerves, muscles, tendons, fascia, and bursae of upper leg",Specialty
+1260,Anesthesia for procedure on veins of upper leg,Specialty
+1270,Anesthesia for procedure on arteries of upper leg,Specialty
+1320,"Anesthesia for procedure on nerves, muscles, tendons, fascia, and/or bursae of knee",Specialty
+1340,Anesthesia for closed procedure on lower one-third of thigh bone,Specialty
+1360,Anesthesia for open procedure on lower one-third of thigh bone,Specialty
+1380,Anesthesia for closed procedure on knee joint,Specialty
+1382,Anesthesia for diagnostic examination of knee joint using an endoscope,Specialty
+1390,Anesthesia for closed procedure at kneecap and/or upper foreleg bones,Specialty
+1392,Anesthesia for open procedure at kneecap and upper foreleg bones,Specialty
+1400,Anesthesia for open or endoscopic procedure on knee including Popliteal Area,Specialty
+1402,Anesthesia for open or endoscopic total knee joint replacement,Specialty
+1404,Anesthesia for open or endoscopic procedure of dislocated knee,Specialty
+1420,"Anesthesia for knee joint cast application, removal, or repair",Specialty
+1462,"Anesthesia for closed procedure on lower leg, ankle, and foot",Specialty
+1464,Anesthesia for procedure on ankle and/or foot using an endoscope,Specialty
+1470,"Anesthesia for procedure on nerves, muscles, tendons, and fascia of lower leg, ankle, and foot",Specialty
+1472,Anesthesia for procedure to repair calf muscle tendon,Specialty
+1474,Anesthesia for procedure to repair calf muscle,Specialty
+1480,"Anesthesia for open procedure on bones of lower leg, ankle and foot",Specialty
+1482,Anesthesia for open amputation below the knee,Specialty
+1484,"Anesthesia for open reconstruction of lower leg, ankle, and/or foot bone",Specialty
+1486,Anesthesia for open total ankle joint replacement,Specialty
+1490,"Anesthesia for lower leg cast application, removal, or repair",Specialty
+1610,"Anesthesia for procedure on nerves, muscles, tendons, fascia, and bursae of shoulder and underarm",Specialty
+1620,Anesthesia for closed procedure on upper arm bone and shoulder joint,Specialty
+1622,Anesthesia for diagnostic examination of shoulder joint using an endoscope,Specialty
+1630,Anesthesia for open or endoscopic procedure at upper arm and shoulder joint including,Specialty
+1634,Anesthesia for open or endoscopic procedure of dislocated shoulder joint,Specialty
+1636,"Anesthesia for open or endoscopic amputation of arm, shoulder blade, and collar bone",Specialty
+1638,Anesthesia for open or endoscopic total shoulder joint replacement,Specialty
+1680,"Anesthesia for cast application, removal or repair",Specialty
+1682,"Anesthesia for shoulder spica cast application, removal or repair",Specialty
+1710,"Anesthesia for procedure on nerves, muscles, tendons, fascia, and bursae of upper arm and elbow",Specialty
+1712,Anesthesia for open incision of elbow to shoulder tendon,Specialty
+1714,Anesthesia for repair of elbow to shoulder tendon,Specialty
+1716,Anesthesia for suture of upper arm and elbow tendon to bone,Specialty
+1730,Anesthesia for closed procedure on upper arm and elbow,Specialty
+1732,Anesthesia for diagnostic examination of elbow joint using an endoscope,Specialty
+1740,Anesthesia for open or endoscopic procedure on elbow,Specialty
+1742,Anesthesia for open or endoscopic procedure at upper arm bone,Specialty
+1744,Anesthesia for open or endoscopic repair of non-healed fracture of upper arm bone,Specialty
+1756,Anesthesia for open or endoscopic surgical procedure on elbow,Specialty
+1758,Anesthesia for open or endoscopic removal cyst or tumor of upper arm,Specialty
+1760,Anesthesia for open or endoscopic total elbow joint replacement,Specialty
+1770,Anesthesia for procedure on arteries of upper arm and elbow,Specialty
+1810,"Anesthesia for procedure on nerves, muscles, tendons, fascia, and bursae of forearm, wrist, and hand",Specialty
+1820,"Anesthesia for closed procedure on bones of forearm, wrist, or hand",Specialty
+1829,Anesthesia for diagnostic examination of the wrist using an endoscope,Specialty
+1830,"Anesthesia for open or endoscopic procedure on bones of forearm, wrist, or hand",Specialty
+1832,Anesthesia for open or endoscopic total wrist joint replacement,Specialty
+1860,"Anesthesia for forearm, wrist, or hand cast application, removal or repair",Specialty
+1916,Anesthesia for diagnostic X-ray procedure on arteries or veins,Specialty
+1924,Anesthesia for X-ray procedure on arteries,Specialty
+1925,Anesthesia for X-ray procedure on neck or heart artery,Specialty
+1926,"Anesthesia for X-ray procedure on artery in brain, heart, or major vessel of chest 
+(aorta)",Specialty
+1930,Anesthesia for X-ray procedure on vein or lymph system,Specialty
+1931,Anesthesia for X-ray procedure on liver vein,Specialty
+1932,Anesthesia for X-ray procedure on chest or neck vein,Specialty
+1933,Anesthesia for X-ray procedure on brain vein,Specialty
+1935,Anesthesia for diagnostic X-ray procedure (accessed through the skin) on spine and spinal cord,Specialty
+1936,Anesthesia for X-ray procedure (accessed through the skin) on spine and spinal cord,Specialty
+1991,Anesthesia for nerve block and injection procedure,Specialty
+1992,"Anesthesia for nerve block and injection procedure, prone position",Specialty
+1996,Daily hospital management of continuous spinal drug administration,Specialty
+1999,Anesthesia procedure,Specialty
+31500,Intubation (Intravenous Anaesthesia) /LMA /Mask -- (Inhalational Anaesthesia) /Mechanical Ventilation,Specialty
+62320,Epidural Anesthesia,Specialty
+62273,Epidural Patch,Specialty
+64400,"Injection of anesthetic agent, trigeminal nerve",Specialty
+64402,"Injection of anesthetic agent, facial nerve",Specialty
+64405,"Injection of anesthetic agent, greater occipital nerve",Specialty
+64408,"Injection of anesthetic agent, cranial (vagus) nerve",Specialty
+64410,"Injection of anesthetic agent, upper spine (phrenic) nerve",Specialty
+64413,"Injection of anesthetic agent, neck nerve bundle",Specialty
+64415,"Injection of anesthetic agent, brachial (arm) nerve bundle",Specialty
+64416,"Injection by continuous infusion of anesthetic agent, brachial (arm) nerve bundle",Specialty
+64417,Injection of anesthetic agent underarm (axillary) nerve,Specialty
+64418,"Injection of anesthetic agent, collar bone nerve",Specialty
+36556,Insertion of central venous catheter for infusion,Specialty
+43753,NGT insertion,Specialty
+76937,Intravenous placement USS Guided,Specialty
+99152,Sedation without Respiratory support - Above 5yrs,Specialty
+99151,Sedation without Respiratory support - Under 5yrs,Specialty
+96366,IV Side Injection,Specialty
+93503,Continuous invasive CVP monitoring,Specialty
+96368,Continuous Drug infusions -Inotropes/Vasoactive drugs,Specialty
+92960,Defibrilation/Elective Cardioversion / Electrocardioversion (Resursitative Defibrillation procedure),Specialty
+94660,Non Invasive mechanical ventilation (CPAP),Specialty
+36620,Continuous invasive Arterial Blood Pressure (ABP) monitoring,Specialty
+530,Anesthesia for insertion of permanent heart pacemaker,Specialty
+534,Anesthesia for insertion or replace of pacing heart defibrillator,Specialty
+537,Anesthesia for procedure on heart to correct abnormal rhythm,Specialty
+539,Anesthesia for reconstruction of windpipe and lung airway,Specialty
+540,Anesthesia for procedure in chest,Specialty
+541,Anesthesia for procedure in chest with 1 lung ventilation,Specialty
+542,Anesthesia for removal of lung lining,Specialty
+546,Anesthesia for lung removal and chest wall repair,Specialty
+548,Anesthesia for procedure on windpipe and lung airway,Specialty
+550,Anesthesia for removal of breast bone tissue,Specialty
+560,Anesthesia for procedure on heart and great blood vessels,Specialty
+561,"Anesthesia for procedure on heart and great blood vessels on heart-lung machine, younger than 1 year of age",Specialty
+562,"Anesthesia for procedure on heart and great blood vessels on heart-lung machine, age 1 year or older, or re-operation more than 1 month after original procedure",Specialty
+563,Anesthesia for procedure on heart and great blood vessels on heart-lung machine,Specialty
+566,Anesthesia for heart artery bypass grafting,Specialty
+567,Anesthesia for heart artery bypass grafting on heart-lung machine,Specialty
+580,Anesthesia for heart or heart-lung transplant,Specialty
+882,Anesthesia for tying of major vein in lower abdomen,Specialty
+1272,Anesthesia for groin artery bypass graft and tying of upper leg artery,Specialty
+1274,Anesthesia for removal of groin artery blood clot,Specialty
+1430,Anesthesia for procedure on knee veins,Specialty
+1432,Anesthesia for repair of abnormal artery-vein formation of knee,Specialty
+1440,Anesthesia for procedure on knee arteries,Specialty
+1442,Anesthesia for removal of blood clot in artery behind knee,Specialty
+1444,Anesthesia for repair of bulging (aneurysm) defect in knee artery,Specialty
+1500,Anesthesia for procedure on arteries of lower leg including bypass graft,Specialty
+1502,Anesthesia for lower leg artery bypass graft or blood clot removal,Specialty
+1520,Anesthesia for procedure on veins of lower leg,Specialty
+1522,Anesthesia for removal of lower leg vein obstruction,Specialty
+1650,Anesthesia for procedure on arteries of shoulder and underarm,Specialty
+1652,Anesthesia for repair of bulging (aneurysm) defect in upper arm artery,Specialty
+1654,Anesthesia for bypass graft in shoulder or underarm artery,Specialty
+1656,Anesthesia for bypass graft from groin artery to shoulder or underarm artery,Specialty
+1670,Anesthesia for procedure on veins of shoulder and underarm,Specialty
+1772,Anesthesia for removal of blood clot from upper arm or elbow artery,Specialty
+1780,Anesthesia for procedure on veins of upper arm and elbow,Specialty
+1782,Anesthesia for suture of upper arm or elbow vein,Specialty
+1840,"Anesthesia for procedure on arteries of forearm, wrist, and hand",Specialty
+1842,"Anesthesia for removal of blood clot from forearm, wrist, or hand artery",Specialty
+1844,Anesthesia for placement or revision of blood flow shunt,Specialty
+1850,"Anesthesia for procedure on veins of forearm, wrist, and hand",Specialty
+1852,"Anesthesia for suture of forearm, wrist, or hand vein",Specialty
+1920,Anesthesia for procedure on heart vessels and chambers,Specialty
+1922,Anesthesia for X-ray or radiation therapy,Specialty
+100,Anesthesia for procedure on salivary gland with biopsy,Specialty
+102,Anesthesia for procedure to repair lip defect present at birth,Specialty
+103,Anesthesia for procedure on eyelid,Specialty
+104,Anesthesia for electric shock treatment,Specialty
+120,Anesthesia for biopsy of external middle and inner ear,Specialty
+124,Anesthesia for examination and biopsy of external middle and inner ear using an endoscope,Specialty
+126,Anesthesia for incision of ear drum,Specialty
+140,Anesthesia for procedure on eye,Specialty
+142,Anesthesia for lens surgery,Specialty
+144,Anesthesia for procedure on eye for corneal transplant,Specialty
+145,Anesthesia for retinal surgery,Specialty
+147,Anesthesia for procedure on eye for removal of iris,Specialty
+148,Anesthesia for eye examination using an endoscope,Specialty
+160,Anesthesia for procedure on nose and sinus,Specialty
+162,Anesthesia for surgery of nose and sinus,Specialty
+164,Anesthesia for soft tissue biopsy on nose and sinus,Specialty
+170,Anesthesia for procedure on mouth including biopsy,Specialty
+172,Anesthesia for procedure on mouth to repair palate deformity,Specialty
+174,Anesthesia for procedure on throat for removal of tumor,Specialty
+176,Anesthesia for surgery on mouth,Specialty
+322,Anesthesia for needle biopsy of thyroid,Specialty
+326,"Anesthesia for procedure on voice box and windpipe, children younger than 1 year of age",Specialty
+350,Anesthesia for procedure on major blood vessels of neck,Specialty
+352,Anesthesia for tying procedure on major blood vessels of neck,Specialty
+400,"Anesthesia for procedure on skin of arms, legs, or trunk",Specialty
+402,Anesthesia for breast reconstruction,Specialty
+404,Anesthesia for removal of breast,Specialty
+406,Anesthesia for removal of breast and lymph nodes,Specialty
+410,Anesthesia for procedure to correct abnormal heart rhythm,Specialty
+500,Anesthesia for procedure on esophagus,Specialty
+522,Anesthesia for closed needle biopsy of lung,Specialty
+528,Anesthesia for closed diagnostic examination of chest using an endoscope,Specialty
+529,Anesthesia for closed diagnostic examination of chest using an endoscope with 1 lung ventilation,Specialty
+625,Anesthesia for procedure on middle spine and spinal cord,Specialty
+702,Anesthesia for liver biopsy (accessed through the skin),Specialty
+730,Anesthesia for procedure on upper rear abdominal wall,Specialty
+740,Anesthesia for procedure on gastrointestinal tract using an endoscope,Specialty
+750,Anesthesia for procedure to repair upper abdominal hernia,Specialty
+752,Anesthesia for procedure to repair upper abdominal incisional hernia and/or wound opening,Specialty
+754,Anesthesia for procedure to repair upper abdominal hernia present at birth,Specialty
+756,Anesthesia for procedure to repair abdominal hernia,Specialty
+770,Anesthesia for procedure on major abdominal blood vessels,Specialty
+790,Anesthesia for procedure in upper abdomen including use of an endoscope,Specialty
+792,Anesthesia for partial removal of liver or management of bleeding including use of an endoscope,Specialty
+794,Anesthesia for removal of pancreas including use of an endoscope,Specialty
+796,Anesthesia for liver transplant recipient including use of an endoscope,Specialty
+797,Anesthesia for procedure on stomach for obesity including use of an endoscope,Specialty
+800,Anesthesia for procedure on lower front abdominal wall,Specialty
+802,Anesthesia for removal of excess tissue on lower abdominal wall,Specialty
+810,Anesthesia for procedure on lower intestine using an endoscope,Specialty
+820,Anesthesia for procedure on lower rear abdominal wall,Specialty
+830,Anesthesia for lower abdominal hernia repair,Specialty
+832,Anesthesia for middle or incisional abdominal hernia repair,Specialty
+834,"Anesthesia for lower abdominal hernia repair, child younger than 1 year of age",Specialty
+836,"Anesthesia for lower abdominal hernia repair, infants younger than 37 weeks gestational age at birth and younger than 50 weeks gestational age at time of surgery",Specialty
+840,Anesthesia for procedure in lower abdominal cavity including use of an endoscope,Specialty
+842,Anesthesia for removal of amniotic fluid in uterus including use of an endoscope,Specialty
+844,Anesthesia for procedure in lower abdominal cavity and rectum including use of an endoscope,Specialty
+846,Anesthesia for removal of uterus including use of an endoscope,Specialty
+848,Anesthesia for removal of pelvic organs including use of an endoscope,Specialty
+851,Anesthesia for tying or incision of fallopian tubes using an endoscope,Specialty
+860,Anesthesia for procedure in lower abdomen including urinary tract,Specialty
+862,Anesthesia for procedure on upper urinary duct (ureter) or removal of kidney for transplant,Specialty
+864,Anesthesia for removal of urinary bladder,Specialty
+865,Anesthesia for removal of prostate,Specialty
+866,Anesthesia for removal of adrenal gland,Specialty
+868,Anesthesia for kidney transplant,Specialty
+870,Anesthesia for removal of urinary bladder stone,Specialty
+872,Anesthesia for shock wave therapy for urinary system stones,Specialty
+873,Anesthesia for shock wave therapy for urinary system stones,Specialty
+880,Anesthesia for procedure on major lower abdominal wall blood vessels,Specialty
+902,Anesthesia for procedure on anus and rectum,Specialty
+904,Anesthesia for procedure on perineum,Specialty
+906,Anesthesia for removal of external female genitalia,Specialty
+908,Anesthesia for removal of prostate,Specialty
+910,Anesthesia for procedure on urinary system including use of an endoscope,Specialty
+912,Anesthesia for removal of urinary bladder tumors including use of an endoscope,Specialty
+914,Anesthesia for removal of prostate including use of an endoscope,Specialty
+916,Anesthesia for procedure to control urinary system bleeding including use of an endoscope,Specialty
+918,"Anesthesia for fragmenting, manipulation and/or removal of kidney stone including use of an endoscope",Specialty
+920,Anesthesia for procedure on male genitalia,Specialty
+921,Anesthesia for vasectomy,Specialty
+922,Anesthesia for procedure on male genitalia glands,Specialty
+924,Anesthesia for repair of undescended testicle,Specialty
+926,Anesthesia for removal of testicle through groin,Specialty
+928,Anesthesia for removal of testicle through abdomen,Specialty
+930,Anesthesia for relocation of undescended testicle into scrotum,Specialty
+932,Anesthesia for removal of penis,Specialty
+934,Anesthesia for removal of penis and lymph nodes on both sides of groin,Specialty
+936,Anesthesia for removal of penis and lymph nodes on both sides of groin,Specialty
+938,Anesthesia for insertion of penile prosthesis,Specialty
+940,"Anesthesia for vaginal biopsy of cervix, uterine lining, or external genitalia",Specialty
+942,Anesthesia for repair or removal of vagina and urinary procedure,Specialty
+944,Anesthesia for vaginal removal of uterus,Specialty
+948,Anesthesia for suture closure of cervix,Specialty
+950,Anesthesia for examination of cervix using an endoscope,Specialty
+952,Anesthesia for examination of uterus using an endoscope,Specialty
+1951,"Anesthesia for treatment of second and third-degree burn, less than 4% total body surface",Specialty
+1952,"Anesthesia for treatment of second and third-degree burn, between 4% and 9% total body surface area",Specialty
+1953,Anesthesia for treatment of second and third-degree burn,Specialty
+1958,Anesthesia for procedure to turn the position of fetus in uterus,Specialty
+1960,Anesthesia for vaginal delivery,Specialty
+1961,Anesthesia for cesarean delivery,Specialty
+1962,Anesthesia for procedure to remove uterus following delivery,Specialty
+1963,Anesthesia for cesarean removal of uterus,Specialty
+1965,Anesthesia for incomplete or missed abortion,Specialty
+1966,Anesthesia for induced abortion,Specialty
+1967,Anesthesia for labor during planned vaginal delivery,Specialty
+1968,Anesthesia for cesarean delivery following labor,Specialty
+1969,Anesthesia for cesarean removal of uterus following labor,Specialty
+1990,Physiological support for harvesting of organs,Specialty
+L5321,Trans Femoral Standard Prosthesis,Specialty
+L5311,Knee Disarticulation Standard Prosthesis,Specialty
+L5331,Hip Disarticilation Standard Prosthesis,Specialty
+L5301,TransTibial Standard Prosthesis,Specialty
+L5060,Syme Standard Prosthesis,Specialty
+L6210,Partial Foot Standard Prosthesis,Specialty
+L6150,Trans-humeral Standard Prosthesis,Specialty
+L6120,Trans-radial Standard Prosthesis,Specialty
+L6200,Elbow Disarticulation Standard Prosthesis,Specialty
+L6300,Shoulder Disarticulation Cosmetic Standard Prosthesis,Specialty
+L6055,Wrist Disarticulation Standard Prosthesis,Specialty
+L6020,Partial Hand Standard Prosthesis,Specialty
+L3010,(FO) Foot orthosis,Specialty
+L1945,Ankle Foot Orhosis Posterior Shell (adult) PTB,Specialty
+L1960,Ankle Foot Orthosia-Rigid -adult,Specialty
+L1961,Ankle Foot Orthosis rigid-child,Specialty
+L1970,Ankle Foot Orthosis with mechanical (hessing) joint- adult,Specialty
+L1971,Ankle Foot Orthosis with mechanical ankle joint- child,Specialty
+L2081,Hip Knee Ankle Foot Orthosis child,Specialty
+L2080,Hip Knee Ankle Foot Orthosis-adult,Specialty
+L3500,Inner sole compasation-adult (1 Pc),Specialty
+L3501,Inner sole compasation-child (1Pc),Specialty
+L1990,Knee Ankle Foot Orthosis without mechanical ankle joint,Specialty
+L1834,KO- Knee Orthosis (Rigid fabricated ),Specialty
+L1810,KO- Knee Orthosis with mechanical joint (fabricated),Specialty
+L3223,Orthopaedic boots (Adult),Specialty
+L3209,Orthopaedic boots (children),Specialty
+L3540,Orthopaedic Shoes with shortening compensation,Specialty
+L3140,SFAB,Specialty
+L2016,Ankle support (imported),Specialty
+L3003,Arch Support (Silicon) imported (1pair),Specialty
+L3010,Arch Support (Fabricated) 1pair,Specialty
+L0978,Axilla Crutch (1pc),Specialty
+L8120,"Compression stockings, below knee (1pc)",Specialty
+L4398,Drop foot splint (imported),Specialty
+L3930,finger Splint [adult],Specialty
+L3930,Finger Splint [child],Specialty
+L1800,"Knee brace, hinged",Specialty
+L1858,"Knee brace, hinged (premium)",Specialty
+L2800,Knee cap,Specialty
+L1830,Knee immobilizer,Specialty
+L0550,Lumber corset,Specialty
+L0140,Neck collar semi rigid (philadephia),Specialty
+L0120,Neck collar Soft,Specialty
+L2630,Pelvic binder,Specialty
+L1497,Rigid spinal corset- adolencent,Specialty
+L1499,Rigid spinal corset-adult,Specialty
+L1498,Rigid spinal corset-child,Specialty
+L3650,Shoulder abdution Bracee imported,Specialty
+L0974,Thoracolumber corset,Specialty
+L3100,Toe separator,Specialty
+L1070,Tringular arm sling,Specialty
+K0001,Wheelchair (imported),Specialty
+K0002,Wheelchair (locally made),Specialty
+L3908,Wrist support,Specialty

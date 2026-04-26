@@ -73,8 +73,8 @@ We use Docker Compose to manage our robust data layer and orchestrate services.
 ### Setup Execution
 1. **Clone & Boot the Stack:**
     ```bash
-    git clone https://github.com/yourusername/revenue-cycle-copilot.git
-    cd revenue-cycle-copilot
+    git clone https://github.com/HasnainAli408546/Medical_billing_agent.git
+    cd Medical_billing_agent
     docker-compose up -d
     ```
 2. **Install Backend Dependencies:**

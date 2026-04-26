@@ -69,26 +69,56 @@ def extraction_agent(state: ClaimState) -> ClaimState:
     }
 
 def coding_agent(state: ClaimState) -> ClaimState:
-    """Maps to ICD-10 and CPT codes (mock behavior for now, to be expanded)."""
-    llm = get_llm()
-    diagnosis = state["extracted_data"].get("diagnosis", "Unknown")
-    procedure = state["extracted_data"].get("procedure", "Unknown")
+    """
+    Production-Grade Coding Agent.
+    STEP 1: Performs semantic search over thousands of official codes using RAG.
+    STEP 2: LLM adjudicates the best match based on clinical context.
+    """
+    diagnosis_query = state["extracted_data"].get("diagnosis", "Unknown")
+    procedure_query = state["extracted_data"].get("procedure", "Unknown")
     
+    # ── RETRIEVAL: Search official code sets ─────────────────
+    icd_candidates = rag_service.search_codes(diagnosis_query, code_type="ICD", top_k=5)
+    cpt_candidates = rag_service.search_codes(procedure_query, code_type="CPT", top_k=5)
+    
+    # ── GENERATION: LLM picks the best match ─────────────────
+    llm = get_llm()
     prompt = PromptTemplate.from_template(
-        "Provide the most likely ICD-10 code for '{diagnosis}' and CPT code for '{procedure}'.\n"
-        "Return ONLY valid JSON with keys: icd_code, cpt_code."
+        "You are an expert medical coder. Based on the clinical note, pick the most accurate "
+        "ICD-10-CM code and CPT code from the candidates provided.\n\n"
+        "Clinical Note: {note}\n"
+        "Extracted Diagnosis: {diag}\n"
+        "Extracted Procedure: {proc}\n\n"
+        "ICD-10 CANDIDATES:\n{icd_list}\n\n"
+        "CPT CANDIDATES:\n{cpt_list}\n\n"
+        "Return ONLY a valid JSON with keys: icd_code, cpt_code, rationale."
     )
+    
+    icd_text = "\n".join([f"- {c['code']}: {c['description']}" for c in icd_candidates])
+    cpt_text = "\n".join([f"- {c['code']}: {c['description']}" for c in cpt_candidates])
+    
     chain = prompt | llm
-    response = chain.invoke({"diagnosis": diagnosis, "procedure": procedure})
+    response = chain.invoke({
+        "note": state["input_text"],
+        "diag": diagnosis_query,
+        "proc": procedure_query,
+        "icd_list": icd_text,
+        "cpt_list": cpt_text
+    })
     
     try:
         coding_data = extract_json(response.content)
     except Exception:
-        coding_data = {"icd_code": "UNKNOWN", "cpt_code": "UNKNOWN"}
+        # Fallback to top result if LLM fails
+        coding_data = {
+            "icd_code": icd_candidates[0]["code"] if icd_candidates else "UNKNOWN",
+            "cpt_code": cpt_candidates[0]["code"] if cpt_candidates else "UNKNOWN",
+            "rationale": "Fallback to top semantic match."
+        }
 
     return {
         "coding_data": coding_data,
-        **log_action(state, "Coding Agent", f"Diag: {diagnosis}, Proc: {procedure}", coding_data)
+        **log_action(state, "Coding Agent (Production)", f"Search: {diagnosis_query} / {procedure_query}", coding_data)
     }
 
 def validation_agent(state: ClaimState) -> ClaimState:

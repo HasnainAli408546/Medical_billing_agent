@@ -34,9 +34,16 @@ INDEX_PATH = os.path.join(INDEX_DIR, "index.faiss")
 META_PATH  = os.path.join(INDEX_DIR, "metadata.json")
 
 # ── Singleton State ────────────────────────────────────────────
-_index    = None
-_metadata = None
-_embedder = None
+_rules_index    = None
+_rules_metadata = None
+_med_index      = None
+_med_metadata   = None
+_embedder       = None
+
+# New Paths for Medical Reference
+MEDICAL_INDEX_DIR  = os.path.join(BASE_DIR, "models", "medical_index")
+MEDICAL_INDEX_PATH = os.path.join(MEDICAL_INDEX_DIR, "index.faiss")
+MEDICAL_META_PATH  = os.path.join(MEDICAL_INDEX_DIR, "metadata.json")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -44,17 +51,11 @@ _embedder = None
 # ══════════════════════════════════════════════════════════════
 
 def _load_rag_artifacts():
-    """Load FAISS index + metadata + embedding model once."""
-    global _index, _metadata, _embedder
+    """Load FAISS indices + metadata + embedding model once."""
+    global _rules_index, _rules_metadata, _med_index, _med_metadata, _embedder
 
-    if _index is not None:
+    if _rules_index is not None and _med_index is not None:
         return  # Already loaded
-
-    if not os.path.exists(INDEX_PATH):
-        raise FileNotFoundError(
-            f"FAISS index not found at {INDEX_PATH}.\n"
-            "Run: python scripts/build_faiss_index.py"
-        )
 
     try:
         import faiss
@@ -62,15 +63,30 @@ def _load_rag_artifacts():
     except ImportError:
         raise ImportError("Run: pip install faiss-cpu sentence-transformers")
 
-    logger.info("🔍 Loading FAISS index and embedding model...")
-    _index = faiss.read_index(INDEX_PATH)
+    # 1. Load Billing Rules Index
+    if os.path.exists(INDEX_PATH):
+        logger.info("🔍 Loading Billing Rules FAISS index...")
+        _rules_index = faiss.read_index(INDEX_PATH)
+        with open(META_PATH, "r") as f:
+            _rules_metadata = json.load(f)
+    else:
+        logger.warning(f"⚠️ Billing Rules FAISS index not found at {INDEX_PATH}")
 
-    with open(META_PATH, "r") as f:
-        _metadata = json.load(f)
+    # 2. Load Medical Medical Reference Index
+    if os.path.exists(MEDICAL_INDEX_PATH):
+        logger.info("🔍 Loading Medical Reference FAISS index...")
+        _med_index = faiss.read_index(MEDICAL_INDEX_PATH)
+        with open(MEDICAL_META_PATH, "r") as f:
+            _med_metadata = json.load(f)
+    else:
+        logger.warning(f"⚠️ Medical Reference FAISS index not found at {MEDICAL_INDEX_PATH}")
 
-    embed_model = _metadata.get("embed_model", "all-MiniLM-L6-v2")
-    _embedder   = SentenceTransformer(embed_model)
-    logger.info(f"✅ RAG ready | {_index.ntotal} rules indexed")
+    # 3. Load Embedder
+    if _embedder is None:
+        embed_model = "all-MiniLM-L6-v2"
+        _embedder   = SentenceTransformer(embed_model)
+    
+    logger.info("✅ RAG services ready")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -82,14 +98,17 @@ def _retrieve_rules(query: str, top_k: int = 3) -> List[Dict]:
     Embed the query and search FAISS for the top_k most
     semantically similar billing rules.
     """
+    if _rules_index is None:
+        return []
+
     query_vec = _embedder.encode(
         [query],
         normalize_embeddings=True,
         convert_to_numpy=True,
     ).astype(np.float32)
 
-    scores, indices = _index.search(query_vec, k=top_k)
-    rules = _metadata["rules"]
+    scores, indices = _rules_index.search(query_vec, k=top_k)
+    rules = _rules_metadata["rules"]
 
     results = []
     for idx, score in zip(indices[0], scores[0]):
@@ -319,3 +338,47 @@ def validate_claim_fallback(icd_code: str, cpt_code: str) -> Dict[str, Any]:
         "retrieved_rules":  [],
         "pipeline":         "fallback",
     }
+
+
+def search_codes(query: str, code_type: str = "ICD", top_k: int = 5) -> List[Dict]:
+    """
+    Search for professional medical codes (ICD or CPT) using semantic search.
+    
+    Args:
+        query: The clinical description (e.g. "lung infection")
+        code_type: "ICD" or "CPT"
+        top_k: Number of results to return
+    """
+    _load_rag_artifacts()
+    
+    if _med_index is None:
+        logger.warning("Medical index not found, cannot search codes.")
+        return []
+        
+    query_vec = _embedder.encode(
+        [query],
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+    ).astype(np.float32)
+    
+    # We search more items and then filter by code_type
+    # code_type mapping: "ICD" -> "I", "CPT" -> "C"
+    target_type = "I" if code_type == "ICD" else "C"
+    
+    scores, indices = _med_index.search(query_vec, k=top_k * 5)
+    all_metadata = _med_metadata["m"]
+    
+    results = []
+    for idx, score in zip(indices[0], scores[0]):
+        if idx < len(all_metadata):
+            meta = all_metadata[idx]
+            if meta["t"] == target_type:
+                results.append({
+                    "code": meta["c"],
+                    "description": meta["d"],
+                    "_similarity_score": float(score)
+                })
+                if len(results) >= top_k:
+                    break
+                    
+    return results
