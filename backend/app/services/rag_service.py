@@ -66,7 +66,7 @@ def _load_rag_artifacts():
     # 1. Load Billing Rules Index
     if os.path.exists(INDEX_PATH):
         logger.info("🔍 Loading Billing Rules FAISS index...")
-        _rules_index = faiss.read_index(INDEX_PATH)
+        _rules_index = faiss.read_index(INDEX_PATH, faiss.IO_FLAG_MMAP)
         with open(META_PATH, "r") as f:
             _rules_metadata = json.load(f)
     else:
@@ -74,8 +74,8 @@ def _load_rag_artifacts():
 
     # 2. Load Medical Medical Reference Index
     if os.path.exists(MEDICAL_INDEX_PATH):
-        logger.info("🔍 Loading Medical Reference FAISS index...")
-        _med_index = faiss.read_index(MEDICAL_INDEX_PATH)
+        logger.info("🔍 Loading Medical Reference FAISS index with MMAP...")
+        _med_index = faiss.read_index(MEDICAL_INDEX_PATH, faiss.IO_FLAG_MMAP)
         with open(MEDICAL_META_PATH, "r") as f:
             _med_metadata = json.load(f)
     else:
