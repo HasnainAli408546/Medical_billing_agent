@@ -1,36 +1,46 @@
 import os
 import asyncio
-from faster_whisper import WhisperModel
 import edge_tts
 import logging
 
 logger = logging.getLogger(__name__)
 
 class VoiceService:
-    def __init__(self, model_size="base", device="cpu", compute_type="int8"):
+    def __init__(self):
         """
-        Production-grade Voice Service initializing the Whisper model in memory.
-        Using 'base' or 'small' is good for fast CPU inference. For GPU, use device='cuda' and compute_type='float16'
+        Production-grade Voice Service using Groq's extremely fast Whisper API.
+        Zero memory footprint locally! Essential for 512MB RAM constraints.
         """
-        logger.info(f"Loading WhisperModel: size={model_size}, device={device}")
-        # Model is loaded once at startup and lives in memory for rapid API requests
-        self.stt_model = WhisperModel(model_size, device=device, compute_type=compute_type)
-        logger.info("WhisperModel loaded successfully.")
+        self.groq_key = os.getenv("GROQ_API_KEY")
+        if self.groq_key:
+            from groq import Groq
+            self.client = Groq(api_key=self.groq_key)
+            logger.info("VoiceService initialized with Groq Whisper API.")
+        else:
+            logger.warning("GROQ_API_KEY not found. Transcriptions will fail.")
+            self.client = None
         
     def transcribe(self, audio_file_path: str) -> str:
         """
-        Transcribes speech to text. Uses beam search for accuracy.
+        Transcribes speech to text using Groq's whisper-large-v3.
         """
+        if not self.client:
+            raise Exception("GROQ_API_KEY is missing. Cannot transcribe audio.")
+            
         try:
-            # We enforce English for the copilot right now
-            segments, info = self.stt_model.transcribe(audio_file_path, beam_size=5, language="en")
+            with open(audio_file_path, "rb") as file:
+                # Groq API expects a tuple (filename, bytes)
+                transcription = self.client.audio.transcriptions.create(
+                  file=(os.path.basename(audio_file_path), file.read()),
+                  model="whisper-large-v3",
+                  response_format="json",
+                  language="en",
+                )
             
-            logger.info(f"Detected language '{info.language}' with probability {info.language_probability:.2f}")
-            
-            text = " ".join([segment.text for segment in segments])
+            text = transcription.text
             return text.strip()
         except Exception as e:
-            logger.error(f"Transcription failed: {str(e)}")
+            logger.error(f"Transcription failed via Groq API: {str(e)}")
             raise e
 
     async def generate_speech(self, text: str, output_path: str, voice: str = "en-US-AriaNeural") -> str:
