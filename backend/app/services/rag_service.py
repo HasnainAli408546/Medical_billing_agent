@@ -59,9 +59,8 @@ def _load_rag_artifacts():
 
     try:
         import faiss
-        from sentence_transformers import SentenceTransformer
     except ImportError:
-        raise ImportError("Run: pip install faiss-cpu sentence-transformers")
+        raise ImportError("Run: pip install faiss-cpu")
 
     # 1. Load Billing Rules Index
     if os.path.exists(INDEX_PATH):
@@ -80,11 +79,29 @@ def _load_rag_artifacts():
     else:
         logger.warning(f"⚠️ Medical Reference metadata not found at {MEDICAL_META_PATH}")
 
-    # 3. Load Embedder
+    # 3. Load Embedder via HuggingFace Inference API (Zero RAM overhead)
     if _embedder is None:
-        embed_model = "all-MiniLM-L6-v2"
-        hf_token = os.getenv("HF_TOKEN")
-        _embedder   = SentenceTransformer(embed_model, token=hf_token)
+        hf_token = os.getenv("HF_TOKEN", "")
+        
+        class HFEmbedder:
+            def __init__(self, token):
+                self.token = token
+                self.api_url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+
+            def encode(self, texts, **kwargs):
+                import requests
+                headers = {"Authorization": f"Bearer {self.token}"} if self.token else {}
+                try:
+                    response = requests.post(self.api_url, headers=headers, json={"inputs": texts}, timeout=15)
+                    response.raise_for_status()
+                    # Return as float32 numpy array to match exactly what FAISS/Numpy expects
+                    return np.array(response.json(), dtype=np.float32)
+                except Exception as e:
+                    logger.error(f"HuggingFace API Embedder Error: {e}")
+                    # Fallback to zero vectors if API fails so the server doesn't crash
+                    return np.zeros((len(texts), 384), dtype=np.float32)
+
+        _embedder = HFEmbedder(hf_token)
     
     logger.info("✅ RAG services ready")
 
@@ -361,7 +378,6 @@ def search_codes(query: str, code_type: str = "ICD", top_k: int = 5) -> List[Dic
 
     # 2. Memory-map the vectors directly from disk (0 MB RAM overhead!)
     try:
-        import numpy as np
         # mmap_mode='r' prevents loading the 122MB file into physical memory
         vectors_mmap = np.load(npy_path, mmap_mode='r')
     except Exception as e:
