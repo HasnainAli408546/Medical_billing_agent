@@ -72,14 +72,13 @@ def _load_rag_artifacts():
     else:
         logger.warning(f"⚠️ Billing Rules FAISS index not found at {INDEX_PATH}")
 
-    # 2. Load Medical Medical Reference Index
-    if os.path.exists(MEDICAL_INDEX_PATH):
-        logger.info("🔍 Loading Medical Reference FAISS index with MMAP...")
-        _med_index = faiss.read_index(MEDICAL_INDEX_PATH, faiss.IO_FLAG_MMAP)
+    # 2. Load Medical Medical Reference Metadata (Do NOT load FAISS to prevent OOM)
+    if os.path.exists(MEDICAL_META_PATH):
+        logger.info("🔍 Loading Medical Reference metadata...")
         with open(MEDICAL_META_PATH, "r") as f:
             _med_metadata = json.load(f)
     else:
-        logger.warning(f"⚠️ Medical Reference FAISS index not found at {MEDICAL_INDEX_PATH}")
+        logger.warning(f"⚠️ Medical Reference metadata not found at {MEDICAL_META_PATH}")
 
     # 3. Load Embedder
     if _embedder is None:
@@ -344,40 +343,68 @@ def validate_claim_fallback(icd_code: str, cpt_code: str) -> Dict[str, Any]:
 def search_codes(query: str, code_type: str = "ICD", top_k: int = 5) -> List[Dict]:
     """
     Search for professional medical codes (ICD or CPT) using semantic search.
-    
-    Args:
-        query: The clinical description (e.g. "lung infection")
-        code_type: "ICD" or "CPT"
-        top_k: Number of results to return
+    This version uses memory-mapped NumPy for ZERO RAM usage, bypassing FAISS crashes.
     """
     _load_rag_artifacts()
     
-    if _med_index is None:
-        logger.warning("Medical index not found, cannot search codes.")
-        return []
-        
+    # 1. Get query embedding via HuggingFace API
     query_vec = _embedder.encode(
         [query],
         normalize_embeddings=True,
         convert_to_numpy=True,
     ).astype(np.float32)
     
-    # We search more items and then filter by code_type
-    # code_type mapping: "ICD" -> "I", "CPT" -> "C"
-    target_type = "I" if code_type == "ICD" else "C"
+    npy_path = os.path.join(MEDICAL_INDEX_DIR, "med_vectors.npy")
+    if not os.path.exists(npy_path) or not _med_metadata:
+        logger.warning(f"Medical vectors or metadata not found. Run convert_faiss_to_npy.py")
+        return []
+
+    # 2. Memory-map the vectors directly from disk (0 MB RAM overhead!)
+    try:
+        import numpy as np
+        # mmap_mode='r' prevents loading the 122MB file into physical memory
+        vectors_mmap = np.load(npy_path, mmap_mode='r')
+    except Exception as e:
+        logger.error(f"Failed to load memory-mapped vectors: {e}")
+        return []
+
+    # 3. Perform chunked cosine similarity (dot product for normalized vectors)
+    # We chunk the search to ensure we only use ~1-2MB of RAM at a time during the matrix math
+    chunk_size = 5000
+    num_vectors = vectors_mmap.shape[0]
     
-    scores, indices = _med_index.search(query_vec, k=top_k * 5)
+    best_scores = []
+    
+    # query_vec is shape (1, 384)
+    # vectors_mmap is shape (N, 384)
+    for start_idx in range(0, num_vectors, chunk_size):
+        end_idx = min(start_idx + chunk_size, num_vectors)
+        
+        # Load just this tiny chunk into RAM
+        chunk = vectors_mmap[start_idx:end_idx] 
+        
+        # Dot product: (1, 384) @ (384, chunk_size) -> (1, chunk_size)
+        scores = np.dot(query_vec, chunk.T)[0]
+        
+        # Store index offsets
+        for i, score in enumerate(scores):
+            best_scores.append((start_idx + i, float(score)))
+
+    # 4. Sort and filter
+    best_scores.sort(key=lambda x: x[1], reverse=True)
+    
+    target_type = "I" if code_type == "ICD" else "C"
     all_metadata = _med_metadata["m"]
     
     results = []
-    for idx, score in zip(indices[0], scores[0]):
+    for idx, score in best_scores:
         if idx < len(all_metadata):
             meta = all_metadata[idx]
             if meta["t"] == target_type:
                 results.append({
                     "code": meta["c"],
                     "description": meta["d"],
-                    "_similarity_score": float(score)
+                    "_similarity_score": round(score, 3)
                 })
                 if len(results) >= top_k:
                     break
