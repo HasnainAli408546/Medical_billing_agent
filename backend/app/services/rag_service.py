@@ -54,7 +54,7 @@ def _load_rag_artifacts():
     """Load FAISS indices + metadata + embedding model once."""
     global _rules_index, _rules_metadata, _med_index, _med_metadata, _embedder
 
-    if _rules_index is not None and _med_index is not None:
+    if _rules_index is not None and _med_index is not None and _embedder is not None:
         return  # Already loaded
 
     try:
@@ -84,7 +84,8 @@ def _load_rag_artifacts():
     # 3. Load Embedder
     if _embedder is None:
         embed_model = "all-MiniLM-L6-v2"
-        _embedder   = SentenceTransformer(embed_model)
+        hf_token = os.getenv("HF_TOKEN")
+        _embedder   = SentenceTransformer(embed_model, token=hf_token)
     
     logger.info("✅ RAG services ready")
 

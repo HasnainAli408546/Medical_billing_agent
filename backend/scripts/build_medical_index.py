@@ -50,7 +50,7 @@ def main():
     
     # 2. Embed
     print(f"🤖 Loading {EMBED_MODEL}...")
-    model = SentenceTransformer(EMBED_MODEL)
+    model = SentenceTransformer(EMBED_MODEL, token=os.getenv("HF_TOKEN"))
     
     print("🔢 Generating embeddings (This may take 2-5 minutes for 80k+ codes)...")
     embeddings = model.encode(

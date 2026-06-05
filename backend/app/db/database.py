@@ -5,8 +5,9 @@ from app.core.config import settings
 engine = create_engine(
     settings.SQLALCHEMY_DATABASE_URI,
     pool_pre_ping=True,
-    pool_size=10,
-    max_overflow=20
+    pool_size=5,
+    max_overflow=10,
+    pool_recycle=300,  # Recycle connections every 5 min (important for Render free tier)
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

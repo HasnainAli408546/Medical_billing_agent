@@ -51,9 +51,21 @@ def extraction_agent(state: ClaimState) -> ClaimState:
     """Extracts structured data from the medical voice note."""
     llm = get_llm()
     prompt = PromptTemplate.from_template(
-        "Extract Patient Name, Age, Diagnosis, and Procedure from the following text.\n"
-        "Return ONLY a valid JSON object with keys: patient_name, age, diagnosis, procedure.\n"
-        "Text: {text}"
+        "Extract billing data from this clinical note. Return ONLY a JSON object like this example:\n"
+        '{{"patient_name":"John Doe","age":55,"gender":"M","diagnosis":"Acute appendicitis, Hypertension, Type 2 Diabetes",'
+        '"procedure":"Laparoscopic appendectomy","specialty":"General Surgery",'
+        '"claim_type":"Inpatient","submission_method":"Electronic","claim_amount":null,'
+        '"prior_auth":"Obtained","marital_status":"Married","employment_status":"Employed"}}\n\n'
+        "CRITICAL RULES:\n"
+        "1. NEVER invent or assume financial data, claim amounts, or patient income if it is not explicitly provided in the text. Leave them as null if not stated.\n"
+        "2. For 'procedure', only extract procedures that were EXECUTED in the current note. Do NOT extract procedures listed in the 'Plan' or 'Recommendations' section that are intended for the future.\n"
+        "3. For 'diagnosis', extract the Primary Diagnosis as well as all active Secondary/Comorbid Diagnoses (PMH) that affect patient care.\n"
+        "4. claim_type must be Outpatient, Inpatient, or Emergency.\n"
+        "5. If prior_auth is not stated but the procedure is major surgery, set it to Obtained.\n"
+        "6. submission_method defaults to Electronic.\n"
+        "7. Infer gender, specialty, marital_status, employment_status from context if possible.\n"
+        "8. Look closely for age in formats like '42-year-old' and extract it as an integer.\n\n"
+        "Clinical Note:\n{text}"
     )
     chain = prompt | llm
     response = chain.invoke({"text": state["input_text"]})
@@ -74,24 +86,48 @@ def coding_agent(state: ClaimState) -> ClaimState:
     STEP 1: Performs semantic search over thousands of official codes using RAG.
     STEP 2: LLM adjudicates the best match based on clinical context.
     """
-    diagnosis_query = state["extracted_data"].get("diagnosis", "Unknown")
-    procedure_query = state["extracted_data"].get("procedure", "Unknown")
+    diagnosis_raw = state["extracted_data"].get("diagnosis", "Unknown")
+    procedure_raw = state["extracted_data"].get("procedure", "Unknown")
+    
+    # Context-Aware Query Expansion
+    note_text = state.get("input_text", "").lower()
+    diag_modifiers = []
+    if "unknown" in note_text or "idiopathic" in note_text:
+        diag_modifiers.append("unknown etiology unspecified")
+        
+    proc_modifiers = []
+    if "consultation" in procedure_raw.lower() or "visit" in procedure_raw.lower():
+        proc_modifiers.append("Office or other outpatient visit for evaluation and management")
+        
+    diagnosis_query = f"{diagnosis_raw} {' '.join(diag_modifiers)}".strip()
+    procedure_query = f"{procedure_raw} {' '.join(proc_modifiers)}".strip()
     
     # ── RETRIEVAL: Search official code sets ─────────────────
-    icd_candidates = rag_service.search_codes(diagnosis_query, code_type="ICD", top_k=5)
-    cpt_candidates = rag_service.search_codes(procedure_query, code_type="CPT", top_k=5)
+    # Expanded search radius to 25 to ensure the LLM sees unspecified and specific variants
+    icd_candidates = rag_service.search_codes(diagnosis_query, code_type="ICD", top_k=25)
+    cpt_candidates = rag_service.search_codes(procedure_query, code_type="CPT", top_k=25)
     
     # ── GENERATION: LLM picks the best match ─────────────────
     llm = get_llm()
     prompt = PromptTemplate.from_template(
-        "You are an expert medical coder. Based on the clinical note, pick the most accurate "
-        "ICD-10-CM code and CPT code from the candidates provided.\n\n"
+        "You are an expert medical coder. Based on the clinical note, determine the most accurate "
+        "ICD-10-CM code and ALL applicable CPT codes from the provided candidates.\n\n"
+        "CRITICAL CODING PRINCIPLES:\n"
+        "1. Evaluate the candidates carefully. You must select the code with the highest level of specificity explicitly supported by the clinical note.\n"
+        "2. If the clinical note lacks specific details regarding etiology, anatomy, or severity, you MUST select an 'unspecified' variant.\n"
+        "3. Do not infer clinical details that are not documented.\n"
+        "4. For evaluation and management, prefer standard E/M codes (e.g., 99203, 99204, 99213) over outdated consultation codes if appropriate.\n"
+        "5. If none of the provided candidates are accurate, use your expert knowledge to provide the correct code.\n"
+        "6. Only assign CPT codes for procedures that were EXECUTED during the encounter. Do NOT assign CPT codes for planned future procedures.\n"
+        "7. Ensure CPT codes are age-appropriate based on the patient's age in the note.\n"
+        "8. Extract the primary ICD-10 code as icd_code. If there are secondary diagnoses, include them in a secondary_icd_codes list.\n"
+        "9. You MUST include ALL relevant CPT codes for the executed procedures in the cpt_codes list. Do not limit to just one code.\n\n"
         "Clinical Note: {note}\n"
         "Extracted Diagnosis: {diag}\n"
         "Extracted Procedure: {proc}\n\n"
-        "ICD-10 CANDIDATES:\n{icd_list}\n\n"
-        "CPT CANDIDATES:\n{cpt_list}\n\n"
-        "Return ONLY a valid JSON with keys: icd_code, cpt_code, rationale."
+        "ICD-10 CANDIDATES (Top 25):\n{icd_list}\n\n"
+        "CPT CANDIDATES (Top 25):\n{cpt_list}\n\n"
+        "Return ONLY a valid JSON with keys: icd_code, secondary_icd_codes (list), cpt_codes (list), rationale."
     )
     
     icd_text = "\n".join([f"- {c['code']}: {c['description']}" for c in icd_candidates])
@@ -112,7 +148,8 @@ def coding_agent(state: ClaimState) -> ClaimState:
         # Fallback to top result if LLM fails
         coding_data = {
             "icd_code": icd_candidates[0]["code"] if icd_candidates else "UNKNOWN",
-            "cpt_code": cpt_candidates[0]["code"] if cpt_candidates else "UNKNOWN",
+            "secondary_icd_codes": [],
+            "cpt_codes": [cpt_candidates[0]["code"]] if cpt_candidates else ["UNKNOWN"],
             "rationale": "Fallback to top semantic match."
         }
 
@@ -132,7 +169,8 @@ def validation_agent(state: ClaimState) -> ClaimState:
     coding    = state.get("coding_data",   {})
 
     icd_code        = coding.get("icd_code",  "Unknown")
-    cpt_code        = coding.get("cpt_code",  "Unknown")
+    cpt_codes_list  = coding.get("cpt_codes",  ["Unknown"])
+    cpt_code        = ", ".join(cpt_codes_list) if isinstance(cpt_codes_list, list) else str(cpt_codes_list)
 
     claim_for_rag = {
         "icd_code":         icd_code,
@@ -189,26 +227,26 @@ def prediction_agent(state: ClaimState) -> ClaimState:
     coding    = state.get("coding_data",   {})
 
     # Build claim dict from current agent state
+    # Use `or` to coalesce None → default (LLM may return null for fields)
     claim_input = {
-        "patient_age":               extracted.get("age", 35),
-        "patient_gender":            extracted.get("gender", "M"),
-        "patient_income":            extracted.get("patient_income", 50_000),
-        "patient_marital_status":    extracted.get("marital_status", "Single"),
-        "patient_employment_status": extracted.get("employment_status", "Employed"),
-        "claim_amount":              extracted.get("claim_amount", 3_000),
-        "claim_type":                extracted.get("claim_type", "Outpatient"),
-        "claim_submission_method":   extracted.get("submission_method", "Online"),
-        "provider_specialty":        extracted.get("specialty", "General"),
-        "diagnosis_code":            coding.get("icd_code", "Z00.00"),
-        "procedure_code":            coding.get("cpt_code", "99213"),
+        "patient_age":               extracted.get("age") or 35,
+        "patient_gender":            extracted.get("gender") or "M",
+        "patient_income":            extracted.get("patient_income") or 50_000,
+        "patient_marital_status":    extracted.get("marital_status") or "Single",
+        "patient_employment_status": extracted.get("employment_status") or "Employed",
+        "claim_amount":              extracted.get("claim_amount") or 3_000,
+        "claim_type":                extracted.get("claim_type") or "Outpatient",
+        "claim_submission_method":   extracted.get("submission_method") or "Online",
+        "provider_specialty":        extracted.get("specialty") or "General",
+        "diagnosis_code":            coding.get("icd_code") or "Z00.00",
+        "procedure_code":            coding.get("cpt_codes", ["99213"])[0] if isinstance(coding.get("cpt_codes"), list) and len(coding.get("cpt_codes")) > 0 else str(coding.get("cpt_codes", "99213")),
     }
 
-    # Boost probability if validation already found errors
-    # (invalid code = known denial trigger)
-    if state.get("validation_status") == "invalid":
-        claim_input["patient_income"]  = min(claim_input["patient_income"], 24_000)
-        claim_input["claim_type"]      = "Emergency"
-        claim_input["claim_submission_method"] = "Paper"
+    # Note: Previously this block would poison features when validation
+    # was invalid (forcing income=$24k, type=Emergency, method=Paper),
+    # which guaranteed ~99% denial. Removed so the ML model can give
+    # an honest prediction based on actual extracted data.
+    # The validation status is still available in the final claim output.
 
     try:
         result = predict_denial(claim_input)
@@ -240,38 +278,54 @@ def prediction_agent(state: ClaimState) -> ClaimState:
     }
 
 def correction_agent(state: ClaimState) -> ClaimState:
-    """Suggests actionable fixes when denial probability is high."""
-    suggestions = []
+    """Uses LLM to suggest actionable fixes based on validation errors and denial risks."""
     prob   = state.get("denial_probability", 0)
     reason = state.get("denial_reason", "")
+    val_status = state.get("validation_status", "valid")
+    val_errors = state.get("validation_errors", [])
+    
+    # If claim is perfectly healthy and low risk, no need for heavy LLM call
+    if val_status == "valid" and prob < 0.40 and not val_errors:
+        return {
+            "correction_suggestions": ["No corrections needed. Claim appears clean."],
+            **log_action(state, "Correction Agent", "Clean claim", ["No corrections needed."])
+        }
 
-    if prob > 0.65:
-        suggestions.append("⚠️ HIGH RISK: Recommend manual review before submission.")
-
-    if "Paper" in reason and "Emergency" in reason:
-        suggestions.append("Switch submission method to Electronic/Online for Emergency claims.")
-
-    if "underinsured" in reason.lower() or "medicaid" in reason.lower():
-        suggestions.append("Verify patient's current insurance coverage and eligibility before submission.")
-
-    if "pre-authorization" in reason.lower():
-        suggestions.append("Obtain pre-authorization from insurer before billing specialist procedure.")
-
-    if "claim amount" in reason.lower() and "routine" in reason.lower():
-        suggestions.append("Review itemized billing — high amount on Routine visit may trigger upcoding audit.")
-
-    if "phone" in reason.lower() and "inpatient" in reason.lower():
-        suggestions.append("Resubmit Inpatient claim via Electronic or Online channel with full documentation.")
-
-    if "icd" in reason.lower() or state.get("validation_status") == "invalid":
-        suggestions.append(f"Review ICD-10 code for: {state.get('extracted_data', {}).get('diagnosis', 'Unknown')}")
-
-    if not suggestions and prob > 0.45:
-        suggestions.append("Moderate denial risk — double-check the diagnosis-procedure code pairing.")
+    llm = get_llm()
+    prompt = PromptTemplate.from_template(
+        "You are an expert medical billing auditor. Review the following claim validation errors and denial risk factors, "
+        "and provide 1-3 highly specific, actionable recommendations for the billing team to fix the claim.\n\n"
+        "Validation Status: {status}\n"
+        "Validation Errors: {errors}\n"
+        "Denial Probability: {prob}%\n"
+        "Denial Risk Factors: {reason}\n\n"
+        "CRITICAL RULES:\n"
+        "1. Base your suggestions strictly on the Validation Errors and Denial Risk Factors provided.\n"
+        "2. Do NOT hallucinate errors. For example, if there is no error about an ICD code, do not suggest reviewing the ICD code.\n"
+        "3. Provide actionable steps (e.g., 'Obtain prior authorization', 'Verify E/M code level').\n"
+        "4. Output ONLY a valid JSON list of strings. Do not use markdown blocks, just the raw JSON list.\n"
+        'Example: ["Obtain prior authorization for the consultation.", "Review CPT code for correct E/M level."]'
+    )
+    
+    chain = prompt | llm
+    response = chain.invoke({
+        "status": val_status,
+        "errors": json.dumps(val_errors),
+        "prob": round(prob * 100, 1),
+        "reason": reason
+    })
+    
+    try:
+        suggestions = extract_json(response.content)
+        if not isinstance(suggestions, list):
+            suggestions = [str(suggestions)]
+    except Exception as e:
+        logger.error(f"Correction Agent LLM parsing failed: {e}")
+        suggestions = ["⚠️ HIGH RISK: Recommend manual review before submission due to validation or prediction warnings."]
 
     return {
         "correction_suggestions": suggestions,
-        **log_action(state, "Correction Agent", reason, suggestions)
+        **log_action(state, "Correction Agent (AI)", f"Errors: {len(val_errors)} | Risk: {prob:.2f}", suggestions)
     }
 
 def explanation_agent(state: ClaimState) -> ClaimState:
@@ -284,10 +338,14 @@ def explanation_agent(state: ClaimState) -> ClaimState:
     chain = prompt | llm
     response = chain.invoke({"data": str(state)})
     
-    # Bundle the final claim definition
+    coding_data = state.get("coding_data", {})
+    cpt_codes_list = coding_data.get("cpt_codes", ["Unknown"])
+    cpt_val = ", ".join(cpt_codes_list) if isinstance(cpt_codes_list, list) else str(cpt_codes_list)
+
     final_claim = {
         **state.get("extracted_data", {}),
-        **state.get("coding_data", {}),
+        **coding_data,
+        "cpt_code": cpt_val,
         "status": state.get("validation_status"),
         "risk_score": state.get("denial_probability")
     }

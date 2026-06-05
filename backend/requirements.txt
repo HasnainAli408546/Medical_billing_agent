@@ -17,6 +17,7 @@ pydantic-settings>=2.3.0
 langchain>=0.2.0
 langchain-core>=0.2.0
 langchain-groq>=0.1.4
+langchain-openai>=0.1.8
 langchain-google-genai>=1.0.4
 langgraph>=0.0.60
 
@@ -28,6 +29,7 @@ pandas>=2.2.0
 matplotlib>=3.8.0
 sentence-transformers>=2.7.0
 faiss-cpu>=1.8.0
+shap>=0.45.0
 
 
 # ── Voice / Audio ─────────────────────────────────────────

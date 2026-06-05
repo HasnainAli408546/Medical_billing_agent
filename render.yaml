@@ -1,0 +1,46 @@
+# ══════════════════════════════════════════════════════════════
+#  Render Blueprint — MedClaim AI
+#  Deploy all services with: https://render.com/deploy
+# ══════════════════════════════════════════════════════════════
+
+databases:
+  - name: medclaim-db
+    plan: free
+    databaseName: revenue_cycle_db
+    user: admin
+
+services:
+  # ── FastAPI Backend ────────────────────────────────────────
+  - type: web
+    name: medclaim-backend
+    plan: free
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medclaim-db
+          property: connectionURI
+      - key: GROQ_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+    healthCheckPath: /health
+
+  # ── Streamlit Frontend ─────────────────────────────────────
+  - type: web
+    name: medclaim-frontend
+    plan: free
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: medclaim-backend
+          property: hostport
+          # Render auto-generates: https://medclaim-backend.onrender.com

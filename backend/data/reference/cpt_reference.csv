@@ -2635,3 +2635,11 @@ L1070,Tringular arm sling,Specialty
 K0001,Wheelchair (imported),Specialty
 K0002,Wheelchair (locally made),Specialty
 L3908,Wrist support,Specialty
+99202,Office or other outpatient visit for the evaluation and management of a new patient (15-29 mins),Evaluation and Management
+99203,Office or other outpatient visit for the evaluation and management of a new patient (30-44 mins),Evaluation and Management
+99204,Office or other outpatient visit for the evaluation and management of a new patient (45-59 mins),Evaluation and Management
+99205,Office or other outpatient visit for the evaluation and management of a new patient (60-74 mins),Evaluation and Management
+99212,Office or other outpatient visit for the evaluation and management of an established patient (10-19 mins),Evaluation and Management
+99213,Office or other outpatient visit for the evaluation and management of an established patient (20-29 mins),Evaluation and Management
+99214,Office or other outpatient visit for the evaluation and management of an established patient (30-39 mins),Evaluation and Management
+99215,Office or other outpatient visit for the evaluation and management of an established patient (40-54 mins),Evaluation and Management

@@ -12,3 +12,4 @@ class ProcessClaimResponse(BaseModel):
     risk_score: float
     final_claim: Dict[str, Any]
     correction_suggestions: List[str]
+    agent_logs: List[Dict[str, Any]] = []

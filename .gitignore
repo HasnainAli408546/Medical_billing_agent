@@ -25,10 +25,17 @@ var/
 # Streamlit
 .streamlit/credentials.toml
 
-# Virtual Environment & Huge Models
+# Virtual Environment
 venv/
 backend/venv/
-backend/models/
-models/
-faiss_index/
 .pytest_cache/
+
+# Large / generated files NOT needed in repo
+archive/
+archive.zip
+not_used_dataset/
+
+# Medical FAISS index is too large for GitHub (143 MB > 100 MB limit)
+# The app falls back gracefully when this is missing (code search disabled)
+# The smaller models (denial_model, billing rules FAISS) are still included
+backend/models/medical_index/

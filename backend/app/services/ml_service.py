@@ -26,11 +26,12 @@ ENC_PATH   = os.path.join(BASE_DIR, "models", "label_encoders.pkl")
 # ── Singleton Model State ──────────────────────────────────────
 _model          = None
 _encoder_bundle = None
+_explainer      = None
 
 
 def _load_artifacts():
     """Load model + encoders from disk once. Cached in module-level globals."""
-    global _model, _encoder_bundle
+    global _model, _encoder_bundle, _explainer
 
     if _model is not None:
         return  # Already loaded
@@ -49,6 +50,13 @@ def _load_artifacts():
         _encoder_bundle = pickle.load(f)
 
     logger.info(f"✅ Model loaded. Features: {_encoder_bundle['feature_cols']}")
+    
+    try:
+        import shap
+        _explainer = shap.TreeExplainer(_model)
+        logger.info("✅ SHAP Explainer initialized.")
+    except Exception as e:
+        logger.warning(f"⚠️ SHAP Explainer failed to initialize: {e}")
 
 
 def _build_feature_row(claim: Dict[str, Any]) -> pd.DataFrame:
@@ -63,19 +71,20 @@ def _build_feature_row(claim: Dict[str, Any]) -> pd.DataFrame:
     bundle = _encoder_bundle
 
     # ── Raw values with safe defaults ────────────────────────────
-    age               = float(claim.get("patient_age", 35))
-    income            = float(claim.get("patient_income", 50_000))
-    amount            = float(claim.get("claim_amount", 3_000))
-    claim_month       = int(claim.get("claim_month", 6))
+    # Use `or` to coalesce None → default (LLM may return null for missing fields)
+    age               = float(claim.get("patient_age") or 35)
+    income            = float(claim.get("patient_income") or 50_000)
+    amount            = float(claim.get("claim_amount") or 3_000)
+    claim_month       = int(claim.get("claim_month") or 6)
 
-    gender            = str(claim.get("patient_gender", "M"))
-    specialty         = str(claim.get("provider_specialty", "General"))
-    marital_status    = str(claim.get("patient_marital_status", "Single"))
-    employment_status = str(claim.get("patient_employment_status", "Employed"))
-    claim_type        = str(claim.get("claim_type", "Outpatient"))
-    submission_method = str(claim.get("claim_submission_method", "Online"))
-    diagnosis_code    = str(claim.get("diagnosis_code", "Z00.00"))
-    procedure_code    = str(claim.get("procedure_code", "99213"))
+    gender            = str(claim.get("patient_gender") or "M")
+    specialty         = str(claim.get("provider_specialty") or "General")
+    marital_status    = str(claim.get("patient_marital_status") or "Single")
+    employment_status = str(claim.get("patient_employment_status") or "Employed")
+    claim_type        = str(claim.get("claim_type") or "Outpatient")
+    submission_method = str(claim.get("claim_submission_method") or "Online")
+    diagnosis_code    = str(claim.get("diagnosis_code") or "Z00.00")
+    procedure_code    = str(claim.get("procedure_code") or "99213")
 
     # ── Label Encode categoricals ─────────────────────────────────
     encoders = bundle["label_encoders"]
@@ -131,42 +140,71 @@ def _get_risk_tier(prob: float) -> str:
         return "LOW"
 
 
-def _get_denial_reason(claim: Dict[str, Any], prob: float) -> str:
-    """Generate a human-readable denial reason based on top risk factors."""
-    reasons = []
-
-    employment = claim.get("patient_employment_status", "Employed")
-    if employment in ("Unemployed", "Student"):
-        reasons.append(f"Patient employment status ({employment}) suggests potential coverage gap")
-
-    claim_type = claim.get("claim_type", "")
-    method = claim.get("claim_submission_method", "")
-    if method == "Paper" and claim_type == "Emergency":
-        reasons.append("Paper submission on Emergency claim — high processing error risk")
-
-    income = float(claim.get("patient_income", 99999))
-    if income < 25_000:
-        reasons.append(f"Low patient income (${income:,.0f}) — likely underinsured or Medicaid gap")
-    elif income < 50_000:
-        reasons.append(f"Below-average income (${income:,.0f}) — partial coverage risk")
-
-    amount = float(claim.get("claim_amount", 0))
-    if amount > 8_000 and claim_type == "Routine":
-        reasons.append(f"High claim amount (${amount:,.0f}) on Routine visit — medical necessity review likely")
-
-    specialty = claim.get("provider_specialty", "")
-    if specialty in ("Cardiology", "Neurology", "Orthopedics") and claim_type == "Outpatient":
-        reasons.append(f"{specialty} outpatient claim likely requires pre-authorization")
-
-    if method == "Phone" and claim_type == "Inpatient":
-        reasons.append("Inpatient claim submitted by phone — insufficient documentation channel")
-
-    if not reasons:
+def _get_denial_reason(claim: Dict[str, Any], prob: float, row_df: pd.DataFrame = None) -> str:
+    """Generate a human-readable denial reason based on top risk factors from SHAP."""
+    global _explainer
+    if row_df is None or _explainer is None:
         if prob >= 0.45:
             return "Claim flagged for review — combination of risk factors detected."
         return "No major denial risk factors identified."
-
-    return " | ".join(reasons)
+        
+    try:
+        # Calculate SHAP values for this specific claim
+        shap_values = _explainer.shap_values(row_df)
+        # XGBoost binary classification usually returns a single array or list. Safely extract:
+        sv = shap_values[0] if isinstance(shap_values, list) else shap_values[0]
+        
+        feature_names = row_df.columns.tolist()
+        feature_impacts = []
+        
+        for i, feat_name in enumerate(feature_names):
+            impact = sv[i]
+            if impact > 0: # Only care about features that INCREASED the denial risk
+                pretty_name = feat_name.replace('_enc', '').replace('_freq', '')
+                
+                # Fetch original human-readable value from the claim dict
+                mapping = {
+                    "PatientGender": "patient_gender",
+                    "ProviderSpecialty": "provider_specialty",
+                    "PatientMaritalStatus": "patient_marital_status",
+                    "PatientEmploymentStatus": "patient_employment_status",
+                    "ClaimType": "claim_type",
+                    "ClaimSubmissionMethod": "claim_submission_method",
+                    "DiagnosisCode": "diagnosis_code",
+                    "ProcedureCode": "procedure_code",
+                    "ClaimAmount": "claim_amount",
+                    "PatientAge": "patient_age",
+                    "PatientIncome": "patient_income",
+                    "ClaimMonth": "claim_month"
+                }
+                
+                orig_key = mapping.get(pretty_name)
+                val_str = str(claim.get(orig_key, row_df.iloc[0][feat_name]))
+                
+                # Format currency nicely
+                if pretty_name in ["ClaimAmount", "PatientIncome"] and orig_key in claim:
+                    try:
+                        val_str = f"${float(claim[orig_key]):,.0f}"
+                    except:
+                        pass
+                    
+                feature_impacts.append((pretty_name, val_str, impact))
+                
+        # Sort by highest mathematical impact on the model
+        feature_impacts.sort(key=lambda x: x[2], reverse=True)
+        top_factors = feature_impacts[:3]
+        
+        if prob >= 0.45 and top_factors:
+            factor_strings = [f"{name} ({val})" for name, val, _ in top_factors]
+            return f"High risk flagged by AI based on: {', '.join(factor_strings)}."
+        elif prob >= 0.45:
+            return "Claim flagged for review — combination of risk factors detected."
+        else:
+            return "No major denial risk factors identified."
+            
+    except Exception as e:
+        logger.error(f"SHAP explanation failed: {e}")
+        return "Claim flagged for review — combination of risk factors detected."
 
 
 # ══════════════════════════════════════════════════════════════
@@ -201,9 +239,10 @@ def predict_denial(claim: Dict[str, Any]) -> Dict[str, Any]:
         income = float(claim.get("patient_income", 99999))
         amount = float(claim.get("claim_amount", 0))
         prob   = 0.65 if (income < 30_000 or amount > 8_000) else 0.20
+        row_df = None
 
     risk_tier     = _get_risk_tier(prob)
-    denial_reason = _get_denial_reason(claim, prob)
+    denial_reason = _get_denial_reason(claim, prob, row_df)
 
     return {
         "denial_probability": prob,

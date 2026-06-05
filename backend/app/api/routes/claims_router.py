@@ -48,11 +48,11 @@ def generate_claim(request: ProcessClaimRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"AI Pipeline failed: {str(e)}")
         
     extracted = final_state.get("extracted_data", {})
-    patient_name = extracted.get("patient_name", "Unknown Patient")
-    # robust casting for age in case LLM outputs a string like "45"
+    patient_name = extracted.get("patient_name") or "Unknown Patient"
+    # robust casting for age — LLM may return null, a string "45", or a float
     try:
-        age = int(extracted.get("age", 0))
-    except ValueError:
+        age = int(extracted.get("age") or 0)
+    except (ValueError, TypeError):
         age = 0
     
     # 3. Secure Database Transactions
@@ -104,15 +104,16 @@ def generate_claim(request: ProcessClaimRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Database persistence failed: {str(e)}")
 
     # 4. API Return Object
-    return {
-        "claim_id": db_claim.id,
-        "patient_name": patient.name,
-        "status": db_claim.status,
-        "explanation": final_state.get("explanation", "AI Processing Complete."),
-        "risk_score": final_state.get("denial_probability", 0.0),
-        "final_claim": final_claim_data,
-        "correction_suggestions": final_state.get("correction_suggestions", [])
-    }
+    return ProcessClaimResponse(
+        claim_id=db_claim.id,
+        patient_name=patient.name,
+        status=final_state.get("validation_status", "error"),
+        explanation=final_state.get("explanation", ""),
+        risk_score=final_state.get("denial_probability", 1.0),
+        final_claim=final_state.get("final_claim", {}),
+        correction_suggestions=final_state.get("correction_suggestions", []),
+        agent_logs=final_state.get("agent_logs", [])
+    )
 
 
 # ══════════════════════════════════════════════════════════════

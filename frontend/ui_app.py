@@ -1,512 +1,732 @@
 import streamlit as st
-import requests
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
-import os
+import plotly.express as px
 import json
-import time
-
-# ── Configuration ──────────────────────────────────────────────
-API_URL = os.getenv("API_URL", "http://localhost:8000")
-
-st.set_page_config(
-    page_title="Revenue Cycle Copilot",
-    page_icon="🏥",
-    layout="wide",
-    initial_sidebar_state="expanded"
+from utils import (
+    api_get, process_text_claim, process_voice_audio,
+    risk_color, risk_label
 )
 
-# ── Premium CSS ────────────────────────────────────────────────
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PAGE CONFIG
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+st.set_page_config(
+    page_title="MedClaim AI — Revenue Cycle Copilot",
+    page_icon="",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PREMIUM CSS — Inspired by Linear, Vercel, and Stripe dashboards
+# Color System:
+#   Background:  #0f1117 (deep space) → #161b22 (card surfaces)
+#   Primary:     #6366f1 (indigo) → #818cf8 (light indigo)
+#   Accent:      #06b6d4 (cyan)
+#   Success:     #34d399   Warning: #fbbf24   Danger: #f87171
+#   Text:        #f1f5f9 (primary)  #94a3b8 (muted)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+    /* ── Global Reset ─────────────────────────────── */
     html, body, [class*="css"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #f1f5f9;
     }
-
     .stApp {
-        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-        min-height: 100vh;
+        background: #0f1117;
     }
 
+    /* ── Hide Streamlit chrome ────────────────────── */
+    #MainMenu, header, footer { visibility: hidden; }
+    .stDeployButton { display: none; }
+
+    /* ── Sidebar ──────────────────────────────────── */
     section[data-testid="stSidebar"] {
-        background: rgba(255,255,255,0.04);
-        border-right: 1px solid rgba(255,255,255,0.08);
+        background: linear-gradient(180deg, #0f1117 0%, #131720 100%);
+        border-right: 1px solid rgba(99, 102, 241, 0.08);
+        padding-top: 1rem;
+    }
+    section[data-testid="stSidebar"] .stRadio label {
+        font-weight: 500 !important;
+        letter-spacing: 0.01em;
+    }
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label {
+        padding: 0.6rem 1rem !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease !important;
+        margin-bottom: 2px !important;
+    }
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:hover {
+        background: rgba(99, 102, 241, 0.08) !important;
+    }
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label[data-checked="true"],
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label[aria-checked="true"] {
+        background: rgba(99, 102, 241, 0.12) !important;
+        border-left: 3px solid #6366f1 !important;
     }
 
-    .stButton > button {
-        background: linear-gradient(135deg, #667eea, #764ba2) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 10px !important;
-        padding: 0.5rem 1.5rem !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(102,126,234,0.4) !important;
-    }
-
-    .stButton > button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(102,126,234,0.6) !important;
-    }
-
-    .metric-card {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 16px;
+    /* ── Card Component ───────────────────────────── */
+    .card {
+        background: #161b22;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
         padding: 24px;
-        text-align: center;
-        backdrop-filter: blur(10px);
-        transition: transform 0.2s ease;
-    }
-
-    .metric-card:hover { transform: translateY(-3px); }
-
-    .metric-value {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #a78bfa;
-        margin: 8px 0;
-    }
-
-    .metric-label {
-        font-size: 0.85rem;
-        color: rgba(255,255,255,0.6);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .glass-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 16px;
-        padding: 24px;
-        backdrop-filter: blur(10px);
         margin-bottom: 20px;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+        border-color: rgba(99, 102, 241, 0.15);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.05);
     }
 
-    h1, h2, h3 { color: #f0f0f0 !important; }
-
-    .risk-high   { color: #fc8181; font-weight: 700; }
-    .risk-medium { color: #f6ad55; font-weight: 700; }
-    .risk-low    { color: #68d391; font-weight: 700; }
-
-    .stTextArea textarea, .stTextInput input {
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.15) !important;
-        color: white !important;
-        border-radius: 10px !important;
+    /* ── KPI Stat Card ────────────────────────────── */
+    .kpi {
+        background: linear-gradient(135deg, #161b22 0%, #1a1f2e 100%);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+        padding: 20px 24px;
+        text-align: left;
+    }
+    .kpi-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+    }
+    .kpi-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #f1f5f9;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+    .kpi-sub {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: 6px;
     }
 
-    [data-testid="stMetricValue"] { color: #a78bfa !important; }
+    /* ── Status Badge ─────────────────────────────── */
+    .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .badge-valid   { background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+    .badge-invalid { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+    .badge-pending { background: rgba(251,191,36,0.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+    .badge-low     { background: rgba(52,211,153,0.12);  color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+    .badge-medium  { background: rgba(251,191,36,0.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+    .badge-high    { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
 
-    .stDataFrame { border-radius: 12px; overflow: hidden; }
+    /* ── Section Title ────────────────────────────── */
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #e2e8f0;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
 
-    div[data-testid="stAlert"] {
-        border-radius: 10px;
+    /* ── Data Detail Row ──────────────────────────── */
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .detail-key {
+        font-size: 0.85rem;
+        color: #64748b;
+        font-weight: 500;
+    }
+    .detail-val {
+        font-size: 0.85rem;
+        color: #e2e8f0;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    }
+
+    /* ── Buttons ──────────────────────────────────── */
+    .stButton > button {
+        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        padding: 0.55rem 1.2rem !important;
+        letter-spacing: 0.01em !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 1px 3px rgba(99,102,241,0.15) !important;
+    }
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%) !important;
+        box-shadow: 0 4px 12px rgba(99,102,241,0.25) !important;
+        transform: translateY(-1px) !important;
+    }
+    .stButton > button:active {
+        transform: translateY(0) !important;
+    }
+
+    /* ── Inputs ───────────────────────────────────── */
+    .stTextInput input, .stTextArea textarea, .stNumberInput input, .stSelectbox select {
+        background: #1a1f2e !important;
+        border: 1px solid rgba(255,255,255,0.06) !important;
+        border-radius: 8px !important;
+        color: #e2e8f0 !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+    .stTextInput input:focus, .stTextArea textarea:focus, .stNumberInput input:focus {
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 2px rgba(99,102,241,0.15) !important;
+    }
+
+    /* ── Expander ─────────────────────────────────── */
+    .streamlit-expanderHeader {
+        background: #161b22 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        color: #e2e8f0 !important;
+    }
+
+    /* ── Brand Divider ────────────────────────────── */
+    .brand-line {
+        height: 2px;
+        background: linear-gradient(90deg, #6366f1, #06b6d4, transparent);
         border: none;
+        margin: 0 0 24px 0;
+        border-radius: 2px;
     }
+
+    /* ── Tabs ─────────────────────────────────────── */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 6px;
+        background: #161b22;
+        border-radius: 12px;
+        padding: 6px;
+        border: 1px solid rgba(255,255,255,0.04);
+    }
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.05rem !important;
+        padding: 12px 24px !important;
+        color: #94a3b8;
+    }
+    .stTabs [aria-selected="true"] {
+        background: rgba(99,102,241,0.15) !important;
+        color: #818cf8 !important;
+    }
+
+    /* ── Scrollbar ────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.4); }
+
+    /* ── Dataframe ────────────────────────────────── */
+    .stDataFrame { border-radius: 10px; overflow: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
 
-# ── Helper Functions ───────────────────────────────────────────
-
-def api_get(endpoint: str):
-    try:
-        r = requests.get(f"{API_URL}{endpoint}", timeout=10)
-        if r.status_code == 200:
-            return r.json()
-        return None
-    except Exception:
-        return None
-
-
-def process_text_claim(text_input: str):
-    with st.spinner("🤖 Running multi-agent pipeline..."):
-        try:
-            r = requests.post(
-                f"{API_URL}/claims/generate",
-                json={"transcribed_text": text_input},
-                timeout=120
-            )
-            if r.status_code == 200:
-                return r.json()
-            else:
-                st.error(f"Pipeline error: {r.status_code} — {r.text[:200]}")
-                return None
-        except requests.exceptions.ConnectionError:
-            st.error("❌ Backend unreachable. Start FastAPI: `uvicorn app.main:app --reload`")
-            return None
-        except requests.exceptions.Timeout:
-            st.error("⏱️ Request timed out — LLM inference may be slow. Try again.")
-            return None
-
-
-def process_voice_audio(audio_bytes):
-    with st.spinner("🎙️ Transcribing audio..."):
-        try:
-            files = {"audio_file": ("recording.wav", audio_bytes, "audio/wav")}
-            r = requests.post(f"{API_URL}/voice/process", files=files, timeout=60)
-            if r.status_code == 200:
-                return r.json().get("text", "")
-            st.error("Audio transcription failed.")
-            return ""
-        except Exception as e:
-            st.error(f"Voice error: {e}")
-            return ""
-
-
-def risk_badge(prob):
-    if prob is None:
-        return "—"
-    if prob > 0.65:
-        return f'<span class="risk-high">🔴 HIGH ({prob:.0%})</span>'
-    elif prob > 0.45:
-        return f'<span class="risk-medium">🟡 MED ({prob:.0%})</span>'
-    else:
-        return f'<span class="risk-low">🟢 LOW ({prob:.0%})</span>'
-
-
-# ── Sidebar ────────────────────────────────────────────────────
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SIDEBAR NAVIGATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 with st.sidebar:
-    st.markdown("### 🏥 Revenue Cycle")
-    st.markdown("**Copilot v1.0**")
-    st.markdown("---")
+    st.markdown("""
+    <div style="padding: 12px 0 24px 0;">
+        <div style="font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: #f1f5f9;">
+            MedClaim <span style="color: #6366f1;">AI</span>
+        </div>
+        <div style="font-size: 0.75rem; color: #64748b; margin-top: 2px; letter-spacing: 0.05em; text-transform: uppercase;">
+            Revenue Cycle Copilot
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="brand-line"></div>', unsafe_allow_html=True)
+
     page = st.radio(
         "Navigation",
-        ["🎙️ Copilot Workflow", "📊 Analytics Dashboard", "📋 Claims List", "🕵️ Agent Trace Logs"],
-        label_visibility="collapsed"
+        ["Copilot", "Dashboard", "Claims", "Agent Trace"],
+        label_visibility="collapsed",
     )
-    st.markdown("---")
 
-    # Live backend status check
-    health = api_get("/health")
-    if health:
-        st.success("🟢 Backend Online")
-    else:
-        st.error("🔴 Backend Offline")
+    st.markdown("<br>" * 3, unsafe_allow_html=True)
+    st.markdown("""
+    <div style="padding: 16px; background: rgba(99,102,241,0.06); border-radius: 10px; border: 1px solid rgba(99,102,241,0.1);">
+        <div style="font-size: 0.75rem; font-weight: 600; color: #818cf8; margin-bottom: 6px;">System Status</div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">Backend: <span style="color: #34d399;">Online</span></div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">Model: LLaMA-3 via Groq</div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">Pipeline: LangGraph</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.caption("Powered by XGBoost + RAG + LLaMA-3")
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PAGE: COPILOT
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+if page == "Copilot":
+    st.markdown("""
+    <div style="margin-bottom: 8px;">
+        <span style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #f1f5f9;">
+            Clinical Copilot
+        </span>
+    </div>
+    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 24px;">
+        Input a clinical note to extract diagnoses, assign codes, validate, and predict denial risk — all in one pass.
+    </div>
+    """, unsafe_allow_html=True)
 
-# ══════════════════════════════════════════════════════════════
-#  PAGE 1: COPILOT WORKFLOW
-# ══════════════════════════════════════════════════════════════
-if page == "🎙️ Copilot Workflow":
-    st.title("🏥 Clinical Copilot")
-    st.markdown("Dictate or type a clinical note — the AI pipeline extracts, codes, validates, and scores denial risk automatically.")
+    st.markdown('<div class="brand-line"></div>', unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1, 1])
+    # ── Input Section ──
+    tab_text, tab_voice = st.tabs(["Text Input", "Voice Dictation"])
 
-    with col1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("🎙️ Voice Dictation")
-        audio_value = st.audio_input("Record your clinical findings")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with col2:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("⌨️ Text Input")
+    with tab_text:
         text_value = st.text_area(
-            "Type clinical notes here...",
-            placeholder="e.g. Patient John, 45 years old, presents with hypertension. Ordered ECG for symptom evaluation.",
-            height=130
+            "Clinical Note",
+            placeholder="Paste a full clinical note here — SUBJECTIVE, OBJECTIVE, ASSESSMENT & PLAN sections...",
+            height=250,
+            label_visibility="collapsed",
         )
-        submit_text = st.button("🚀 Generate Claim", use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        col_btn, col_spacer = st.columns([1, 3])
+        with col_btn:
+            submit_text = st.button("Generate Claim", use_container_width=True)
 
+    with tab_voice:
+        audio_value = st.audio_input("Record clinical findings", label_visibility="collapsed")
+        if audio_value is not None:
+            st.success("Audio captured. Click below to process.")
+        voice_submit = st.button("Process Audio", use_container_width=True)
+
+    # ── Process Claim ──
     claim_result = None
 
-    if audio_value is not None:
-        st.success("✅ Audio captured!")
-        if st.button("📡 Process Audio & Generate Claim", use_container_width=True):
-            transcribed = process_voice_audio(audio_value.getvalue())
-            if transcribed:
-                st.info(f"**Transcribed:** {transcribed}")
-                claim_result = process_text_claim(transcribed)
-
-    elif submit_text and text_value:
+    if submit_text and text_value:
         claim_result = process_text_claim(text_value)
+    elif voice_submit and audio_value is not None:
+        transcribed = process_voice_audio(audio_value.getvalue())
+        if transcribed:
+            st.info(f"**Transcription:** {transcribed}")
+            claim_result = process_text_claim(transcribed)
 
     if claim_result:
+        st.session_state["latest_claim"] = claim_result
+
+    # ── Display Result ──
+    if st.session_state.get("latest_claim"):
+        claim = st.session_state["latest_claim"]
+        final = claim.get("final_claim", {})
+        risk_val = claim.get("risk_score", 0) or 0
+        risk_pct = risk_val * 100
+        status_raw = str(claim.get("status", "")).upper()
+        badge_class = "badge-valid" if status_raw == "VALID" else "badge-invalid" if status_raw == "INVALID" else "badge-pending"
+        r_class = "badge-high" if risk_pct > 65 else "badge-medium" if risk_pct > 45 else "badge-low"
+
         st.markdown("---")
-        st.header("📄 Claim Result")
 
-        m1, m2, m3, m4 = st.columns(4)
-        m1.metric("Patient",   claim_result.get("patient_name", "N/A"))
-        m2.metric("Claim ID",  f"#{claim_result.get('claim_id', 'N/A')}")
-        m3.metric("Status",    str(claim_result.get("status", "")).upper())
+        # ── Top KPI Row ──
+        k1, k2, k3, k4 = st.columns(4)
+        with k1:
+            st.markdown(f"""<div class="kpi">
+                <div class="kpi-label">Patient</div>
+                <div class="kpi-value" style="font-size:1.3rem;">{claim.get("patient_name","Unknown")}</div>
+            </div>""", unsafe_allow_html=True)
+        with k2:
+            st.markdown(f"""<div class="kpi">
+                <div class="kpi-label">Claim ID</div>
+                <div class="kpi-value">#{claim.get("claim_id","—")}</div>
+            </div>""", unsafe_allow_html=True)
+        with k3:
+            st.markdown(f"""<div class="kpi">
+                <div class="kpi-label">Status</div>
+                <div style="margin-top:8px;"><span class="badge {badge_class}">{status_raw}</span></div>
+            </div>""", unsafe_allow_html=True)
+        with k4:
+            st.markdown(f"""<div class="kpi">
+                <div class="kpi-label">Denial Risk</div>
+                <div class="kpi-value" style="color:{risk_color(risk_val)};">{risk_pct:.1f}%</div>
+                <div class="kpi-sub"><span class="badge {r_class}">{risk_label(risk_val)}</span></div>
+            </div>""", unsafe_allow_html=True)
 
-        risk = claim_result.get("risk_score", 0.0) * 100
-        m4.metric("Denial Risk", f"{risk:.1f}%")
+        st.markdown("<br>", unsafe_allow_html=True)
 
-        col_gauge, col_info = st.columns([1, 1])
+        # ── Detail Columns ──
+        col_detail, col_gauge = st.columns([3, 2])
+
+        with col_detail:
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Coding & Diagnosis</div>', unsafe_allow_html=True)
+
+            rows = [
+                ("ICD-10 Code",   final.get("icd_code", "N/A")),
+                ("CPT Code(s)",   final.get("cpt_code", "N/A")),
+                ("Diagnosis",     final.get("diagnosis", "N/A")),
+                ("Procedure",     final.get("procedure", "N/A")),
+            ]
+            for key, val in rows:
+                st.markdown(f"""<div class="detail-row">
+                    <span class="detail-key">{key}</span>
+                    <span class="detail-val">{val}</span>
+                </div>""", unsafe_allow_html=True)
+
+            st.markdown('</div>', unsafe_allow_html=True)
+
+            # ── AI Explanation ──
+            explanation = claim.get("explanation", "")
+            if explanation:
+                st.markdown('<div class="card">', unsafe_allow_html=True)
+                st.markdown('<div class="section-title">AI Explanation</div>', unsafe_allow_html=True)
+                st.markdown(f'<div style="font-size:0.9rem; color:#94a3b8; line-height:1.7;">{explanation}</div>', unsafe_allow_html=True)
+                st.markdown('</div>', unsafe_allow_html=True)
 
         with col_gauge:
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            color = "#fc8181" if risk > 65 else "#f6ad55" if risk > 45 else "#68d391"
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Risk Assessment</div>', unsafe_allow_html=True)
+            rc = risk_color(risk_val)
             fig = go.Figure(go.Indicator(
                 mode="gauge+number",
-                value=risk,
-                number={"suffix": "%", "font": {"color": color}},
-                title={"text": "Denial Risk Score", "font": {"color": "#f0f0f0"}},
+                value=risk_pct,
+                number={"suffix": "%", "font": {"color": rc, "size": 36, "family": "Inter"}},
                 gauge={
-                    "axis": {"range": [0, 100], "tickcolor": "#666"},
-                    "bar": {"color": color},
-                    "bgcolor": "rgba(0,0,0,0)",
+                    "axis": {"range": [0, 100], "tickcolor": "#1e293b", "tickfont": {"color": "#475569"}},
+                    "bar": {"color": rc, "thickness": 0.7},
+                    "bgcolor": "#1e293b",
+                    "borderwidth": 0,
                     "steps": [
-                        {"range": [0, 45],  "color": "rgba(104,211,145,0.15)"},
-                        {"range": [45, 65], "color": "rgba(246,173,85,0.15)"},
-                        {"range": [65, 100],"color": "rgba(252,129,129,0.15)"},
+                        {"range": [0, 45],  "color": "rgba(52,211,153,0.06)"},
+                        {"range": [45, 65], "color": "rgba(251,191,36,0.06)"},
+                        {"range": [65, 100],"color": "rgba(248,113,113,0.06)"},
                     ],
                 }
             ))
             fig.update_layout(
-                height=250,
-                margin=dict(l=20, r=20, t=40, b=10),
+                height=220,
+                margin=dict(l=30, r=30, t=20, b=10),
                 paper_bgcolor="rgba(0,0,0,0)",
-                font={"color": "#f0f0f0"}
+                font={"color": "#94a3b8", "family": "Inter"}
             )
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
-        with col_info:
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            final = claim_result.get("final_claim", {})
-            st.markdown(f"**ICD-10:** `{final.get('icd_code', 'N/A')}`")
-            st.markdown(f"**CPT:** `{final.get('cpt_code', 'N/A')}`")
-            st.markdown(f"**Diagnosis:** {final.get('diagnosis', 'N/A')}")
-            st.markdown(f"**Procedure:** {final.get('procedure', 'N/A')}")
-            st.markdown("---")
-            st.markdown(f"**AI Explanation:** {claim_result.get('explanation', '')}")
+        # ── Corrections ──
+        corrections = claim.get("correction_suggestions", [])
+        if corrections:
+            st.markdown('<div class="card" style="border-color: rgba(251,191,36,0.15);">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="color:#fbbf24;">Suggested Corrections</div>', unsafe_allow_html=True)
+            for sug in corrections:
+                st.markdown(f'<div style="padding:6px 0; font-size:0.9rem; color:#e2e8f0;">&#x2022; {sug}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
-        if claim_result.get("correction_suggestions"):
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.warning("⚠️ **Suggested Corrections Before Submission:**")
-            for sug in claim_result.get("correction_suggestions", []):
-                st.markdown(f"• {sug}")
+        # ── Agent Trace (inline) ──
+        logs = claim.get("agent_logs", [])
+        if logs:
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Agent Execution Trace</div>', unsafe_allow_html=True)
+            for i, log in enumerate(logs, 1):
+                agent_name = log.get("agent_name", log.get("agent", "Unknown"))
+                with st.expander(f"Step {i} — {agent_name}", expanded=False):
+                    c_in, c_out = st.columns(2)
+                    with c_in:
+                        st.markdown("**Input**")
+                        inp = log.get("input", "")
+                        if isinstance(inp, (dict, list)):
+                            st.json(inp)
+                        else:
+                            st.code(str(inp), language="text")
+                    with c_out:
+                        st.markdown("**Output**")
+                        out = log.get("output", "")
+                        if isinstance(out, (dict, list)):
+                            st.json(out)
+                        else:
+                            st.code(str(out), language="text")
             st.markdown('</div>', unsafe_allow_html=True)
 
 
-# ══════════════════════════════════════════════════════════════
-#  PAGE 2: ANALYTICS DASHBOARD
-# ══════════════════════════════════════════════════════════════
-elif page == "📊 Analytics Dashboard":
-    st.title("📊 Analytics Dashboard")
-    st.markdown("Real-time revenue cycle performance from the database.")
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PAGE: DASHBOARD
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+elif page == "Dashboard":
+    st.markdown("""
+    <div style="margin-bottom: 8px;">
+        <span style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #f1f5f9;">
+            Analytics Dashboard
+        </span>
+    </div>
+    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 24px;">
+        Revenue cycle performance metrics and claim analytics at a glance.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('<div class="brand-line"></div>', unsafe_allow_html=True)
 
     data = api_get("/analytics/summary")
 
     if not data:
-        st.warning("⚠️ No analytics data yet. Process some claims first, or check if the backend is running.")
-        st.info("Start backend: `cd backend && uvicorn app.main:app --reload`")
+        st.markdown("""<div class="card" style="text-align:center; padding: 60px 20px;">
+            <div style="font-size: 1.1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 8px;">No Analytics Data Yet</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Process some claims from the Copilot page to populate the dashboard.</div>
+        </div>""", unsafe_allow_html=True)
     else:
         summary = data.get("summary", {})
 
-        # ── Top KPI Cards ─────────────────────────────────────
+        # ── KPI Row ──
         k1, k2, k3, k4, k5 = st.columns(5)
-        with k1:
-            st.markdown(f'<div class="metric-card"><div class="metric-label">Total Claims</div><div class="metric-value">{summary.get("total_claims", 0)}</div></div>', unsafe_allow_html=True)
-        with k2:
-            st.markdown(f'<div class="metric-card"><div class="metric-label">Total Patients</div><div class="metric-value">{summary.get("total_patients", 0)}</div></div>', unsafe_allow_html=True)
-        with k3:
-            st.markdown(f'<div class="metric-card"><div class="metric-label">Valid Claims</div><div class="metric-value">{summary.get("valid_claims", 0)}</div></div>', unsafe_allow_html=True)
-        with k4:
-            denial_rate = summary.get("denial_rate", 0)
-            color = "#fc8181" if denial_rate > 30 else "#f6ad55" if denial_rate > 15 else "#68d391"
-            st.markdown(f'<div class="metric-card"><div class="metric-label">Denial Rate</div><div class="metric-value" style="color:{color}">{denial_rate}%</div></div>', unsafe_allow_html=True)
-        with k5:
-            avg_prob = summary.get("avg_denial_prob", 0)
-            st.markdown(f'<div class="metric-card"><div class="metric-label">Avg Risk Score</div><div class="metric-value">{avg_prob:.2f}</div></div>', unsafe_allow_html=True)
+        kpi_data = [
+            ("Total Claims",  summary.get("total_claims", 0),  None),
+            ("Patients",      summary.get("total_patients", 0), None),
+            ("Valid",         summary.get("valid_claims", 0),   "#34d399"),
+            ("Denial Rate",   f"{summary.get('denial_rate', 0)}%", "#f87171" if summary.get("denial_rate",0) > 30 else "#fbbf24" if summary.get("denial_rate",0) > 15 else "#34d399"),
+            ("Avg Risk",      f"{summary.get('avg_denial_prob', 0):.2f}", None),
+        ]
+        for col, (label, value, color) in zip([k1,k2,k3,k4,k5], kpi_data):
+            with col:
+                color_style = f'color:{color};' if color else ''
+                st.markdown(f"""<div class="kpi">
+                    <div class="kpi-label">{label}</div>
+                    <div class="kpi-value" style="{color_style}">{value}</div>
+                </div>""", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        col_left, col_right = st.columns([2, 1])
+        col_chart, col_donut = st.columns([5, 3])
 
-        with col_left:
-            # ── Claims Trend ──────────────────────────────────
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.subheader("📈 Claims Over Time")
+        with col_chart:
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Claims Over Time</div>', unsafe_allow_html=True)
             trend = data.get("trend", [])
             if trend:
                 df_trend = pd.DataFrame(trend)
                 fig = px.area(
                     df_trend, x="date", y="claims",
-                    title="", template="plotly_dark",
-                    color_discrete_sequence=["#667eea"]
+                    template="plotly_dark",
+                    color_discrete_sequence=["#6366f1"]
+                )
+                fig.update_traces(
+                    fill='tozeroy',
+                    fillcolor='rgba(99,102,241,0.08)',
+                    line=dict(width=2)
                 )
                 fig.update_layout(
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
-                    font={"color": "#f0f0f0"},
-                    margin=dict(l=10, r=10, t=10, b=10),
-                    height=250
+                    font={"color": "#94a3b8", "family": "Inter"},
+                    margin=dict(l=0, r=0, t=10, b=0),
+                    height=280,
+                    xaxis=dict(showgrid=False, showline=False),
+                    yaxis=dict(showgrid=True, gridcolor="rgba(255,255,255,0.03)", showline=False),
+                    showlegend=False,
                 )
-                fig.update_xaxes(showgrid=False)
-                fig.update_yaxes(showgrid=True, gridcolor="rgba(255,255,255,0.08)")
                 st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("No trend data yet — process some claims to see the chart.")
+                st.markdown('<div style="text-align:center; padding:40px; color:#64748b;">No trend data yet.</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
-        with col_right:
-            # ── Risk Distribution Donut ───────────────────────
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.subheader("🎯 Risk Distribution")
-            high   = summary.get("high_risk_claims", 0)
+        with col_donut:
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Risk Distribution</div>', unsafe_allow_html=True)
+            high = summary.get("high_risk_claims", 0)
             medium = summary.get("medium_risk_claims", 0)
-            low    = summary.get("low_risk_claims", 0)
+            low = summary.get("low_risk_claims", 0)
             if high + medium + low > 0:
                 fig2 = go.Figure(go.Pie(
-                    labels=["High Risk", "Medium Risk", "Low Risk"],
+                    labels=["High", "Medium", "Low"],
                     values=[high, medium, low],
-                    hole=0.6,
-                    marker_colors=["#fc8181", "#f6ad55", "#68d391"],
+                    hole=0.65,
+                    marker_colors=["#f87171", "#fbbf24", "#34d399"],
+                    textfont=dict(color="#e2e8f0", size=12, family="Inter"),
                 ))
                 fig2.update_layout(
                     paper_bgcolor="rgba(0,0,0,0)",
-                    font={"color": "#f0f0f0"},
-                    height=250,
-                    margin=dict(l=10, r=10, t=10, b=10),
+                    font={"color": "#94a3b8", "family": "Inter"},
+                    height=280,
+                    margin=dict(l=0, r=0, t=10, b=0),
                     showlegend=True,
-                    legend=dict(font=dict(color="#f0f0f0"))
+                    legend=dict(font=dict(color="#94a3b8", size=11), orientation="h", y=-0.05)
                 )
                 st.plotly_chart(fig2, use_container_width=True)
             else:
-                st.info("No risk data yet.")
+                st.markdown('<div style="text-align:center; padding:40px; color:#64748b;">No risk data yet.</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
-        # ── Agent Usage ───────────────────────────────────────
-        agent_stats = data.get("agent_stats", [])
-        if agent_stats:
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.subheader("🤖 Agent Call Distribution")
-            df_agents = pd.DataFrame(agent_stats)
-            fig3 = px.bar(
-                df_agents, x="agent", y="calls",
-                template="plotly_dark",
-                color_discrete_sequence=["#764ba2"]
-            )
-            fig3.update_layout(
-                paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(0,0,0,0)",
-                font={"color": "#f0f0f0"},
-                height=250, margin=dict(l=10, r=10, t=10, b=10)
-            )
-            fig3.update_xaxes(showgrid=False)
-            fig3.update_yaxes(showgrid=True, gridcolor="rgba(255,255,255,0.08)")
-            st.plotly_chart(fig3, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
-
-        # ── Recent Claims Table ───────────────────────────────
+        # ── Recent Claims Table ──
         recent = data.get("recent_claims", [])
         if recent:
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.subheader("🕐 Recent Claims")
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Recent Claims</div>', unsafe_allow_html=True)
             df_recent = pd.DataFrame(recent)
             if "denial_probability" in df_recent.columns:
-                df_recent["risk"] = df_recent["denial_probability"].apply(
-                    lambda p: "🔴 HIGH" if p and p > 0.65 else ("🟡 MED" if p and p > 0.45 else "🟢 LOW")
+                df_recent["Risk"] = df_recent["denial_probability"].apply(
+                    lambda p: "HIGH" if p and p > 0.65 else ("MEDIUM" if p and p > 0.45 else "LOW")
                 )
-            st.dataframe(
-                df_recent[["claim_id","patient_name","diagnosis","icd_code","cpt_code","status","risk"]],
-                use_container_width=True,
-                hide_index=True
-            )
+            display_cols = [c for c in ["claim_id","patient_name","diagnosis","icd_code","cpt_code","status","Risk"] if c in df_recent.columns]
+            st.dataframe(df_recent[display_cols], use_container_width=True, hide_index=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
 
-# ══════════════════════════════════════════════════════════════
-#  PAGE 3: CLAIMS LIST
-# ══════════════════════════════════════════════════════════════
-elif page == "📋 Claims List":
-    st.title("📋 All Claims")
-    st.markdown("Browse all processed claims with denial risk scores.")
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PAGE: CLAIMS LIST
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+elif page == "Claims":
+    st.markdown("""
+    <div style="margin-bottom: 8px;">
+        <span style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #f1f5f9;">
+            Claims Registry
+        </span>
+    </div>
+    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 24px;">
+        Browse, search, and inspect all processed claims.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('<div class="brand-line"></div>', unsafe_allow_html=True)
 
     data = api_get("/claims/")
 
     if not data:
-        st.warning("No claims found. Process a claim first from the Copilot Workflow page.")
+        st.markdown("""<div class="card" style="text-align:center; padding: 60px 20px;">
+            <div style="font-size: 1.1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 8px;">No Claims Found</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Process a clinical note from the Copilot page first.</div>
+        </div>""", unsafe_allow_html=True)
     else:
         claims = data.get("claims", [])
-        st.markdown(f"**Total claims:** {data.get('total', 0)}")
+        total = data.get("total", 0)
+
+        st.markdown(f"""<div class="kpi" style="display:inline-block; margin-bottom:16px; padding:12px 20px;">
+            <span class="kpi-label" style="margin:0;">Total Claims</span>
+            <span class="kpi-value" style="font-size:1.3rem; margin-left:12px;">{total}</span>
+        </div>""", unsafe_allow_html=True)
 
         if claims:
             df = pd.DataFrame(claims)
 
-            # Search filter
-            search = st.text_input("🔍 Search by patient name or diagnosis", "")
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            search = st.text_input("Search by patient or diagnosis", "", label_visibility="collapsed", placeholder="Search by patient name or diagnosis...")
             if search:
                 df = df[
-                    df["patient_name"].str.contains(search, case=False, na=False) |
-                    df["diagnosis"].str.contains(search, case=False, na=False)
+                    df.apply(lambda row: search.lower() in str(row.get("patient_name","")).lower() or search.lower() in str(row.get("diagnosis","")).lower(), axis=1)
                 ]
 
             if "denial_probability" in df.columns:
                 df["Risk"] = df["denial_probability"].apply(
-                    lambda p: "🔴 HIGH" if p and p > 0.65 else ("🟡 MED" if p and p > 0.45 else "🟢 LOW")
+                    lambda p: "HIGH" if pd.notnull(p) and p > 0.65 else ("MEDIUM" if pd.notnull(p) and p > 0.45 else "LOW")
                 )
 
-            display_cols = ["claim_id", "patient_name", "diagnosis", "icd_code", "cpt_code", "status", "denial_probability", "Risk"]
-            display_cols = [c for c in display_cols if c in df.columns]
+            display_cols = [c for c in ["claim_id", "patient_name", "diagnosis", "icd_code", "cpt_code", "status", "denial_probability", "Risk"] if c in df.columns]
             st.dataframe(df[display_cols], use_container_width=True, hide_index=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
-            # Claim detail viewer
-            st.markdown("---")
-            claim_id = st.number_input("View Claim Detail (enter Claim ID):", min_value=1, step=1)
-            if st.button("🔍 Load Claim Detail"):
+            # ── Claim Detail Viewer ──
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Claim Inspector</div>', unsafe_allow_html=True)
+            col_id, col_btn = st.columns([1, 1])
+            with col_id:
+                claim_id = st.number_input("Claim ID", min_value=1, step=1, label_visibility="collapsed", value=1)
+            with col_btn:
+                load_detail = st.button("Load Detail", use_container_width=True)
+            if load_detail:
                 detail = api_get(f"/claims/{int(claim_id)}")
                 if detail:
                     st.json(detail)
                 else:
                     st.error(f"Claim #{claim_id} not found.")
-
-
-# ══════════════════════════════════════════════════════════════
-#  PAGE 4: AGENT TRACE LOGS
-# ══════════════════════════════════════════════════════════════
-elif page == "🕵️ Agent Trace Logs":
-    st.title("🕵️ Multi-Agent Execution Trace")
-    st.markdown("Full transparency into how the LangGraph pipeline processed each claim. Zero black-box AI.")
-
-    claim_id_input = st.number_input("Enter Claim ID to inspect:", min_value=1, step=1)
-
-    if st.button("🔍 Load Agent Trace", use_container_width=True):
-        detail = api_get(f"/claims/{int(claim_id_input)}")
-
-        if not detail:
-            st.error(f"Claim #{claim_id_input} not found.")
-        else:
-            # Claim summary
-            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.subheader(f"Claim #{detail['claim_id']} — {detail['patient']['name']}")
-            c1, c2, c3 = st.columns(3)
-            c1.metric("Diagnosis", detail["claim"]["diagnosis"])
-            c2.metric("ICD-10",    detail["claim"]["icd_code"])
-            c3.metric("CPT",       detail["claim"]["cpt_code"])
-
-            if detail.get("denial"):
-                prob = detail["denial"]["probability"]
-                st.metric("Denial Probability", f"{prob:.1%}" if prob else "N/A")
-                st.markdown(f"**Reason:** {detail['denial']['reason']}")
             st.markdown('</div>', unsafe_allow_html=True)
 
-            # Agent logs
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PAGE: AGENT TRACE
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+elif page == "Agent Trace":
+    st.markdown("""
+    <div style="margin-bottom: 8px;">
+        <span style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #f1f5f9;">
+            Multi-Agent Trace
+        </span>
+    </div>
+    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 24px;">
+        Inspect step-by-step execution of the LangGraph pipeline for full transparency.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('<div class="brand-line"></div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    col_id, col_btn = st.columns([1, 1])
+    with col_id:
+        trace_claim_id = st.number_input("Claim ID to inspect", min_value=1, step=1, value=1)
+    with col_btn:
+        st.markdown("<br>", unsafe_allow_html=True)
+        load_trace = st.button("Load Trace", use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    if load_trace:
+        detail = api_get(f"/claims/{int(trace_claim_id)}")
+
+        if not detail:
+            st.error(f"Claim #{trace_claim_id} not found.")
+        else:
+            # ── Claim Summary ──
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">Claim Summary</div>', unsafe_allow_html=True)
+
+            patient = detail.get("patient", {})
+            claim_data = detail.get("claim", {})
+            denial = detail.get("denial", {})
+
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                st.markdown(f"""<div class="kpi">
+                    <div class="kpi-label">Patient</div>
+                    <div class="kpi-value" style="font-size:1.2rem;">{patient.get("name","Unknown")}</div>
+                </div>""", unsafe_allow_html=True)
+            with c2:
+                st.markdown(f"""<div class="kpi">
+                    <div class="kpi-label">ICD-10 / CPT</div>
+                    <div class="kpi-value" style="font-size:1.2rem;">{claim_data.get("icd_code","—")} / {claim_data.get("cpt_code","—")}</div>
+                </div>""", unsafe_allow_html=True)
+            with c3:
+                prob = denial.get("probability")
+                prob_str = f"{prob:.1%}" if prob else "N/A"
+                st.markdown(f"""<div class="kpi">
+                    <div class="kpi-label">Denial Risk</div>
+                    <div class="kpi-value" style="font-size:1.2rem; color:{risk_color(prob)};">{prob_str}</div>
+                </div>""", unsafe_allow_html=True)
+
+            if denial.get("reason"):
+                st.markdown(f'<div style="margin-top:16px; font-size:0.85rem; color:#94a3b8;"><strong style="color:#e2e8f0;">Reason:</strong> {denial["reason"]}</div>', unsafe_allow_html=True)
+
+            st.markdown('</div>', unsafe_allow_html=True)
+
+            # ── Agent Steps ──
             logs = detail.get("agent_logs", [])
             if logs:
-                st.subheader(f"🔎 {len(logs)} Agent Steps")
+                st.markdown('<div class="card">', unsafe_allow_html=True)
+                st.markdown(f'<div class="section-title">{len(logs)} Pipeline Steps</div>', unsafe_allow_html=True)
                 for i, log in enumerate(logs, 1):
-                    with st.expander(f"Step {i}: {log['agent']}", expanded=(i == 1)):
-                        col_in, col_out = st.columns(2)
-                        with col_in:
-                            st.markdown("**Input:**")
+                    agent_name = log.get("agent", log.get("agent_name", "Unknown"))
+                    with st.expander(f"Step {i} — {agent_name}", expanded=(i == 1)):
+                        c_in, c_out = st.columns(2)
+                        with c_in:
+                            st.markdown("**Input**")
                             st.json(log.get("input", {}))
-                        with col_out:
-                            st.markdown("**Output:**")
+                        with c_out:
+                            st.markdown("**Output**")
                             st.json(log.get("output", {}))
+                st.markdown('</div>', unsafe_allow_html=True)
             else:
-                st.info("No agent logs found for this claim.")
+                st.markdown("""<div class="card" style="text-align:center; padding: 40px;">
+                    <div style="color:#64748b;">No agent logs recorded for this claim.</div>
+                </div>""", unsafe_allow_html=True)

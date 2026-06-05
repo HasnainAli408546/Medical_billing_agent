@@ -78,7 +78,7 @@ def main():
     # 2. Load embedding model
     print(f"\n🤖 Loading embedding model: {EMBED_MODEL}")
     print("   (First run downloads ~80MB — subsequent runs use cache)")
-    model = SentenceTransformer(EMBED_MODEL)
+    model = SentenceTransformer(EMBED_MODEL, token=os.getenv("HF_TOKEN"))
     print(f"   ✅ Model loaded | Embedding dim: {model.get_sentence_embedding_dimension()}")
 
     # 3. Build document texts & embed
